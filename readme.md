@@ -1,27 +1,58 @@
-## Laravel PHP Framework
+# RodaLOL
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Objetivo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+O objetivo do projeto é divulgar e negociar produtos da loja de informática RodaLOL.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Descrição do Sistema
 
-## Official Documentation
+### Visitante
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+* Fazer login;
+* Buscar produtos;
+* Ver meios de contato;
+* Ver informações sobre a loja;
+* Enviar mensagem para e-mail de contato;
+* Visualizar o slideshow;
+* Mudar idioma do site para inglês;
+* Visualizar vídeo introdutório;
+* Pular a exibição do vídeo introdutório;
+* Cadastrar-se;
+* Recuperar senha.
 
-## Contributing
+### Usuário
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+* Comentar na página do produto;
+* Alterar cadastro;
+* Excluir cadastro;
+* Marcar produto como “pedido”;
+* Listar produtos marcados como “pedidos”;
+* Fazer logout.
 
-## Security Vulnerabilities
+### Administrador
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+* Editar textos da página inicial;
+* Editar textos da página de contato;
+* Editar textos da página sobre a loja;
+* Fazer logout;
+* Responder comentários de usuários;
+* Editar respostas à comentários;
+* Excluir respostas à comentários;
+* Excluir comentários de usuários;
+* Listar produtos marcados como “pedidos” pelo usuário;
+* Visualizar mapa de acesso de usuários;
+* Cadastrar imagens do slideshow;
+* Listar imagens do slideshow;
+* Alterar imagens do slideshow;
+* Excluir imagens do slideshow;
+* Cadastrar vídeo introdutório;
+* Listar vídeo introdutório;
+* Alterar vídeo introdutório;
+* Excluir vídeo introdutório;
+* Listar usuários;
+* Excluir usuários;
+* Cadastrar produtos;
+* Listar produtos;
+* Alterar produtos;
+* Receber comentários por e-mail;
+* Excluir produtos.
