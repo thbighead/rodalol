@@ -10,7 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+require_once __DIR__.'/rotas/admin.php';
+require_once __DIR__.'/rotas/contato.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
