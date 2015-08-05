@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+        <link type="text/css" rel="stylesheet" href="{{asset('CSS/reset.css')}}">
+{{--    <link type="text/css" rel="stylesheet" href="{{asset('CSS/normalize.css')}}">--}}
     <link type="text/css" rel="stylesheet" href="{{asset('CSS/style.css')}}">
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 </head>
@@ -38,7 +40,7 @@
     ?>
 </pre>
 <section class="redbg" id="bluebg">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deserunt dicta distinctio ducimus possimus quod.
+    <p class="txtidnt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deserunt dicta distinctio ducimus possimus quod.
     Assumenda inventore quo quod rerum saepe. Alias eaque facere maxime nemo rem. Commodi, earum, sapiente.</p>
     <article>
         <header>Cabe&ccedil;a do post.</header>
@@ -69,5 +71,28 @@
         <td>1,50</td>
     </tr>
 </table>
+<div id="borda">
+    <div id="caixa">
+        content1
+    </div>
+    <div id="caixa">
+        content2
+    </div>
+    <div id="caixa">
+        content3
+    </div>
+</div>
+<div class="caixaestatica">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad animi commodi consequuntur error, est eveniet hic id iste, laboriosam minima minus nesciunt porro provident ratione reprehenderit similique soluta unde.
+</div>
+<div class="caixarelativa">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur cum dignissimos dolorem hic inventore magni, molestiae necessitatibus neque non nulla numquam, obcaecati optio praesentium quasi, qui quo temporibus ut!
+</div>
+<div class="caixaabsoluta">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate deleniti dignissimos distinctio enim eveniet maiores maxime molestias nesciunt omnis optio pariatur porro possimus recusandae sequi, soluta tempore vel voluptatum.
+</div>
+<div class="caixafixa">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad debitis deserunt, magni odio optio! At commodi debitis dolore ea, eum inventore ipsam iure natus qui sed sint temporibus, voluptas?
+</div>
 </body>
 </html>

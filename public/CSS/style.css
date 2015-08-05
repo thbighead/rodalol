@@ -84,3 +84,84 @@ span::first-letter {
 .patata {
     color: red;
 }
+
+li {
+    /*list-style: square;*/
+    list-style: none;
+}
+
+.txtidnt {
+    text-indent: 50px;
+    letter-spacing: -2px;
+    visibility: visible;
+    cursor: pointer;
+}
+
+#borda {
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 100px 40% 100px 40%;
+    /*overflow: auto;*/
+    /*height: 150px;*/
+}
+
+#caixa {
+    border: 2px solid blue;
+    /*padding: 1000px;*/
+    padding: 10px;
+    text-align: center;
+    /*margin: 70vh 35vw 5vh 35vw; /!* top right bottom right *!/*/
+    margin: 0 auto;
+    border-top-left-radius: 10px;
+    box-shadow: inset 0 0 20px darkblue;
+    /*box-shadow: 15px 10px 30px darkgreen;*/
+    /*display: block; /!* nada pode ocupar a linha que ocupo*!/*/
+    display: inline-block;
+    float: left;
+}
+
+#caixa::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.caixafixa {
+    position: fixed;
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    top: 15%;
+    right: 15%;
+}
+
+.caixaabsoluta {
+    position: absolute;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    top: 35px;
+    right: 84px;
+}
+
+.caixarelativa {
+    position: relative;
+    background-color: purple;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    top: 25px;
+    right: -100px;
+}
+
+.caixaestatica {
+    position: static;
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    top: 178px;
+    right: 904px;
+}
