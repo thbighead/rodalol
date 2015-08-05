@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "qualquer-coisa";
+    src: url("../asenine/asenine.eot");
+    src: url('../asenine/asenine.eot?#iefix') format('embedded-opentype'),
+    url("../asenine/asenine.svg") format('svg'),
+    url("../asenine/asenine.woff") format('woff'),
+    url("../asenine/asenine.ttf") format('truetype') }
+
+nav {
+    background-color: orange;
+    width: 80%;
+    /*font-family: qualquer-coisa;*/
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 24px;
+    font-style: italic;
+    font-variant: common-ligatures small-caps;
+    color: white;
+    line-height: 40px;
+    text-decoration: line-through;
+    text-decoration: overline line-through;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover, nav a:focus {
+    color: green;
+    background-color: #880000;
+}
+
+nav a:active {
+    color: red;
+    background-color: #0000C2;
+}
+
+li:not(#home) {
+    font-size: 18px;
+}
+
+td:nth-of-type(4) {
+    text-decoration: line-through;
+}
+
+section {
+    font-size: 30px;
+}
+
+article {
+    font-size: 2em;
+}
+
+tr::before, tr::after {
+    content: "|";
+}
+
+.redbg {
+    background-color: red;
+}
+
+::selection { /*parece que naum funciona no firefox*/
+    font-family: 'Shadows Into Light', cursive;
+    background-color: #882305;
+}
+
+#bluebg {
+    background-color: blue;
+}
+
+p::first-line {
+    color: purple;
+}
+
+span::first-letter {
+    color: yellow !important;
+    font-family: 'Shadows Into Light', cursive !important;
+}
+
+.patati{
+    text-decoration: underline;
+}
+
+.patata {
+    color: red;
+}

@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link type="text/css" rel="stylesheet" href="{{asset('CSS/style.css')}}">
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <!-- Isso aparece para o usuario, ve se nao poe nada de util para ele fazer cocozinho aqui -->
 <header>
-    <nav>
+    <nav class="patati patata">
         <p>Este &eacute; um menu simples:</p>
         <ul>
-            <li>
+            <li id="home">
                 <a href="<?php echo url('/'); ?>">HOME</a>
             </li>
             <li>
@@ -35,9 +37,9 @@
         var_dump($user);
     ?>
 </pre>
-<section>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deserunt dicta distinctio ducimus possimus quod.
-    Assumenda inventore quo quod rerum saepe. Alias eaque facere maxime nemo rem. Commodi, earum, sapiente.
+<section class="redbg" id="bluebg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deserunt dicta distinctio ducimus possimus quod.
+    Assumenda inventore quo quod rerum saepe. Alias eaque facere maxime nemo rem. Commodi, earum, sapiente.</p>
     <article>
         <header>Cabe&ccedil;a do post.</header>
         <div>Qualquer merda.</div>
