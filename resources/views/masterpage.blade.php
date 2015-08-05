@@ -2,11 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>RodaLOL inform&aacute;tica</title>
+    <title>RodaLOL - @yield('title')</title>
 </head>
 <body>
 <header>
-    <div>
+    <div class="logo-columns">
         <figure>
             <img src="" alt="">
         </figure>
@@ -19,7 +19,7 @@
         </form>
     </div>
     <br>
-    <section name="Hbar">
+    <div class="hmenu">
         <nav>
             <ul>
                 <li>
@@ -38,9 +38,9 @@
                 </li>
             </ul>
         </nav>
-    </section>
+    </div>
 </header>
-<section name="Vbar">
+<div class="vmenu">
     <nav>
         <ul>
             <li><a href="">Processadores</a></li>
@@ -51,7 +51,10 @@
             <li><a href="">Perif&eacute;ricos</a></li>
         </ul>
     </nav>
-</section>
+</div>
+<div class="container">
+    @yield('content')
+</div>
 <footer>
     <div>
         P&aacute;gina feita pela <a href="">EJCM</a>.

@@ -14,5 +14,5 @@ require_once __DIR__.'/rotas/admin.php';
 require_once __DIR__.'/rotas/contato.php';
 
 Route::get('/', function () {
-    return view('home');
+    return view('newHome');
 });
