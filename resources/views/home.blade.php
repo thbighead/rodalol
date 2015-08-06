@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-        <link type="text/css" rel="stylesheet" href="{{asset('CSS/reset.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{asset('libs/CSS/reset.css')}}">
 {{--    <link type="text/css" rel="stylesheet" href="{{asset('CSS/normalize.css')}}">--}}
-    <link type="text/css" rel="stylesheet" href="{{asset('CSS/style.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('libs/CSS/style.css')}}">
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 </head>
 <body>
