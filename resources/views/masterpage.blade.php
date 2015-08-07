@@ -2,39 +2,47 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Bootstrap Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <title>RodaLOL - @yield('title')</title>
 </head>
 <body>
-<header>
-    <div class="logo-columns">
+<header class="container">
+    <div class="row">
         <figure>
             <img src="" alt="">
         </figure>
         <form action="" method="post">
             <label for="login">Login:</label>
             <input type="text" name="login" id="login">
-            <br>
             <label for="senha">Senha:</label>
             <input type="password" name="senha" id="senha">
+            <input type="submit", value="Entrar">
         </form>
     </div>
-    <br>
-    <div class="hmenu">
-        <nav>
-            <ul>
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <ul class="nav nav-inverse nav-justified disabled">
                 <li>
                     <a href="<?php echo url('/'); ?>">In&iacute;cio</a>
                 </li>
                 <li>
                     <a href="<?php echo url('contato'); ?>">
-                        <img src="imgs/phone.png" width="2%" height="2%" title="Contato"> Contato
+                        <img src="" width="2%" height="2%" title="Contato"> Contato
                     </a>
                 </li>
                 <li>
-                    <a href="">Quem somos?</a>
+                    <a href="<?php echo url('quemsomos'); ?>">Quem somos?</a>
                 </li>
                 <li>
-                    <a href="admin">&Aacute;rea administrativa</a>
+                    <a href="<?php echo url('admin'); ?>">&Aacute;rea administrativa</a>
                 </li>
             </ul>
         </nav>

@@ -12,6 +12,7 @@
 */
 require_once __DIR__.'/rotas/admin.php';
 require_once __DIR__.'/rotas/contato.php';
+require_once __DIR__.'/rotas/quemSomos.php';
 
 Route::get('/', function () {
     return view('home');

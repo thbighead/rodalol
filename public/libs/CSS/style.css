@@ -1,167 +1,202 @@
 @font-face {
     font-family: "qualquer-coisa";
-    src: url("../asenine/asenine.eot");
-    src: url('../asenine/asenine.eot?#iefix') format('embedded-opentype'),
-    url("../asenine/asenine.svg") format('svg'),
-    url("../asenine/asenine.woff") format('woff'),
-    url("../asenine/asenine.ttf") format('truetype') }
+    src: url("../../asenine/asenine.eot");
+    src: url('../../asenine/asenine.eot?#iefix') format('embedded-opentype'),
+    url("../../asenine/asenine.svg") format('svg'),
+    url("../../asenine/asenine.woff") format('woff'),
+    url("../../asenine/asenine.ttf") format('truetype') }
 
-nav {
-    background-color: orange;
-    width: 80%;
-    /*font-family: qualquer-coisa;*/
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 24px;
-    font-style: italic;
-    font-variant: common-ligatures small-caps;
-    color: white;
-    line-height: 40px;
-    text-decoration: line-through;
-    text-decoration: overline line-through;
+header {
+    width: 100%;
+    height: 100px;
+    border: 3px solid red;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-nav a:hover, nav a:focus {
-    color: green;
-    background-color: #880000;
-}
-
-nav a:active {
-    color: red;
-    background-color: #0000C2;
-}
-
-li:not(#home) {
-    font-size: 18px;
-}
-
-td:nth-of-type(4) {
-    text-decoration: line-through;
-}
-
-section {
-    font-size: 30px;
-}
-
-article {
-    font-size: 2em;
-}
-
-tr::before, tr::after {
-    content: "|";
-}
-
-.redbg {
-    background-color: red;
-}
-
-::selection { /*parece que naum funciona no firefox*/
-    font-family: 'Shadows Into Light', cursive;
-    background-color: #882305;
-}
-
-#bluebg {
-    background-color: blue;
-}
-
-p::first-line {
-    color: purple;
-}
-
-span::first-letter {
-    color: yellow !important;
-    font-family: 'Shadows Into Light', cursive !important;
-}
-
-.patati{
-    text-decoration: underline;
-}
-
-.patata {
-    color: red;
-}
-
-li {
-    /*list-style: square;*/
-    list-style: none;
-}
-
-.txtidnt {
-    text-indent: 50px;
-    letter-spacing: -2px;
-    visibility: visible;
-    cursor: pointer;
-}
-
-#borda {
-    border: 2px solid black;
-    border-radius: 50%;
-    padding: 100px 40% 100px 40%;
-    /*overflow: auto;*/
-    /*height: 150px;*/
-}
-
-#caixa {
-    border: 2px solid blue;
-    /*padding: 1000px;*/
-    padding: 10px;
+footer {
     text-align: center;
-    /*margin: 70vh 35vw 5vh 35vw; /!* top right bottom right *!/*/
-    margin: 0 auto;
-    border-top-left-radius: 10px;
-    box-shadow: inset 0 0 20px darkblue;
-    /*box-shadow: 15px 10px 30px darkgreen;*/
-    /*display: block; /!* nada pode ocupar a linha que ocupo*!/*/
-    display: inline-block;
+    line-height: 100px;
+    height: 100px;
+    font-size: 15px;
+    font-family: qualquer-coisa;
+    border: 3px solid blue;
+}
+
+.th-960px {
+    width: 960px;
+    border: 3px solid black;
+}
+
+.th-960px-content {
+    width: 960px;
+    border: 3px solid green;
+}
+
+.th-foto-flutuante {
     float: left;
+
 }
 
-#caixa::after {
-    content: '';
-    display: block;
-    clear: both;
-}
 
-.caixafixa {
-    position: fixed;
-    background-color: green;
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
-    top: 15%;
-    right: 15%;
-}
 
-.caixaabsoluta {
-    position: absolute;
-    background-color: red;
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
-    top: 35px;
-    right: 84px;
-}
 
-.caixarelativa {
-    position: relative;
-    background-color: purple;
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
-    top: 25px;
-    right: -100px;
-}
 
-.caixaestatica {
-    position: static;
-    background-color: blue;
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
-    top: 178px;
-    right: 904px;
-}
+
+/*nav {*/
+    /*background-color: orange;*/
+    /*width: 80%;*/
+    /*/!*font-family: qualquer-coisa;*!/*/
+    /*font-family: 'Shadows Into Light', cursive;*/
+    /*font-size: 24px;*/
+    /*font-style: italic;*/
+    /*font-variant: common-ligatures small-caps;*/
+    /*color: white;*/
+    /*line-height: 40px;*/
+    /*text-decoration: line-through;*/
+    /*text-decoration: overline line-through;*/
+/*}*/
+
+/*nav a {*/
+    /*color: white;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*nav a:hover, nav a:focus {*/
+    /*color: green;*/
+    /*background-color: #880000;*/
+/*}*/
+
+/*nav a:active {*/
+    /*color: red;*/
+    /*background-color: #0000C2;*/
+/*}*/
+
+/*li:not(#home) {*/
+    /*font-size: 18px;*/
+/*}*/
+
+/*td:nth-of-type(4) {*/
+    /*text-decoration: line-through;*/
+/*}*/
+
+/*section {*/
+    /*font-size: 30px;*/
+/*}*/
+
+/*article {*/
+    /*font-size: 2em;*/
+/*}*/
+
+/*tr::before, tr::after {*/
+    /*content: "|";*/
+/*}*/
+
+/*.redbg {*/
+    /*background-color: red;*/
+/*}*/
+
+/*::selection { /!*parece que naum funciona no firefox*!/*/
+    /*font-family: 'Shadows Into Light', cursive;*/
+    /*background-color: #882305;*/
+/*}*/
+
+/*#bluebg {*/
+    /*background-color: blue;*/
+/*}*/
+
+/*p::first-line {*/
+    /*color: purple;*/
+/*}*/
+
+/*span::first-letter {*/
+    /*color: yellow !important;*/
+    /*font-family: 'Shadows Into Light', cursive !important;*/
+/*}*/
+
+/*.patati{*/
+    /*text-decoration: underline;*/
+/*}*/
+
+/*.patata {*/
+    /*color: red;*/
+/*}*/
+
+/*li {*/
+    /*/!*list-style: square;*!/*/
+    /*list-style: none;*/
+/*}*/
+
+/*.txtidnt {*/
+    /*text-indent: 50px;*/
+    /*letter-spacing: -2px;*/
+    /*visibility: visible;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*#borda {*/
+    /*border: 2px solid black;*/
+    /*border-radius: 50%;*/
+    /*padding: 100px 40% 100px 40%;*/
+    /*/!*overflow: auto;*!/*/
+    /*/!*height: 150px;*!/*/
+/*}*/
+
+/*#caixa {*/
+    /*border: 2px solid blue;*/
+    /*/!*padding: 1000px;*!/*/
+    /*padding: 10px;*/
+    /*text-align: center;*/
+    /*/!*margin: 70vh 35vw 5vh 35vw; /!* top right bottom right *!/*/
+    /*margin: 0 auto;*/
+    /*border-top-left-radius: 10px;*/
+    /*box-shadow: inset 0 0 20px darkblue;*/
+    /*/!*box-shadow: 15px 10px 30px darkgreen;*!/*/
+    /*/!*display: block; /!* nada pode ocupar a linha que ocupo*!/*/
+    /*display: inline-block;*/
+    /*float: left;*/
+/*}*/
+
+/*#caixa::after {*/
+    /*content: '';*/
+    /*display: block;*/
+    /*clear: both;*/
+/*}*/
+
+/*.caixafixa {*/
+    /*position: fixed;*/
+    /*background-color: green;*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*overflow: hidden;*/
+    /*top: 15%;*/
+    /*right: 15%;*/
+/*}*/
+
+/*.caixaabsoluta {*/
+    /*position: absolute;*/
+    /*background-color: red;*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*overflow: hidden;*/
+    /*top: 35px;*/
+    /*right: 84px;*/
+/*}*/
+
+/*.caixarelativa {*/
+    /*position: relative;*/
+    /*background-color: purple;*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*overflow: hidden;*/
+    /*top: 25px;*/
+    /*right: -100px;*/
+/*}*/
+
+/*.caixaestatica {*/
+    /*position: static;*/
+    /*background-color: blue;*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*overflow: hidden;*/
+    /*top: 178px;*/
+    /*right: 904px;*/
+/*}*/
