@@ -87,7 +87,7 @@
                     <strong>RodaLOL</strong><br>
                     Rua das Muambas, 171, Centro - Rio de Janeiro<br>
                     CEP: 25171-000<br><br>
-                    <abbr title="Telefone">Tel: </abbr> +55 (21) 1711-7171
+                    <abbr title="Telefone">Tel.: </abbr> +55 (21) 1711-7171
                     <br><br>
                     <strong>Email</strong><br>
                     <a href="#" class="color-green">contato@rodalol.com</a>
