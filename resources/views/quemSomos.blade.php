@@ -3,10 +3,13 @@
 @section('title', 'Quem Somos?')
 
 @section('content')
-    <ol class="breadcrumb">
-        <li><a href="<?php echo url('/'); ?>">Home</a></li>
-        <li class="active">Quem somos</li>
-    </ol>
+
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li><a href="<?php echo url('/'); ?>">Home</a></li>
+            <li class="active">Quem Somos</li>
+        </ol>
+    </div>
     <div class="container">
         <h3>Quem somos</h3>
 
@@ -19,4 +22,5 @@
             </div>
         </div>
     </div>
+
 @endsection
