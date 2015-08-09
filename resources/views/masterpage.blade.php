@@ -66,7 +66,7 @@
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <h4 class="color-green">INFORMAÇÕES</h4>
                 <ul class="decoration text-left">
-                    <li><a href="#" class="color-light">Quem Somos</a></li>
+                    <li><a href="<?php echo url('quemsomos'); ?>" class="color-light">Quem Somos</a></li>
                     <li><a href="#" class="color-light">Termos e Condições</a></li>
                     <li><a href="#" class="color-light">Políticas de Privacidade</a></li>
                 </ul>
@@ -100,7 +100,7 @@
 <footer id="copyright">
     <div class="container-fluid text-center color-light">
         <p>
-            <a href="#" class="color-green">EJCM 2015</a> &copy; Todos os Direitos Reservados.
+            <a href="http://www.ejcm.com.br/" class="color-green">EJCM 2015</a> &copy; Todos os Direitos Reservados.
         </p>
     </div><!--  .container-fluid  -->
 </footer>

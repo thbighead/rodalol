@@ -59,6 +59,9 @@ header {
 	 background-color: #2b3339;
  }
 
+h3 {
+	margin: auto auto 2% auto;
+}
 .color-green {
 	color: #27b399;
 }
@@ -79,6 +82,9 @@ header {
 .img-logo {
 	height: 70px;
 	margin-top: -23px;/*centralizar a logo na div*/
+}
+.estados {
+    width: 80px;
 }
 #destaque li > a {
 	color: #2b3339;

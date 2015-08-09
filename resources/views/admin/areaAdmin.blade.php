@@ -1,6 +1,6 @@
 @extends('masterpage')
 
-@section('title', '&Aacute;rea Administrativa')
+@section('title', 'Área Administrativa')
 
 @section('content')
     <ol class="breadcrumb">
