@@ -1,0 +1,105 @@
+.navbar-default .navbar-nav > li > a:hover {
+	color: #27b399;
+}
+.navbar-default {
+	padding: 9px;
+	background-color: #f2f3f5;
+}
+.navbar {
+	margin-bottom: 0;
+}
+/*
+.navbar-fixed-top {
+	margin-top: 35px;
+}
+*/
+.carousel {
+	margin-bottom: 80px;
+}
+
+.carousel-indicators li {
+	width: 15px;
+	height: 15px;
+	border: 2px solid #27b399;
+	border-radius: 0;
+}
+.carousel-indicators .active {
+	width: 17px;
+	height: 17px;
+	background-color: #27b399;
+}
+.container-fluid {
+	padding: 0;/*para o slideshow não ficar com espaço nas laterais*/
+}
+/*  MINHAS CLASSES  */
+body {
+	font-family: 'Lato', sans-serif;
+}
+a {
+	color: #2b3339;
+}
+a:hover {
+	color: #27b399;
+}
+ul {
+	padding-left: 0;
+}
+li {
+	 font-weight: 700;
+ }
+hr {
+	width: 50px;
+	height: 2px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #27b399;
+	margin-bottom: 70px;
+}
+header {
+	 background-color: #2b3339;
+ }
+
+.color-green {
+	color: #27b399;
+}
+.color-dark {
+	color: #2b3339;
+}
+.color-light {
+	color: #f2f3f5;
+}
+.top-header {
+	height: 35px;
+	padding: .8rem;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	color: #f2f3f5;
+	background-color: #2b3339;
+}
+.img-logo {
+	height: 70px;
+	margin-top: -23px;/*centralizar a logo na div*/
+}
+#destaque li > a {
+	color: #2b3339;
+}
+#information {
+	margin-top: 25px;
+	padding: 25px 0 50px 0;
+	background-color: #2b3339;
+}
+#information a {
+	font-weight: 300;
+}
+#information li {
+	padding: 10px 0;
+}
+.decoration {
+	 list-style: none;
+ }
+#copyright {
+	padding: 15px 0 5px 0;
+	background-color: #0f1c26;
+}
+
+
