@@ -8,8 +8,8 @@
             <!--    Wrapper for slides  -->
             <div class="carousel-inner">
                 <div class="item active img-slide img-responsive"><img src="{{asset('img/slideshow1.png')}}" alt="Slideshow 1"></div>
-                <div class="item img-slide img-responsive"><img src="{{asset('img/slideshow2.jpg')}}" alt="Slideshow 2"></div>
-                <div class="item img-slide img-responsive"><img src="{{asset('img/slideshow1.png')}}" alt="Slideshow 3"></div>
+                <div class="item img-slide img-responsive"><img src="{{asset('img/slideshow2.png')}}" alt="Slideshow 2"></div>
+                <div class="item img-slide img-responsive"><img src="{{asset('img/slideshow3.png')}}" alt="Slideshow 3"></div>
             </div>
             <!--    Selectors for slides  -->
             <a class="left carousel-control" href="#menuSlide" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
