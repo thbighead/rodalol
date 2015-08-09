@@ -1,22 +1,25 @@
+.navbar-form {
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #2b3339;
+}
 .navbar-default .navbar-nav > li > a:hover {
 	color: #27b399;
 }
+
 .navbar-default {
 	padding: 9px;
 	background-color: #f2f3f5;
 }
 .navbar {
-	margin-bottom: 0;
+	margin-bottom: 0; /*deixar sldieshow junto com o menu*/
+	border-radius: 0;
 }
-/*
-.navbar-fixed-top {
-	margin-top: 35px;
-}
-*/
 .carousel {
 	margin-bottom: 80px;
 }
-
 .carousel-indicators li {
 	width: 15px;
 	height: 15px;
@@ -31,6 +34,16 @@
 .container-fluid {
 	padding: 0;/*para o slideshow não ficar com espaço nas laterais*/
 }
+.row { /* Bugzinho que acaba aparecendo um pequeno scroll horizontal */
+	/*margin-left: 0;*/
+	margin-right: 0;
+}
+/*      QUEM SOMOS      */
+.breadcrumb {
+	background-color: #f2f3f5;
+}
+
+/*      FIM QUEM SOMOS      */
 /*  MINHAS CLASSES  */
 body {
 	font-family: 'Lato', sans-serif;
@@ -45,8 +58,8 @@ ul {
 	padding-left: 0;
 }
 li {
-	 font-weight: 700;
- }
+	font-weight: 700;
+}
 hr {
 	width: 50px;
 	height: 2px;
@@ -56,12 +69,12 @@ hr {
 	margin-bottom: 70px;
 }
 header {
-	 background-color: #2b3339;
- }
-
+	background-color: #2b3339;
+}
 h3 {
 	margin: auto auto 2% auto;
 }
+/*    MAIN COLORS  */
 .color-green {
 	color: #27b399;
 }
@@ -71,20 +84,33 @@ h3 {
 .color-light {
 	color: #f2f3f5;
 }
+/*    MAIN BG COLORS  */
+.bg-green {
+	background-color: #27b399;
+}
+.bg-dark {
+	color: #f2f3f5;
+	background-color: transparent;
+	border-color: #27b399;
+}
+.bg-light {
+	background-color: #f2f3f5;
+}
+/*  OTHER CLASSES   */
 .top-header {
-	height: 35px;
-	padding: .8rem;
+	padding-top: 10px;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	color: #f2f3f5;
 	background-color: #2b3339;
+
 }
 .img-logo {
 	height: 70px;
 	margin-top: -23px;/*centralizar a logo na div*/
 }
 .estados {
-    width: 80px;
+	width: 80px;
 }
 #destaque li > a {
 	color: #2b3339;
@@ -101,11 +127,13 @@ h3 {
 	padding: 10px 0;
 }
 .decoration {
-	 list-style: none;
- }
+	list-style: none;
+}
 #copyright {
 	padding: 15px 0 5px 0;
 	background-color: #0f1c26;
 }
-
+.mar-shop {
+	margin-top: -5px;
+}
 
