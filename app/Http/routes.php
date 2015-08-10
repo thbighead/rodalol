@@ -16,9 +16,8 @@ Route::any('/', ['as' => 'paginaInicial', function () {
     return view("home");
 }]);
 
-Route::get('contato', ['as' => 'contato', function () {
-    return view("static.contato");
-}]);
+Route::get('contato', ['as' => 'contato', 'uses' => 'ContatoController@index']);
+Route::post('contato', ['as' => 'enviaContato', 'uses' => 'ContatoController@store']);
 
 Route::get('quemsomos', ['as' => 'quemSomos', function () {
     return view("static.quemSomos");

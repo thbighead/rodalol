@@ -11,6 +11,7 @@
         <h3>Mande uma mensagem para a gente:</h3>
 
         <form action="{{action('ContatoController@store')}}" class="form-horizontal" method="post">
+            {!! csrf_field() !!}
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
