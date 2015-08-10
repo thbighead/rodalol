@@ -1,4 +1,4 @@
-@extends('masterpage')
+@extends('templates.base')
 
 @section('title', 'Área Administrativa')
 

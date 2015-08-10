@@ -11,9 +11,15 @@
 |
 */
 require_once __DIR__.'/rotas/admin.php';
-require_once __DIR__.'/rotas/contato.php';
-require_once __DIR__.'/rotas/quemSomos.php';
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::any('/', ['as' => 'paginaInicial', function () {
+    return view("home");
+}]);
+
+Route::get('contato', ['as' => 'contato', function () {
+    return view("static.contato");
+}]);
+
+Route::get('quemsomos', ['as' => 'quemSomos', function () {
+    return view("static.quemSomos");
+}]);

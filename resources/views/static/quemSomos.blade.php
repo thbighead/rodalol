@@ -1,4 +1,4 @@
-@extends('masterpage')
+@extends('templates.masterpage')
 
 @section('title', 'Quem Somos?')
 

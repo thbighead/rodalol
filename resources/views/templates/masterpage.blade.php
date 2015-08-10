@@ -46,7 +46,7 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="<?php echo url('/'); ?>" class="navbar-brand">
+                    <a href="{{route('paginaInicial')}}" class="navbar-brand">
                         <img class="img-logo" src="{{asset('img/logo.png')}}" alt="Logo RodaLOL">
                     </a>
 
@@ -63,7 +63,7 @@
                         <li><a href="#">ELETRÔNICOS</a></li>
                         <li><a href="#">MONITORES</a></li>
                         <li><a href="#">ÁUDIO</a></li>
-                        <li><a href="<?php echo url('contato'); ?>">CONTATO</a></li>
+                        <li><a href="{{route('contato')}}">CONTATO</a></li>
                     </ul>
                 </div><!--    .navbar-collapse    -->
             </div><!--    .container    -->
@@ -79,7 +79,7 @@
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <h4 class="color-green">INFORMAÇÕES</h4>
                     <ul class="decoration text-left">
-                        <li><a href="<?php echo url('quemsomos'); ?>" class="color-light">Quem Somos</a></li>
+                        <li><a href="{{route('quemSomos')}}" class="color-light">Quem Somos</a></li>
                         <li><a href="#" class="color-light">Termos e Condições</a></li>
                         <li><a href="#" class="color-light">Políticas de Privacidade</a></li>
                     </ul>

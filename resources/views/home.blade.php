@@ -1,4 +1,4 @@
-@extends('masterpage') {{--Faz carregar a masterpage--}}
+@extends('templates.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
 @section('title', 'Início') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
@@ -14,7 +14,7 @@
             <!--    Selectors for slides  -->
             <a class="left carousel-control" href="#menuSlide" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="right carousel-control" href="#menuSlide" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            <!--    INdicators for slides  -->
+            <!--    Indicators for slides  -->
             <ol class="carousel-indicators">
                 <li data-target="#menuSlide" data-slide-to="0" class="active"></li>
                 <li data-target="#menuSlide" data-slide-to="1"></li>
