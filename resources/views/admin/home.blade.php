@@ -4,7 +4,7 @@
 
 @section('content')
     <ol class="breadcrumb">
-        <li><a href="<?php echo url('/'); ?>">Home</a></li>
+        <li><a href="{{route('paginaInicial')}}">Home</a></li>
         <li class="active">Área administrativa</li>
     </ol>
     <div class="container">

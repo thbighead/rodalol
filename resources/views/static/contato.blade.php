@@ -4,13 +4,13 @@
 
 @section('content')
     <ol class="breadcrumb">
-        <li><a href="<?php echo url('/'); ?>">Home</a></li>
+        <li><a href="{{route('paginaInicial')}}">Home</a></li>
         <li class="active">Contato</li>
     </ol>
     <div class="container">
         <h3>Mande uma mensagem para a gente:</h3>
 
-        <form action="#" class="form-horizontal" method="post">
+        <form action="{{action('ContatoController@store')}}" class="form-horizontal" method="post">
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
@@ -38,12 +38,34 @@
                 <label for="estado" class="col-md-2 control-label">Estado:</label>
                 <div class="col-md-1">
                     <select class="estados form-control" name="estado" id="estado">
-                        <option value="" selected></option>
-                        <option value="RJ">RJ</option>
-                        <option value="RS">RS</option>
-                        <option value="SP">SP</option>
-                        <option value="TO">TO</option>
+                        <option value=""></option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
                         <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
                     </select>
                 </div>
             </div>

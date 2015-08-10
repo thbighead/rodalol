@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
         <ol class="breadcrumb">
-            <li><a href="<?php echo url('/'); ?>">Home</a></li>
+            <li><a href="{{route('paginaInicial')}}">Home</a></li>
             <li class="active">Quem Somos</li>
         </ol>
     </div>
