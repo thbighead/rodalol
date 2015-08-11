@@ -11,6 +11,8 @@
     {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">--}}
     <!-- My own css -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <!-- Recaptcha Google -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>RodaLOL - @yield('title')</title>
 </head>
 <body>
