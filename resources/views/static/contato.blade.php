@@ -12,29 +12,33 @@
 
         <form action="{{action('ContatoController@store')}}" class="form-horizontal" method="post">
             {!! csrf_field() !!}
+
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="Creydson" name="nome" id="nome">
                 </div>
-            </div>
+            </div>{{--  Campo Nome  --}}
+
             <div class="form-group">
                 <label for="email" class="col-md-2 control-label">Email:</label>
                 <div class="col-md-8">
                     <input type="email" class="form-control" placeholder="creydson&#64;rodalol.com" name="email" id="email">
                 </div>
-            </div>
+            </div>{{--  Campo Email  --}}
+
             <div class="form-group">
                 <label class="col-md-2 control-label">Sexo:</label>
                 <div class="col-md-4">
                     <label class="radio-inline" for="M">
-                        <input type="radio" name="sexo" id="M">Masculino
+                        <input type="radio" name="sexo" id="M" checked>Masculino
                     </label>
                     <label class="radio-inline" for="F">
                         <input type="radio" name="sexo" id="F">Feminino
                     </label>
                 </div>
-            </div>
+            </div>{{--  Campo Sexo  --}}
+
             <div class="form-group">
                 <label for="estado" class="col-md-2 control-label">Estado:</label>
                 <div class="col-md-1">
@@ -69,19 +73,24 @@
                         <option value="TO">TO</option>
                     </select>
                 </div>
-            </div>
+            </div>{{--  Campo Estado  --}}
+
             <div class="form-group">
                 <label for="msg" class="col-md-2 control-label">Mensagem:</label>
                 <div class="col-md-8">
                     <textarea class="form-control" placeholder="Escreva sua mensagem aqui." name="msg" id="msg" rows="10"></textarea>
                 </div>
-            </div>
+            </div>{{--  Campo Mensagem  --}}
+
             <div class="form-group">
-                <div class="col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
-            </div>
-            <div class="col-md-10">
-                <input type="submit" class="pull-right btn btn-default" value="Enviar">
-            </div>
+                <div class="col-md-10 col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
+            </div>{{--  Campo Recaptcha  --}}
+
+            <div class="form-group">
+                <div class="col-md-10 col-md-offset-2">
+                    <input type="submit" class="btn btn-default" value="Enviar">
+                </div>
+            </div>{{--  Campo Enviar  --}}
         </form>
     </div>
 @endsection
