@@ -4,7 +4,7 @@
         <div class="container">
             <div class="col-xs-5 col-sm-4 col-md-6 col-lg-6">
                 Seja Bem Vindo. Faça
-                <a href="#"><span class="color-green">Login</span></a>
+                <a href="#" data-toggle="modal" data-target="#loginModal"><span class="color-green">Login</span></a>
                 ou
                 <a href="#"><span class="color-green">cadastre-se</span></a>
             </div>
@@ -24,6 +24,37 @@
             </div>
         </div><!--  .container -->
     </div><!--  .row top header -->
+    <!-- Modal for login -->
+    <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Entre com sua conta</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="login" class="col-md-2 control-label">E-mail</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="exemplo&#64;exemplo.com" name="login" id="login">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-2 control-label">Senha</label>
+                            <div  class="col-md-8">
+                                <input type="password" class="form-control" name="password" id="password">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--    menu principal  -->
     <nav class="navbar navbar-default">
         <div class="container">
