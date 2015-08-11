@@ -120,8 +120,14 @@ h3 {
 }
 #information {
 	margin-top: 25px;
-	padding: 25px 0 50px 0;
+	padding: 25px 0 0;
 	background-color: #2b3339;
+}
+footer {
+	/* deixar o footer na parte de baixo */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 #information a {
 	font-weight: 300;
@@ -133,6 +139,7 @@ h3 {
 	list-style: none;
 }
 #copyright {
+	margin-top: 50px;
 	padding: 15px 0 5px 0;
 	background-color: #0f1c26;
 }
