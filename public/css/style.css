@@ -89,6 +89,9 @@ header {
 h3 {
 	margin: auto auto 2% auto;
 }
+textarea {
+	resize: none;
+}
 /*    MAIN COLORS  */
 .color-green {
 	color: #27b399;

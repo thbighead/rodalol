@@ -76,7 +76,9 @@
                     <textarea class="form-control" placeholder="Escreva sua mensagem aqui." name="msg" id="msg" rows="10"></textarea>
                 </div>
             </div>
-            <div class="g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
+            <div class="form-group">
+                <div class="col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
+            </div>
             <div class="col-md-10">
                 <input type="submit" class="pull-right btn btn-default" value="Enviar">
             </div>
