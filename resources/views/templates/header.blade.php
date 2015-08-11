@@ -46,6 +46,7 @@
                     <li><a href="#">ELETRÔNICOS</a></li>
                     <li><a href="#">MONITORES</a></li>
                     <li><a href="#">ÁUDIO</a></li>
+                    <li><a href="{{route('contato')}}">QUEM SOMOS</a></li>
                     <li><a href="{{route('contato')}}">CONTATO</a></li>
                 </ul>
             </div><!--    .navbar-collapse    -->
