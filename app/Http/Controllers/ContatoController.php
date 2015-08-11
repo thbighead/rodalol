@@ -37,6 +37,23 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
+        if(isset($_POST['g-recaptcha-response'])&&($_POST['g-recaptcha-response'])){
+            $secret = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
+            $captcha = $_POST['g-recaptcha-response'];
+            $ip = $_SERVER['REMOTE_ADDR'];
+            $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
+            $arr = json_decode($rsp, TRUE);
+            if ($arr['success']){
+                $message = $request->Nome." - ".$request->Email;
+                echo "<>alert('Seu formulário foi enviado com sucesso.')</>";
+                return view('contato');
+            } else {
+                echo 'SPAM';
+            };
+        } else {
+            echo 'SPAM';
+        };
+
         $dadosContato = array($request->nome, $request->email, $request->sexo, $request->estado);
         $msg = $request->msg;
         foreach($dadosContato as $dado) {
