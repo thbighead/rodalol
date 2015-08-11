@@ -158,3 +158,10 @@ textarea {
 .verticalMargin {
 	margin-bottom: 4vw;
 }
+.tiraBorda {
+	border-radius: 0;
+}
+.acertaBreadcrumb {
+	height: 36px;
+	margin-bottom: 20px;
+}
