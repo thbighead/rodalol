@@ -168,3 +168,8 @@ textarea {
 .verticalMarginModal {
 	margin-bottom: 1vw;
 }
+
+.modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
+.modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {
+	margin-right: 17px;
+}
