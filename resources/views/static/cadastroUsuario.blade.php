@@ -24,20 +24,31 @@
         <form action="{{action('UsuarioController@store')}}" class="form-horizontal" method="post">
             {!! csrf_field() !!}
 
+            {{--  Campo Nome  --}}
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="Creydson" name="nome" id="nome">
                 </div>
-            </div>{{--  Campo Nome  --}}
+            </div>
 
+            {{--  Campo Email  --}}
+            <div class="form-group">
+                <label for="email" class="col-md-2 control-label">Email:</label>
+                <div class="col-md-8">
+                    <input type="email" class="form-control" placeholder="creydson&#64;rodalol.com" name="email" id="email">
+                </div>
+            </div>
+
+            {{-- Campo CPF --}}
             <div class="form-group">
                 <label for="cpf" class="col-md-2 control-label">CPF:</label>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <input type="text" class="form-control" placeholder="00000000000" name="cpf" id="cpf">
                 </div>
-            </div>{{-- Campo CPF --}}
+            </div>
 
+            {{--  Campo Sexo  --}}
             <div class="form-group">
                 <label class="col-md-2 control-label">Sexo:</label>
                 <div class="col-md-4">
@@ -48,24 +59,19 @@
                         <input type="radio" name="sexo" id="F">Feminino
                     </label>
                 </div>
-            </div>{{--  Campo Sexo  --}}
-
-            <div class="form-group">
-                <label for="email" class="col-md-2 control-label">Email:</label>
-                <div class="col-md-8">
-                    <input type="email" class="form-control" placeholder="creydson&#64;rodalol.com" name="email" id="email">
-                </div>
-            </div>{{--  Campo Email  --}}
+            </div>
 
             {{-- Inicio da parte de endereço --}}
 
+            {{-- Campo CEP --}}
             <div class="form-group">
                 <label for="cep" class="col-md-2 control-label">Cep:</label>
-                <div class="col-md-8">
+                <div class="col-md-2">
                     <input type="text" class="form-control" placeholder="00000000" name="cep" id="cep" maxlength="8">
                 </div>
-            </div>{{-- Campo CEP --}}
+            </div>
 
+            {{--  Campo Estado  --}}
             <div class="form-group">
                 <label for="estado" class="col-md-2 control-label">Estado:</label>
                 <div class="col-md-1">
@@ -100,47 +106,53 @@
                         <option value="TO">TO</option>
                     </select>
                 </div>
-            </div>{{--  Campo Estado  --}}
+            </div>
 
+            {{-- Campo Cidade --}}
             <div class="form-group">
                 <label for="cidade" class="col-md-2 control-label">Cidade:</label>
                 <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="Hell de Janeiro" name="cidade" id="cidade">
                 </div>
-            </div>{{-- Campo Cidade --}}
+            </div>
 
+            {{-- Campo Bairro --}}
             <div class="form-group">
                 <label for="bairro" class="col-md-2 control-label">Bairro:</label>
                 <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="Real Engenho" name="bairro" id="bairro">
                 </div>
-            </div>{{-- Campo Bairro --}}
+            </div>
 
+            {{-- Campo Logradouro --}}
             <div class="form-group">
                 <label for="rua" class="col-md-2 control-label">Logradouro:</label>
                 <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="Rua dos Bobos" name="logradouro" id="logradouro">
                 </div>
-            </div>{{-- Campo Logradouro --}}
+            </div>
 
+            {{-- Campo Numero --}}
             <div class="form-group">
                 <label for="numero" class="col-md-2 control-label">Número:</label>
                 <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="0" name="numero" id="numero">
                 </div>
-            </div>{{-- Campo Numero --}}
+            </div>
 
             {{-- Fim da parte de endereço --}}
 
+            {{--  Campo Recaptcha  --}}
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
-            </div>{{--  Campo Recaptcha  --}}
+            </div>
 
+            {{--  Campo Cadastrar  --}}
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-2">
                     <input type="submit" class="btn btn-default" value="Cadastrar">
                 </div>
-            </div>{{--  Campo Cadastrar  --}}
+            </div>
         </form>
     </div>
 @endsection
