@@ -21,7 +21,7 @@
     <div class="container">
         <h3>Cadastre-se:</h3>
 
-        <form action="{{action('UsuarioController@store')}}" class="form-horizontal" method="post">
+        <form action="{{action('UserController@store')}}" class="form-horizontal" method="post">
             {!! csrf_field() !!}
 
             {{--  Campo Nome  --}}
@@ -32,18 +32,10 @@
                 </div>
             </div>
 
-            {{--  Campo Email  --}}
-            <div class="form-group">
-                <label for="email" class="col-md-2 control-label">Email:</label>
-                <div class="col-md-8">
-                    <input type="email" class="form-control" placeholder="creydson&#64;rodalol.com" name="email" id="email">
-                </div>
-            </div>
-
             {{-- Campo CPF --}}
             <div class="form-group">
                 <label for="cpf" class="col-md-2 control-label">CPF:</label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <input type="text" class="form-control" placeholder="00000000000" name="cpf" id="cpf">
                 </div>
             </div>
@@ -61,12 +53,20 @@
                 </div>
             </div>
 
+            {{--  Campo Email  --}}
+            <div class="form-group">
+                <label for="email" class="col-md-2 control-label">Email:</label>
+                <div class="col-md-8">
+                    <input type="email" class="form-control" placeholder="creydson&#64;rodalol.com" name="email" id="email">
+                </div>
+            </div>
+
             {{-- Inicio da parte de endereço --}}
 
             {{-- Campo CEP --}}
             <div class="form-group">
                 <label for="cep" class="col-md-2 control-label">Cep:</label>
-                <div class="col-md-2">
+                <div class="col-md-8">
                     <input type="text" class="form-control" placeholder="00000000" name="cep" id="cep" maxlength="8">
                 </div>
             </div>
@@ -139,7 +139,7 @@
                     <input type="text" class="form-control" placeholder="0" name="numero" id="numero">
                 </div>
             </div>
-
+            
             {{-- Fim da parte de endereço --}}
 
             {{--  Campo Recaptcha  --}}
@@ -147,7 +147,7 @@
                 <div class="col-md-10 col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
             </div>
 
-            {{--  Campo Cadastrar  --}}
+            {{--  Campo Submeter Cadastro  --}}
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-2">
                     <input type="submit" class="btn btn-default" value="Cadastrar">
