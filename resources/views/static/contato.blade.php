@@ -3,10 +3,14 @@
 @section('title', 'Contato')
 
 @section('content')
-    <ol class="breadcrumb">
-        <li><a href="{{route('paginaInicial')}}">Home</a></li>
-        <li class="active">Contato</li>
-    </ol>
+    <section class="acertaBreadcrumb bg-light">
+        <div class="container">
+                    <ol class="breadcrumb tiraBorda">
+                        <li><a href="{{route('paginaInicial')}}">Home</a></li>
+                        <li class="active">Contato</li>
+                    </ol>
+        </div>{{--  .container --}}
+    </section>{{--  #breadcrumb --}}
     <div class="container">
         <h3>Mande uma mensagem para a gente:</h3>
 
