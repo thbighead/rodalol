@@ -4,9 +4,9 @@
         <div class="container">
             <div class="col-xs-5 col-sm-4 col-md-6 col-lg-6">
                 Seja Bem Vindo. Faça
-                <a href="#" data-toggle="modal" data-target="#loginModal"><span class="color-green">Login</span></a>
+                <a href="" data-toggle="modal" data-target="#loginModal"><span class="color-green">Login</span></a>
                 ou
-                <a href="#"><span class="color-green">cadastre-se</span></a>
+                <a href="{{route('cadastrarUsuario')}}"><span class="color-green">cadastre-se</span></a>
             </div>
             <!--    Search Form     -->
             <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">

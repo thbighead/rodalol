@@ -19,10 +19,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
     <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" defer></script>
-    <!-- My JS -->
+    <!-- My JS's -->
+    @yield('js')
+    <!-- Our Script -->
     <script src="{{asset('js/javascript.js')}}" defer></script>
-    <!-- Recaptcha Google -->
-    <script src='https://www.google.com/recaptcha/api.js' defer></script>
     <title>RodaLOL - @yield('title')</title>
 </head>
 <body>
