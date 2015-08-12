@@ -23,5 +23,5 @@ Route::get('quemsomos', ['as' => 'quemSomos', function () {
     return view("static.quemSomos");
 }]);
 
-Route::get('cadastrarusuario', ['as' => 'cadastrarUsuario', 'uses' => 'UsuarioController@create']);
-Route::post('cadastrarusuario', ['as' => 'enviaCadastro', 'uses' => 'UsuarioController@store']);
+Route::get('cadastrarusuario', ['as' => 'cadastrarUsuario', 'uses' => 'UserController@create']);
+Route::post('cadastrarusuario', ['as' => 'enviaCadastro', 'uses' => 'UserController@store']);
