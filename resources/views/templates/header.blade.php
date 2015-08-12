@@ -13,17 +13,21 @@
                 <form class="navbar-form pull-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control input-sm bg-dark" placeholder="Buscar produtos">
-                        <button class="btn btn-default btn-sm bg-dark" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        <button class="btn btn-default btn-sm bg-dark" type="submit"><span
+                                    class="glyphicon glyphicon-search"></span></button>
                     </div>
                 </form>
             </div>
             <!--    Cart Shopping     -->
             <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 mar-shop">
-                <button class="btn btn-default btn-sm bg-dark" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+                <button class="btn btn-default btn-sm bg-dark" type="submit"><span
+                            class="glyphicon glyphicon-shopping-cart"></span></button>
                 Carrinho <span class="color-green">( N )</span>
             </div>
-        </div><!--  .container -->
-    </div><!--  .row top header -->
+        </div>
+        <!--  .container -->
+    </div>
+    <!--  .row top header -->
     <!-- Modal for login -->
     <div class="modal fade" id="loginModal" role="dialog">
         <div class="modal-dialog">
@@ -38,14 +42,17 @@
                         {{--Email--}}
                         <div class="form-group">
                             <label for="login" class="col-md-2 control-label">E-mail</label>
+
                             <div class="col-md-8">
-                                <input type="text" class="form-control" placeholder="exemplo&#64;exemplo.com" name="login" id="login">
+                                <input type="text" class="form-control" placeholder="exemplo&#64;exemplo.com"
+                                       name="login" id="login">
                             </div>
                         </div>
                         {{--Senha--}}
                         <div class="form-group">
                             <label for="password" class="col-md-2 control-label">Senha</label>
-                            <div  class="col-md-8">
+
+                            <div class="col-md-8">
                                 <input type="password" class="form-control" name="password" id="password">
                             </div>
                         </div>
@@ -53,21 +60,49 @@
                 </div>
                 {{--Botões de entrar e esqueci a senha--}}
                 <div class="modal-footer">
-                    <div class="row col-md-10 col-md-offset-1">
-                        <button type="submit" class="btn btn-lg btn-primary btn-block" data-dismiss="modal">Entrar</button>
+                    <div class="verticalMarginModal row col-md-10 col-md-offset-1">
+                        <button type="submit" class="btn btn-lg btn-primary btn-block" data-dismiss="modal">Entrar
+                        </button>
                     </div>
-                    <a href="#forgotpassword" data-toggle="tab" class="text-center col-md-12 col-xs-12"> Esqueci a senha?</a>
+                    <a href="#forgotPassword" id="forgot" data-toggle="tab" class="text-center col-md-12 col-xs-12"> Esqueci a
+                        senha</a>
                 </div>
             </div>
-                <div class="modal fade" id="forgotpassword">
-                    <form method="post" action="" name="forgot_password">
-                        Esqueceu sua senha? Nos mande seu email e nós resetaremos!
-                        <input type="email" placeholder="exemplo&#64;exemplo.com" name="login" id="login">
-                        <button type="submit" class="btn btn-lg btn-primary btn-block" data-dismiss="modal">Enviar</button>
-                        <a href="#login" data-toggle="tab">Espere, consegui lembrar!</a>
+        </div>
+    </div>
+    <!-- Modal for recovering -->
+    <div class="modal fade" id="forgotPassword">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Esqueceu sua senha? Nos mande seu email e nós resetaremos!</h4>
+                </div>
+                <div class="modal-body" id="recover">
+                    <form method="post" action="#" class="form-horizontal" name="recover_form">
+                        {{--Email--}}
+                        <div class="form-group">
+                            <label for="login" class="col-md-2 control-label">E-mail</label>
+
+                            <div class="col-md-8">
+                                <input type="email" placeholder="exemplo&#64;exemplo.com" name="email"
+                                       id="email" class="form-control">
+                            </div>
+                        </div>
                     </form>
                 </div>
-
+                {{--Botões--}}
+                <div class="modal-footer">
+                    <div class="verticalMarginModal row col-md-10 col-md-offset-1">
+                        <button type="submit" class="btn btn-lg btn-primary btn-block" data-dismiss="modal">
+                            Enviar
+                        </button>
+                    </div>
+                    <a href="#login" data-toggle="tab" id="forgetIt" class="text-center col-md-12 col-xs-12">Espere,
+                        consegui lembrar!</a>
+                </div>
+            </div>
         </div>
     </div>
     <!--    menu principal  -->
@@ -95,7 +130,10 @@
                     <li><a href="{{route('quemSomos')}}">QUEM SOMOS</a></li>
                     <li><a href="{{route('contato')}}">CONTATO</a></li>
                 </ul>
-            </div><!--    .navbar-collapse    -->
-        </div><!--    .container    -->
-    </nav><!--    .navbar .navbar-default    -->
+            </div>
+            <!--    .navbar-collapse    -->
+        </div>
+        <!--    .container    -->
+    </nav>
+    <!--    .navbar .navbar-default    -->
 </header>

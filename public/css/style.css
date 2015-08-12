@@ -165,3 +165,6 @@ textarea {
 	height: 36px;
 	margin-bottom: 20px;
 }
+.verticalMarginModal {
+	margin-bottom: 1vw;
+}
