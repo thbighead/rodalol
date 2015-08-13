@@ -11,6 +11,7 @@
 |
 */
 require_once __DIR__.'/rotas/admin.php';
+require_once __DIR__.'/rotas/user.php';
 
 Route::any('/', ['as' => 'paginaInicial', function () {
     return view("home");
@@ -22,6 +23,3 @@ Route::post('contato', ['as' => 'enviaContato', 'uses' => 'ContatoController@sto
 Route::get('quemsomos', ['as' => 'quemSomos', function () {
     return view("static.quemSomos");
 }]);
-
-Route::get('cadastrarusuario', ['as' => 'cadastrarUsuario', 'uses' => 'UserController@create']);
-Route::post('cadastrarusuario', ['as' => 'enviaCadastro', 'uses' => 'UserController@store']);

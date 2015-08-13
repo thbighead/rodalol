@@ -44,14 +44,14 @@ class ContatoController extends Controller
             $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
             $arr = json_decode($rsp, TRUE);
             if ($arr['success']){
-                $message = $request->Nome." - ".$request->Email;
-                echo "<>alert('Seu formulário foi enviado com sucesso.')</>";
-                return view('contato');
+                $message = $request->nome." - ".$request->email;
+                echo '<script type="text/javascript">alert("Mensagem enviada com sucesso!");</script>';
+                return view('static.contato');
             } else {
-                echo 'SPAM';
+                echo '<script type="text/javascript">alert("Erro ao carregar recaptcha, por favor atualize a página");</script>';
             };
         } else {
-            echo 'SPAM';
+            echo '<script type="text/javascript">alert("Por favor, prove que não é um robô respondendo ao recaptcha");</script>';
         };
 
         $dadosContato = array($request->nome, $request->email, $request->sexo, $request->estado);
@@ -59,7 +59,7 @@ class ContatoController extends Controller
         foreach($dadosContato as $dado) {
             echo $dado;
         }
-        return 'Mensagem: '.$msg;
+//        return 'Mensagem: '.$msg;
     }
 
     /**

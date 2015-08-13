@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('static.cadastroUsuario');
+        //
     }
 
     /**
@@ -44,22 +44,31 @@ class UserController extends Controller
             $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
             $arr = json_decode($rsp, TRUE);
             if ($arr['success']){
-                $message = $request->Nome." - ".$request->Email;
-                echo "<>alert('Seu formul�rio foi enviado com sucesso.')</>";
-                return view('contato');
+                $user = \App\User::create(["nome" => $request->nome,
+                    "sexo" => $request->sexo,
+                    "email" => $request->email,
+                    "cpf" => $request->cpf,
+                    "cep" => $request->cep,
+                    "estado" => $request->estado,
+                    "cidade" => $request->cidade,
+                    "bairro" => $request->bairro,
+                    "logradouro" => $request->logradouro,
+                    "numero" => $request->numero]);
+                $user->senha = bcrypt($request->senha);
+                $user->admPower = false;
+                if($user->save()) {
+                    echo '<script type="text/javascript">alert("Cadastro efetuado com sucesso!");</script>';
+                } else {
+                    echo '<script type="text/javascript">alert("O cadastro falhou...");</script>';
+                }
             } else {
-                echo 'SPAM';
-            };
+                echo '<script type="text/javascript">alert("Erro ao carregar recaptcha, por favor atualize a página");</script>';
+            }
         } else {
-            echo 'SPAM';
-        };
-
-        $dadosContato = array($request->nome, $request->email, $request->sexo, $request->estado);
-        $msg = $request->msg;
-        foreach($dadosContato as $dado) {
-            echo $dado;
+            echo '<script type="text/javascript">alert("Por favor, prove que não é um robô respondendo ao recaptcha");</script>';
         }
-        return 'Mensagem: '.$msg;
+
+        return view('static.cadastroUsuario');
     }
 
     /**
