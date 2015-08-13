@@ -45,8 +45,12 @@
 .breadcrumb {
 	background-color: #f2f3f5;
 }
-
 /*      FIM QUEM SOMOS      */
+
+input[type='submit']:hover, .btn-default:hover {
+	background: #27b399;
+	color: #fff;
+}
 /*  MINHAS CLASSES  */
 html {
 	position: relative; /*se eu não colocoar, o footer ja aparece colado embaixo mesmo se a pagina scrollar*/
@@ -114,6 +118,9 @@ textarea {
 .bg-light {
 	background-color: #f2f3f5;
 }
+.border-green {
+	border-color: #27b399;
+}
 /*  OTHER CLASSES   */
 .top-header {
 	padding-top: 10px;
@@ -126,9 +133,6 @@ textarea {
 .img-logo {
 	height: 70px;
 	margin-top: -23px;/*centralizar a logo na div*/
-}
-.estados {
-	width: 80px;
 }
 #destaque li > a {
 	color: #2b3339;
@@ -168,8 +172,10 @@ textarea {
 .verticalMarginModal {
 	margin-bottom: 1vw;
 }
-
-.modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
-.modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {
-	margin-right: 17px;
+.noBG {/*Caso queira tirar o BG de algum elemento*/
+	background: transparent;
 }
+/*.modal-open[style="padding-right: 17px;"] .navbar-fixed-top,*/
+/*.modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {*/
+	/*margin-right: 17px;*/
+/*}*/
