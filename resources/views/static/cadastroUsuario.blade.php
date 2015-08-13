@@ -84,7 +84,7 @@
 
             {{-- Campo Logradouro --}}
             <div class="form-group">
-                <label for="rua" class="col-md-2 control-label">Logradouro:</label>
+                <label for="logradouro" class="col-md-2 control-label">Logradouro:</label>
                 <div class="col-md-5">
                     <input type="text" class="form-control border-green" placeholder="Rua das Muambas" name="logradouro" id="logradouro">
                 </div>

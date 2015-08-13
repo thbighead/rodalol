@@ -44,18 +44,19 @@ class UserController extends Controller
             $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
             $arr = json_decode($rsp, TRUE);
             if ($arr['success']){
-                $user = \App\User::create(["nome" => $request->nome,
-                    "sexo" => $request->sexo,
-                    "email" => $request->email,
-                    "cpf" => $request->cpf,
-                    "cep" => $request->cep,
-                    "estado" => $request->estado,
-                    "cidade" => $request->cidade,
-                    "bairro" => $request->bairro,
-                    "logradouro" => $request->logradouro,
-                    "numero" => $request->numero]);
-                $user->senha = bcrypt($request->senha);
-                $user->admPower = false;
+                $user = \App\User::create(["nome" => "$request->nome",
+                    "sexo" => "$request->sexo",
+                    "email" => "$request->email",
+                    "cpf" => "$request->cpf",
+                    "cep" => "$request->cep",
+                    "estado" => "$request->estado",
+                    "cidade" => "$request->cidade",
+                    "bairro" => "$request->bairro",
+                    "logradouro" => "$request->logradouro",
+                    "numero" => "$request->numero"]);
+                $user->complemento = "$request->complemento";
+                $user->senha = bcrypt("$request->senha");
+                $user->admPower = "false";
                 if($user->save()) {
                     echo '<script type="text/javascript">alert("Cadastro efetuado com sucesso!");</script>';
                 } else {
