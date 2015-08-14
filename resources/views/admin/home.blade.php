@@ -2,4 +2,6 @@
 
 @section('title', 'Administração') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
-<header></header>
+@section('content') {{--conteudo da pagina--}}
+oi hhome
+@endsection {{--/conteudo da pagina--}}
