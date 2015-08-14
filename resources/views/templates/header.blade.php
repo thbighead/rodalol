@@ -86,8 +86,8 @@
                             <label for="login" class="col-md-2 control-label">E-mail</label>
 
                             <div class="col-md-8">
-                                <input type="email" placeholder="exemplo&#64;exemplo.com" name="email"
-                                       id="email" class="form-control">
+                                <input type="email" placeholder="exemplo&#64;exemplo.com" name="modalEmail"
+                                       id="modalEmail" class="form-control">
                             </div>
                         </div>
                     </form>

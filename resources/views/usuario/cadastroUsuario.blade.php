@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label for="email" class="col-md-2 control-label">Email:</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control border-green" value="" placeholder="creydson&#64;rodalol.com" name="email" id="email">
+                    <input type="email" class="form-control border-green" value="" placeholder="creydson&#64;rodalol.com" name="email" id="email">
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
             <div class="form-group">
                 <label for="password" class="col-md-2 control-label">Senha:</label>
                 <div class="col-md-3">
-                    <input type="text" class="form-control border-green" value="" placeholder="Máximo de 20 caracteres" name="password" id="password" maxlength="20">
+                    <input type="password" class="form-control border-green" value="" placeholder="Máximo de 20 caracteres" name="password" id="password" maxlength="20">
                 </div>
             </div>
 

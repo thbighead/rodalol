@@ -57,7 +57,6 @@ class UserController extends Controller
             if ($arr['success']){
                 $user = $this->userModel->fill($input);
                 $user->password = bcrypt("$request->password");
-                return response()->json(['msg' => $input]);
                 if($user->save()) {
                     $msg = "Cadastro efetuado com sucesso!";
                 } else {

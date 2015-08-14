@@ -19,8 +19,6 @@ $(document).ready (
                 var recaptcha = $("textarea[name='g-recaptcha-response']").val();
                 // posso validar modificar, fazer altas paradas com essas coisas
 
-                console.log(senha);
-                console.log(email);
                 $.ajax(
                     {
                         method: "PUT",
@@ -44,8 +42,7 @@ $(document).ready (
                             _method: method
                         },
                         success: function(data) {
-                            //alert(data.msg);
-                            console.log(data.msg);
+                            alert(data.msg);
                         },
                         error: function(data) {
                             console.log('erro');
