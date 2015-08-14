@@ -17,16 +17,16 @@ class CreateUsersTable extends Migration
             $table->string('nome');
             $table->char('sexo', 1);
             $table->string('email')->unique();
-            $table->string('senha', 20);
+            $table->string('password', 20);
             $table->string('cpf', 15)->unique();
             $table->string('cep', 10);
             $table->string('estado', 2);
             $table->string('cidade');
             $table->string('bairro');
             $table->string('logradouro');
-            $table->integer('numero', false, false);
-            $table->string('complemento');
-            $table->boolean('admPower');
+            $table->integer('numero', false, false)->unsigned();
+            $table->string('complemento')->nullable();
+            $table->boolean('admPower')->default(false);
             $table->timestamps();
         });
     }

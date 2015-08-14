@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +10,13 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    private $userModel;
+
+    public function __construct(User $userModel)
+    {
+        $this->userModel = $userModel;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +34,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('usuario.cadastroUsuario');
+        $users = $this->userModel->all();
+
+        return view('usuario.cadastroUsuario', compact('users'));
     }
 
     /**
@@ -37,39 +47,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset($_POST['g-recaptcha-response'])&&($_POST['g-recaptcha-response'])){
+        $input = $request->all();
+        if(($request->input('recaptcha'))!=null){
             $secret = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
-            $captcha = $_POST['g-recaptcha-response'];
+            $captcha = $request->input('recaptcha');
             $ip = $_SERVER['REMOTE_ADDR'];
             $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
             $arr = json_decode($rsp, TRUE);
             if ($arr['success']){
-                $user = \App\User::create(["nome" => "$request->nome",
-                    "sexo" => "$request->sexo",
-                    "email" => "$request->email",
-                    "cpf" => "$request->cpf",
-                    "cep" => "$request->cep",
-                    "estado" => "$request->estado",
-                    "cidade" => "$request->cidade",
-                    "bairro" => "$request->bairro",
-                    "logradouro" => "$request->logradouro",
-                    "numero" => "$request->numero"]);
-                $user->complemento = "$request->complemento";
-                $user->senha = bcrypt("$request->senha");
-                $user->admPower = "false";
+                $user = $this->userModel->fill($input);
+                $user->password = bcrypt("$request->password");
+                return response()->json(['msg' => $input]);
                 if($user->save()) {
-                    echo '<script type="text/javascript">alert("Cadastro efetuado com sucesso!");</script>';
+                    $msg = "Cadastro efetuado com sucesso!";
                 } else {
-                    echo '<script type="text/javascript">alert("O cadastro falhou...");</script>';
+                    $msg = "O cadastro falhou...";
                 }
             } else {
-                echo '<script type="text/javascript">alert("Erro ao carregar recaptcha, por favor atualize a página");</script>';
+                $msg = "Erro ao carregar recaptcha, por favor atualize a página";
             }
         } else {
-            echo '<script type="text/javascript">alert("Por favor, prove que não é um robô respondendo ao recaptcha");</script>';
+            $msg = "Por favor, prove que não é um robô respondendo ao recaptcha";
         }
 
-        return view('usuario.cadastroUsuario');
+        return response()->json(['msg' => $msg]);
     }
 
     /**

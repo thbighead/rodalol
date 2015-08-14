@@ -33,12 +33,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         "cidade",
         "bairro",
         "logradouro",
-        "numero"];
+        "numero",
+        "complemento"];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'admPower', 'remember_token'];
 }
