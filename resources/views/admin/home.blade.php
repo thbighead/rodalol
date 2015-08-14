@@ -1,13 +1,5 @@
-@extends('templates.base')
+@extends('templates.admin.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
-@section('title', 'Área Administrativa')
+@section('title', 'Administração') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
-@section('content')
-    <ol class="breadcrumb">
-        <li><a href="{{route('paginaInicial')}}">Home</a></li>
-        <li class="active">Área administrativa</li>
-    </ol>
-    <div class="container">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at autem dolore facere, ipsa, labore libero mollitia possimus provident quia quibusdam rem reprehenderit tempora. Assumenda aut commodi cupiditate odit officia.
-    </div>
-@endsection
+<header></header>
