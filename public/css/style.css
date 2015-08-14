@@ -79,7 +79,7 @@ ul {
 li {
 	font-weight: 700;
 }
-hr {
+.hrSide {
 	width: 50px;
 	height: 2px;
 	background-color: #27b399;
@@ -179,3 +179,27 @@ textarea {
 /*.modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {*/
 	/*margin-right: 17px;*/
 /*}*/
+
+
+
+/*
+ADMIN
+*/
+
+/*BOOTSTRAP*/
+.btn-success {
+	border-radius: 0;
+	background-color: #27b399;
+}
+/*CRIADAS*/
+.admin-box {
+	padding: 15px 0;
+	margin: 0;
+	color: #f2f3f5;
+	background-color: #2b3339;
+}
+/*deixar o h3 da pagina admin alinhada com as caixas*/
+.pdHeading {
+	padding-left: 15px;
+}
+
