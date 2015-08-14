@@ -12,11 +12,36 @@
 ::-webkit-scrollbar-thumb:hover { /* hover da barra de rolagem em si */
 	background-color: #0f1c26;
 }
+/* Fim Scrollbar */
 
 /* Bootstrap */
-.navbar-form {
-	margin-top: -6px;
-	margin-bottom: 5px;
+
+/* Common */
+.container-fluid {
+	padding: 0;/*para o slideshow não ficar com espaço nas laterais*/
+}
+.row { /* Bugzinho que acaba aparecendo um pequeno scroll horizontal */
+	/* margin-left: 0; */
+	margin-right: 0;
+}
+.breadcrumb {
+	background-color: #f2f3f5;
+	border-radius: 0;
+}
+input[type='submit']:hover, .btn-default:hover {
+	background: #27b399;
+	color: #fff;
+}
+/* Fim Common */
+
+/* Menu */
+.navbar {
+	margin-bottom: 0; /* deixar slideshow junto com o menu */
+	border-radius: 0;
+}
+.navbar-default {
+	padding: 9px;
+	background-color: #f2f3f5;
 }
 .navbar-default .navbar-nav > li > a {
 	color: #2b3339;
@@ -24,18 +49,14 @@
 .navbar-default .navbar-nav > li > a:hover {
 	color: #27b399;
 }
-.navbar-default {
-	padding: 9px;
-	background-color: #f2f3f5;
+.navbar-form {
+	margin-top: -6px;
+	margin-bottom: 5px;
 }
-.navbar {
-	margin-bottom: 0; /*deixar slideshow junto com o menu*/
-	border-radius: 0;
-}
-/*  Estender as imgs do slideshow por toda a largura    */
-.item img {
-	width: 100%;
-}
+/* Fim Menu */
+
+/* Slideshow */
+/*  Estender as imgs do slideshow por toda a largura */
 .carousel {
 	margin-bottom: 5vw;
 }
@@ -50,42 +71,30 @@
 	height: 17px;
 	background-color: #27b399;
 }
-.container-fluid {
-	padding: 0;/*para o slideshow não ficar com espaço nas laterais*/
+.item img {
+	width: 100%;
 }
-.row { /* Bugzinho que acaba aparecendo um pequeno scroll horizontal */
-	/*margin-left: 0;*/
-	margin-right: 0;
-}
-/*      QUEM SOMOS      */
-.breadcrumb {
-	background-color: #f2f3f5;
-}
-/*      FIM QUEM SOMOS      */
-
-input[type='submit']:hover, .btn-default:hover {
-	background: #27b399;
-	color: #fff;
-}
-/*FIM BOOTSTRAP*/
+/* Fim Slideshow */
+/* FIM BOOTSTRAP */
 
 
-/*  MINHAS CLASSES  */
+/*  New Classes */
 html {
-	position: relative; /*se eu não colocoar, o footer ja aparece colado embaixo mesmo se a pagina scrollar*/
+	position: relative; /* se eu não colocar, o footer já aparece colado embaixo, mesmo se a pagina scrollar */
 	min-height: 100%;
 }
 body {
 	font-family: 'Lato', sans-serif;
-	margin-bottom: 330px; /*se eu não colocoar, o footer ja aparece colado embaixo mesmo se a pagina scrollar*/
+	margin-bottom: 330px; /*se eu não colocar, o footer já aparece colado embaixo, mesmo se a pagina scrollar */
 }
-footer {
-	/* deixar o footer na parte de baixo */
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 330px; /*se eu não colocoar, o footer ja aparece colado embaixo mesmo se a pagina scrollar*/
+/* Heading */
+h2 {
+	margin: 5px;
 }
+h3 {
+	margin: auto auto 2% auto;
+}
+/* Fim Heading*/
 a {
 	color: #2b3339;
 }
@@ -98,23 +107,20 @@ ul {
 li {
 	font-weight: 700;
 }
-.hrSide {
-	width: 50px;
-	height: 2px;
-	background-color: #27b399;
-}
-h2 {
-	margin: 5px;
-}
 header {
 	background-color: #2b3339;
 }
-h3 {
-	margin: auto auto 2% auto;
+footer {
+	/* deixar o footer na parte de baixo */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 330px; /* se eu não colocar, o footer já aparece colado embaixo, mesmo se a pagina scrollar */
 }
 textarea {
 	resize: none;
 }
+
 /*    MAIN COLORS  */
 .color-green {
 	color: #27b399;
@@ -130,32 +136,50 @@ textarea {
 	background-color: #27b399;
 }
 .bg-dark {
-	color: #f2f3f5;
-	background-color: transparent;
-	border-color: #27b399;
+	background-color: #2b3339;
 }
 .bg-light {
 	background-color: #f2f3f5;
 }
+
+/*  OTHER CLASSES   */
 .border-green {
 	border-color: #27b399;
 }
-/*  OTHER CLASSES   */
+/* Header */
 .top-header {
 	padding-top: 10px;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	color: #f2f3f5;
 	background-color: #2b3339;
-
 }
 .img-logo {
 	height: 70px;
 	margin-top: -23px;/*centralizar a logo na div*/
 }
+.in-btn-dark { /* Para deixar botão, input com a borda verde e sem fundo */
+	color: #f2f3f5;
+	background-color: transparent;
+	border-color: #27b399;
+}
+.mar-shop { /* Consertar margem superior do carrinho e icon*/
+	margin-top: -6px;
+}
+/* Fim Header */
+
+/* Home */
+.hrSide { /* Linha Horizontal entre o h3 */
+	width: 50px;
+	height: 2px;
+	background-color: #27b399;
+}
 #destaque li > a {
 	color: #2b3339;
 }
+/* Fim Home */
+
+/* Footer */
 #information {
 	margin-top: 25px;
 	padding: 25px 0 0;
@@ -167,7 +191,7 @@ textarea {
 #information li {
 	padding: 10px 0;
 }
-.decoration {
+.decoration { /* Tirar estilo de link no footer */
 	list-style: none;
 }
 #copyright {
@@ -175,29 +199,23 @@ textarea {
 	padding: 15px 0 5px 0;
 	background-color: #0f1c26;
 }
-.mar-shop {
-	margin-top: -6px;
-}
-.verticalMargin {
+/* Fim Footer */
+
+.verticalMargin { /* Colocoar margin abaixo dos titulos das sections  */
 	margin-bottom: 4vw;
-}
-.tiraBorda {
-	border-radius: 0;
 }
 .acertaBreadcrumb {
 	height: 36px;
 	margin-bottom: 20px;
 }
-.verticalMarginModal {
+.verticalMarginModal { /* Descolar esqueci a senha do botão de enviar */
 	margin-bottom: 1vw;
 }
 .noBG {/*Caso queira tirar o BG de algum elemento*/
 	background: transparent;
 }
-/*.modal-open[style="padding-right: 17px;"] .navbar-fixed-top,*/
-/*.modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {*/
-	/*margin-right: 17px;*/
-/*}*/
+
+/* Cosnertar bug do padding do modal */
 body.modal-open-noscroll
 {
 	margin-right: 0!important;
@@ -207,10 +225,14 @@ body.modal-open-noscroll
 {
 	margin-right: 0!important;
 }
-
+/* Fim bug do modal */
 
 /*
+=====
+=====
 ADMIN
+=====
+=====
 */
 
 /*BOOTSTRAP*/
