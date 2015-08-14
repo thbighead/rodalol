@@ -4,16 +4,18 @@
 
 @section('content')
 
-    <div class="container-fluid">
-        <ol class="breadcrumb">
-            <li><a href="{{route('paginaInicial')}}">Home</a></li>
-            <li class="active">Quem Somos</li>
-        </ol>
-    </div>
+    <section class="acertaBreadcrumb bg-light">
+        <div class="container">
+            <ol class="breadcrumb tiraBorda">
+                <li><a href="{{route('paginaInicial')}}">Home</a></li>
+                <li class="active">Quem Somos</li>
+            </ol>
+        </div>
+    </section>
     <div class="container">
         <h3>Quem somos</h3>
 
-        <div class="col-md-3">
+        <div class="col-md-3 tiraPdLeft">
             <img src="{{asset('img/quemsomos.jpg')}}" class="img-responsive" alt="Imagem 1">
         </div>
         <div class="col-md-9">
