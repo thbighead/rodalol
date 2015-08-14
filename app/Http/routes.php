@@ -12,6 +12,7 @@
 */
 require_once __DIR__.'/rotas/admin.php';
 require_once __DIR__.'/rotas/user.php';
+require_once __DIR__.'/rotas/produto.php';
 
 Route::any('/', ['as' => 'paginaInicial', function () {
     return view("home");
