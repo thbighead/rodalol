@@ -26,6 +26,9 @@
     <title>RodaLOL - @yield('title')</title>
 </head>
 <body>
-
+    {{--parte de cima do site--}}
+    @include('templates.admin.header')
+    {{--Conteudo da pagina aqui!--}}
+    @yield('content')
 </body>
 </html>
