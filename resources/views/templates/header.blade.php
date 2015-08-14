@@ -50,10 +50,10 @@
                         </div>
                         {{--Senha--}}
                         <div class="form-group">
-                            <label for="password" class="col-md-2 control-label">Senha</label>
+                            <label for="modalPassword" class="col-md-2 control-label">Senha</label>
 
                             <div class="col-md-8">
-                                <input type="password" class="form-control" name="password" id="password">
+                                <input type="password" class="form-control" name="modalPassword" id="modalPassword">
                             </div>
                         </div>
                     </form>
