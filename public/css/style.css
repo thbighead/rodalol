@@ -1,3 +1,19 @@
+/* Scrollbar */
+::-webkit-scrollbar { /* espessura da barra de rolagem */
+	width: 10px;
+}
+::-webkit-scrollbar-track { /* espaÃ§o fora da barra de rolagem */
+	background-color: #777;
+
+}
+::-webkit-scrollbar-thumb { /* a barra de rolagem em si */
+	background-color: #27b399;
+}
+::-webkit-scrollbar-thumb:hover { /* hover da barra de rolagem em si */
+	background-color: #0f1c26;
+}
+
+/* Bootstrap */
 .navbar-form {
 	margin-top: -6px;
 	margin-bottom: 5px;
@@ -13,10 +29,10 @@
 	background-color: #f2f3f5;
 }
 .navbar {
-	margin-bottom: 0; /*deixar sldieshow junto com o menu*/
+	margin-bottom: 0; /*deixar slideshow junto com o menu*/
 	border-radius: 0;
 }
-/*  Estender as imgs do sldieshow por toda a largura    */
+/*  Estender as imgs do slideshow por toda a largura    */
 .item img {
 	width: 100%;
 }
@@ -51,6 +67,9 @@ input[type='submit']:hover, .btn-default:hover {
 	background: #27b399;
 	color: #fff;
 }
+/*FIM BOOTSTRAP*/
+
+
 /*  MINHAS CLASSES  */
 html {
 	position: relative; /*se eu não colocoar, o footer ja aparece colado embaixo mesmo se a pagina scrollar*/
@@ -179,7 +198,15 @@ textarea {
 /*.modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {*/
 	/*margin-right: 17px;*/
 /*}*/
-
+body.modal-open-noscroll
+{
+	margin-right: 0!important;
+	overflow: hidden;
+}
+.modal-open-noscroll .navbar-default, .modal-open .navbar-default
+{
+	margin-right: 0!important;
+}
 
 
 /*
