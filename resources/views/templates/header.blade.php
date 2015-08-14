@@ -12,15 +12,15 @@
             <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
                 <form class="navbar-form pull-right" role="search">
                     <div class="form-group">
-                        <input type="text" class="form-control input-sm bg-dark" placeholder="Buscar produtos">
-                        <button class="btn btn-default btn-sm bg-dark" type="submit"><span
+                        <input type="text" class="form-control input-sm in-btn-dark" placeholder="Buscar produtos">
+                        <button class="btn btn-default btn-sm in-btn-dark" type="submit"><span
                                     class="glyphicon glyphicon-search"></span></button>
                     </div>
                 </form>
             </div>
             <!--    Cart Shopping     -->
             <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 mar-shop">
-                <button class="btn btn-default btn-sm bg-dark" type="submit"><span
+                <button class="btn btn-default btn-sm in-btn-dark" type="submit"><span
                             class="glyphicon glyphicon-shopping-cart"></span></button>
                 Carrinho <span class="color-green">( N )</span>
             </div>
