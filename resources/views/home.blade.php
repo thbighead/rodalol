@@ -30,7 +30,7 @@
         <div class="row">
             {{--    hr ao lado do nome  --}}
             <div class="col-sm-1 col-sm-offset-3 col-md-1 col-md-offset-3 col-lg-1 col-lg-offset-3">
-                <hr>
+                <hr class="hrSide">
             </div>
             {{--    Nome da seção   --}}
             <div class="col-sm-4 col-md-4 col-lg-4 text-center">
@@ -38,7 +38,7 @@
             </div>
             {{--    hr ao lado do nome  --}}
             <div class="col-sm-3 col-sm-pull-1 col-md-3 col-md-pull-1 col-lg-3 col-lg-pull-1">
-                <hr>
+                <hr class="hrSide">
             </div>
         </div>
 
