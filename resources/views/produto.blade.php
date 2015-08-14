@@ -1,7 +1,12 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Thales Nathan
- * Date: 14/08/2015
- * Time: 01:43
- */
+@extends('templates.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
+
+@section('title', 'Produtos Teste') {{--Define o titulo da pagina (posicionado na masterpage)--}}
+
+@section('content') {{--conteudo da pagina--}}
+
+<!-- Filtro, listagem, paginação -->
+
+
+
+
+@endsection
