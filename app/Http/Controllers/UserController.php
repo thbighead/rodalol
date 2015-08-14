@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('static.cadastroUsuario');
+        return view('usuario.cadastroUsuario');
     }
 
     /**
@@ -69,7 +69,7 @@ class UserController extends Controller
             echo '<script type="text/javascript">alert("Por favor, prove que não é um robô respondendo ao recaptcha");</script>';
         }
 
-        return view('static.cadastroUsuario');
+        return view('usuario.cadastroUsuario');
     }
 
     /**

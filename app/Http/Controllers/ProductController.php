@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ContatoController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        return view('static.contato');
+        return view('produto');
     }
 
     /**
@@ -37,24 +37,18 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset($_POST['g-recaptcha-response'])&&($_POST['g-recaptcha-response'])){
-            $secret = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
-            $captcha = $_POST['g-recaptcha-response'];
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
-            $arr = json_decode($rsp, TRUE);
-            if ($arr['success']){
-                $dadosContato = array($request->nome, $request->email, $request->sexo, $request->estado);
-                $msg = $request->msg;
-                echo '<script type="text/javascript">alert("Mensagem enviada com sucesso!");</script>';
-            } else {
-                echo '<script type="text/javascript">alert("Erro ao carregar recaptcha, por favor atualize a página");</script>';
-            };
+        $product = \App\Product::create(["nome",
+            "categoria",
+            "especificacao",
+            "preco",
+            "qtdEstoque"]);
+        if($product->save()) {
+            echo '<script type="text/javascript">alert("Cadastro efetuado com sucesso!");</script>';
         } else {
-            echo '<script type="text/javascript">alert("Por favor, prove que não é um robô respondendo ao recaptcha");</script>';
-        };
+            echo '<script type="text/javascript">alert("O cadastro falhou...");</script>';
+        }
 
-        return view('static.contato');
+        return ;// pagina de cadastro de produtos
     }
 
     /**
