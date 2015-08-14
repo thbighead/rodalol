@@ -9,6 +9,7 @@
 ::-webkit-scrollbar-thumb { /* a barra de rolagem em si */
 	background-color: #27b399;
 }
+
 ::-webkit-scrollbar-thumb:hover { /* hover da barra de rolagem em si */
 	background-color: #0f1c26;
 }
@@ -27,6 +28,7 @@
 .breadcrumb {
 	background-color: #f2f3f5;
 	border-radius: 0;
+	padding-left: 0;
 }
 input[type='submit']:hover, .btn-default:hover {
 	background: #27b399;
@@ -224,6 +226,10 @@ body.modal-open-noscroll
 .modal-open-noscroll .navbar-default, .modal-open .navbar-default
 {
 	margin-right: 0!important;
+}
+
+.tiraPdLeft { /* tirar padding-left da imagem no Quem Somos */
+	padding-left: 0;
 }
 /* Fim bug do modal */
 
