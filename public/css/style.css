@@ -2,20 +2,24 @@
 ::-webkit-scrollbar { /* espessura da barra de rolagem */
 	width: 10px;
 }
-::-webkit-scrollbar-track { /* espaÃ§o fora da barra de rolagem */
+::-webkit-scrollbar-track { /* espaco fora da barra de rolagem */
 	background-color: #777;
-
 }
 ::-webkit-scrollbar-thumb { /* a barra de rolagem em si */
 	background-color: #27b399;
 }
-
 ::-webkit-scrollbar-thumb:hover { /* hover da barra de rolagem em si */
 	background-color: #0f1c26;
 }
 /* Fim Scrollbar */
 
-/* Bootstrap */
+/*
+=====
+=====
+BOOTSTRAP
+=====
+=====
+*/
 
 /* Common */
 .container-fluid {
@@ -41,12 +45,9 @@ input[type='submit']:hover, .btn-default:hover {
 	margin-bottom: 0; /* deixar slideshow junto com o menu */
 	border-radius: 0;
 }
-.navbar-default {
-	padding: 9px;
-	background-color: #f2f3f5;
-}
 .navbar-default .navbar-nav > li > a {
 	color: #2b3339;
+	padding: 20px 15px;
 }
 .navbar-default .navbar-nav > li > a:hover {
 	color: #27b399;
@@ -55,6 +56,27 @@ input[type='submit']:hover, .btn-default:hover {
 	margin-top: -6px;
 	margin-bottom: 5px;
 }
+/* Dropwdown */
+.navbar-default {
+	/*padding: 9px;*/
+	background-color: #f2f3f5;
+}
+.navbar-nav { /* Acertar o dropdown do menu para aparecer depois da nav */
+	padding-top: 6px;
+}
+.dropdown-menu {
+	background-color: #f2f3f5;
+}
+.dropdown-menu> li > a {
+	color: #2b3339;
+}
+.dropdown-menu> li > a:hover {
+	color: #27b399;
+}
+.pdMenu {
+	padding: 9px;
+}
+/* Fim Dropdown */
 /* Fim Menu */
 
 /* Slideshow */
