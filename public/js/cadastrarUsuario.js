@@ -3,12 +3,15 @@ $(document).ready (
         $("input[type=password][name='password']").change(
             function () {
                 var submit = $('#enviaCadastro');
+                var span = $('#erroSenha');
                 var senha = $("input[type=password][name='password']").val();
                 var confirmacaoSenha = $("input[type=password][name='confirm']").val();
                 if(senha != confirmacaoSenha) {
                     submit.attr('disabled', 'disabled');
+                    span.text("Senhas diferentes!")
                 } else {
                     submit.removeAttr('disabled');
+                    span.text("")
                 }
             }
         );
@@ -20,8 +23,10 @@ $(document).ready (
                 var confirmacaoSenha = $("input[type=password][name='confirm']").val();
                 if(senha != confirmacaoSenha) {
                     submit.attr('disabled', 'disabled');
+                    span.text("Senhas diferentes!")
                 } else {
                     submit.removeAttr('disabled');
+                    span.text("")
                 }
 
             }
