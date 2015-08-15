@@ -130,12 +130,6 @@ class UserController extends Controller
         $dados['cidade'] = (string) $reg->cidade;
         $dados['estado'] = (string) $reg->uf;
 
-        echo json_encode($dados);
-        return response()->json(["sucesso" => $dados['sucesso'],
-            "logradouro" => $dados['logradouro'],
-            "bairro" => $dados['bairro'],
-            "cidade" => $dados['cidade'],
-            "estado" => $dados['estado']
-        ]);
+        return json_encode($dados);
     }
 }

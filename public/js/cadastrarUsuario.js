@@ -38,6 +38,7 @@ $(document).ready (
         // ajax para preencher endereco de acordo com o CEP
         $('#cep').blur(
             function () {
+                console.log($('#cep').val());
                 $.ajax(
                     {
                         method: 'POST', /* Tipo da requisição */
@@ -46,6 +47,7 @@ $(document).ready (
                         data: $('#cep').val(), /* dado que será enviado via POST */
 
                         success: function(data) {
+                            console.log(data);
                             if(data.sucesso > 0) {
                                 $('#logradouro').val(data.logradouro);
                                 $('#bairro').val(data.bairro);
@@ -53,6 +55,12 @@ $(document).ready (
                                 $('#estado').val(data.estado);
                                 $('#numero').focus();
                             }
+                        },
+                        error: function(data) {
+                            console.log('erro');
+                            console.log(data);
+                            console.log(data.responseText);
+                            alert(data);
                         }
                     }
                 );
