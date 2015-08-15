@@ -1,5 +1,6 @@
 $(document).ready (
     function () {
+        // confere senhas quando o valor do campo "Senha" muda
         $("input[type=password][name='password']").change(
             function () {
                 var submit = $('#enviaCadastro');
@@ -11,14 +12,16 @@ $(document).ready (
                     span.text("Senhas diferentes!")
                 } else {
                     submit.removeAttr('disabled');
-                    span.text("")
+                    span.text('');
                 }
             }
         );
 
+        // confere senhas quando o valor do campo "Confirmar Senha" muda
         $("input[type=password][name='confirm']").change(
             function () {
                 var submit = $('#enviaCadastro');
+                var span = $('#erroSenha');
                 var senha = $("input[type=password][name='password']").val();
                 var confirmacaoSenha = $("input[type=password][name='confirm']").val();
                 if(senha != confirmacaoSenha) {
@@ -26,12 +29,13 @@ $(document).ready (
                     span.text("Senhas diferentes!")
                 } else {
                     submit.removeAttr('disabled');
-                    span.text("")
+                    span.text('');
                 }
 
             }
         );
 
+        // ajax para mostrar tela de sucesso
         $("#form").submit(
             function (e) {
                 var submit = $('#enviaCadastro');
@@ -78,6 +82,11 @@ $(document).ready (
                         },
                         success: function(data) {
                             alert(data.msg);
+                            $('#form').each(
+                                function () {
+                                    this.reset();
+                                }
+                            );
                             submit.removeAttr('disabled');
                         },
                         error: function(data) {

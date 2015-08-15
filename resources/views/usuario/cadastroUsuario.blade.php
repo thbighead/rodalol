@@ -53,7 +53,7 @@
                     <input type="password" class="form-control border-green" placeholder="Máximo de 20 caracteres" name="confirm" id="confirm" maxlength="20">
                 </div>
                 <div class="col-md-2">
-                    <span id="erroSenha" ></span>
+                    <span id="erroSenha" class=""></span>
                 </div>
             </div>
 
