@@ -8,6 +8,7 @@ $(document).ready( function() {
             data: 'cep=' + $('#cep').val(), /* dado que será enviado via POST */
             dataType: 'json', /* Tipo de transmissão */
             success: function(data){
+                console.log(data);
                 if(data.sucesso > 0){
                     $('#logradouro').val(data.logradouro);
                     $('#bairro').val(data.bairro);

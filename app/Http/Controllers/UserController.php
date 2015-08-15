@@ -116,4 +116,26 @@ class UserController extends Controller
     {
         //
     }
+
+    //funcao para preencher endereco a partir do CEP
+    public function cepFill(Request $request)
+    {
+        $cep = $request->input('cep');
+
+        $reg = simplexml_load_file("http://cep.republicavirtual.com.br/web_cep.php?formato=xml&cep=".$cep);
+
+        $dados['sucesso'] = (string) $reg->resultado;
+        $dados['logradouro'] = (string) $reg->tipo_logradouro.' '.$reg->logradouro;
+        $dados['bairro'] = (string) $reg->bairro;
+        $dados['cidade'] = (string) $reg->cidade;
+        $dados['estado'] = (string) $reg->uf;
+
+        echo json_encode($dados);
+        return response()->json(["sucesso" => $dados['sucesso'],
+            "logradouro" => $dados['logradouro'],
+            "bairro" => $dados['bairro'],
+            "cidade" => $dados['cidade'],
+            "estado" => $dados['estado']
+        ]);
+    }
 }

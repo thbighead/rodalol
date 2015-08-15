@@ -35,6 +35,30 @@ $(document).ready (
             }
         );
 
+        // ajax para preencher endereco de acordo com o CEP
+        $('#cep').blur(
+            function () {
+                $.ajax(
+                    {
+                        method: 'POST', /* Tipo da requisição */
+                        url:  'cadastrarusuario', /* URL que será chamada */
+                        dataType: 'json', /* Tipo de transmissão */
+                        data: $('#cep').val(), /* dado que será enviado via POST */
+
+                        success: function(data) {
+                            if(data.sucesso > 0) {
+                                $('#logradouro').val(data.logradouro);
+                                $('#bairro').val(data.bairro);
+                                $('#cidade').val(data.cidade);
+                                $('#estado').val(data.estado);
+                                $('#numero').focus();
+                            }
+                        }
+                    }
+                );
+            }
+        );
+
         // ajax para mostrar tela de sucesso
         $("#form").submit(
             function (e) {
