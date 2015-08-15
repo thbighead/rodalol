@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('cidade');
             $table->string('bairro');
             $table->string('logradouro');
-            $table->integer('numero', false, false)->unsigned();
+            $table->string('numero');
             $table->string('complemento')->nullable();
             $table->boolean('admPower')->default(false);
             $table->timestamps();

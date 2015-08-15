@@ -1,10 +1,40 @@
 $(document).ready (
     function () {
+        $("input[type=password][name='password']").change(
+            function () {
+                var submit = $('#enviaCadastro');
+                var senha = $("input[type=password][name='password']").val();
+                var confirmacaoSenha = $("input[type=password][name='confirm']").val();
+                if(senha != confirmacaoSenha) {
+                    submit.attr('disabled', 'disabled');
+                } else {
+                    submit.removeAttr('disabled');
+                }
+            }
+        );
+
+        $("input[type=password][name='confirm']").change(
+            function () {
+                var submit = $('#enviaCadastro');
+                var senha = $("input[type=password][name='password']").val();
+                var confirmacaoSenha = $("input[type=password][name='confirm']").val();
+                if(senha != confirmacaoSenha) {
+                    submit.attr('disabled', 'disabled');
+                } else {
+                    submit.removeAttr('disabled');
+                }
+
+            }
+        );
+
         $("#form").submit(
             function (e) {
+                var submit = $('#enviaCadastro');
+                submit.attr('disabled', 'disabled');
                 var nome = $('#nome').val();
                 var email = $("input[type=email][name='email']").val();
                 var senha = $("input[type=password][name='password']").val();
+                var confirmacaoSenha = $("input[type=password][name='confirm']").val();
                 var cpf = $('#cpf').val();
                 var sexo = $("input[name='sexo']").val();
                 var cep = $('#cep').val();
@@ -43,10 +73,13 @@ $(document).ready (
                         },
                         success: function(data) {
                             alert(data.msg);
+                            submit.removeAttr('disabled');
                         },
                         error: function(data) {
                             console.log('erro');
                             console.log(data.responseText);
+                            alert(data.msg);
+                            submit.removeAttr('disabled');
                         }
                     }
                 );
