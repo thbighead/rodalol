@@ -55,7 +55,8 @@ $(document).ready (
                 },
                 email: {
                     required: "Este campo é obrigatório",
-                    email: "E-mail inválido"
+                    email: "E-mail inválido",
+                    remote: "E-mail já está em uso"
                 },
                 password: {
                     required: "Este campo é obrigatório",
@@ -71,7 +72,8 @@ $(document).ready (
                 cpf: {
                     required: "Este campo é obrigatório",
                     maxlength: "Não pode ter mais de 14 caracteres",
-                    cpfBR: "CPF inválido"
+                    cpfBR: "CPF inválido",
+                    remote: "CPF já está em uso"
                 },
                 sexo: "Este campo é obrigatório",
                 cep: {

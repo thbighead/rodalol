@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 
 class UserController extends Controller
 {
@@ -136,6 +137,12 @@ class UserController extends Controller
     //funcao para checar se o email esta ou nao disponivel
     public function checkEmail(Request $request)
     {
+//        $email = $this->userModel->where('email', $request->input('email'));
+//        if ($email != null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
         return true;
     }
 
