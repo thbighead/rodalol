@@ -54,7 +54,7 @@
                         <h3 class="text-center color-green">R$45,90</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 1   -->
+            </div><!--  products 1   -->
 
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
@@ -66,7 +66,7 @@
                         <h3 class="text-center color-green">R$129,90</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 2   -->
+            </div><!--  products 2   -->
 
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
@@ -78,7 +78,7 @@
                         <h3 class="text-center color-green">R$10,50</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 3   -->
+            </div><!--  products 3   -->
 
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
@@ -90,7 +90,7 @@
                         <h3 class="text-center color-green">R$450,90</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 4   -->
+            </div><!--  products 4   -->
         </div><!--  row 1   -->
 
         <div class="row">
@@ -104,7 +104,7 @@
                         <h3 class="text-center color-green">R$27,80</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 5   -->
+            </div><!--  products 5   -->
 
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
@@ -116,7 +116,7 @@
                         <h3 class="text-center color-green">R$129,90</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 6   -->
+            </div><!--  products 6   -->
 
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
@@ -128,7 +128,7 @@
                         <h3 class="text-center color-green">R$22,90</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 7   -->
+            </div><!--  products 7   -->
 
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
@@ -140,7 +140,7 @@
                         <h3 class="text-center color-green">R$749,90</h3>
                     </div><!--  caption -->
                 </div><!--  thumbnail   -->
-            </div><!--  product 8   -->
+            </div><!--  products 8   -->
         </div><!--  .row 2 -->
     </div><!--    .container    -->
 </section><!--    #destaques    -->

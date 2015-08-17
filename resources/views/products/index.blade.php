@@ -1,22 +1,10 @@
 <h3>Produtos</h3>
 
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Qtd</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-        @foreach($data as $product):
-        <tr>
-            <td>$product->id;</td>
-            <td>$product->title;</td>
-            <td>$product->qtd;</td>
-            <td>#</td>
-        </tr>
-        @endforeach;
-    </tbody>
-</table>
+<ul id = "produtos">
+    @foreach($product as $products)
+        <li>
+            <h3>Titulo: {{$product->nome}}</h3>
+            <p>Categoria: {{$post->categoria}}</p>
+        </li>
+    @endforeach
+</ul>
