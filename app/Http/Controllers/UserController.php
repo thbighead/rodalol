@@ -51,7 +51,7 @@ class UserController extends Controller
         $input = $request->all();
 
         $this->validate($request, [
-            'nome' => "required | max:255 | regex:'/^[a-zA-Z][a-zA-Z ]*$/'",
+            'nome' => array("required", "max:255"),
             'email' => 'required | max:255 | email | unique:users',
             'password' => 'required | min:5 | max:20',
             'confirm' => 'required | min:5 | max:20 | same:password',
@@ -64,6 +64,8 @@ class UserController extends Controller
             'estado' => 'required | size:2 | in:AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO',
             'cidade' => 'required'
         ]);
+
+//        $input->input('cep') ltrim($input->input('cep'), ".-");
 
         $user = $this->userModel->fill($input);
         $user->password = bcrypt("$request->password");

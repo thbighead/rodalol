@@ -16,27 +16,39 @@ $(document).ready (
                 async: false,
                 data: {
                     recaptcha_challenge_field: Recaptcha.get_challenge(),
-                    recaptcha_response_field: Recaptcha.get_response()
+                    recaptcha_response_field: Recaptcha.get_response(),
+                    _token: function () {
+                        return $("input[name='_token']").val();
+                    },
+                    _method: function () {
+                        return $("input[name='_method']").val();
+                    }
                 },
                 success: function(resp) {
                     console.log(resp);
                     if (resp === "true") {
                         isCaptchaValid = true;
+                        Recaptcha.reload();
                     } else {
                         Recaptcha.reload();
                     }
+                },
+                error: function(data) {
+                    //alert('ajax error');
+                    console.log('erro checkCaptcha');
+                    console.log(data);
+                    console.log(data.responseText);
                 }
             });
-            console.log(isCaptchaValid);
             return isCaptchaValid;
         }), "");
 
         //Add validator for only letters with or without spaces
         jQuery.validator.addMethod("lettersonly", function(value, element) {
-            return this.optional(element) || /^[a-z\s]+$/i.test(value);
+            return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
         }, "Apenas letras");
 
-        //validador
+        //validador do formulario
         $('#form-cadastro').validate({
             // define as regras de validação
             rules: {
@@ -102,11 +114,7 @@ $(document).ready (
                 },
                 bairro: "required",
                 estado: "required",
-                cidade: "required",
-                recaptcha_response_field: {
-                    required: true,
-                    checkCaptcha: true
-                }
+                cidade: "required"
             },
             messages: {
                 nome: {
@@ -147,13 +155,26 @@ $(document).ready (
                 },
                 bairro: "Este campo é obrigatório",
                 estado: "Este campo é obrigatório",
-                cidade: "Este campo é obrigatório",
+                cidade: "Este campo é obrigatório"
+            }
+    });
+
+        //validador separado para o recaptcha (para ele nao ficar recarregando a toa)
+        $('#form-cadastro').validate({
+            rules: {
+                recaptcha_response_field: {
+                    required: true,
+                    checkCaptcha: true
+                }
+            },
+            messages:{
                 recaptcha_response_field: {
                     required: "Você precisa responder ao Recaptcha",
                     checkCaptcha: "Resposta incorreta. Tente de novo"
                 }
             },
             onkeyup: false,
+            onfocusout: false,
             onclick: false
         });
 
@@ -201,6 +222,7 @@ $(document).ready (
                 var nome = $('#nome').val();
                 var email = $("input[type=email][name='email']").val();
                 var senha = $("input[type=password][name='password']").val();
+                var confirm = $("input[type=password][name='confirm']").val();
                 var cpf = $('#cpf').val();
                 var sexo = $("input[name='sexo']").val();
                 var cep = $('#cep').val();
@@ -223,6 +245,7 @@ $(document).ready (
                             nome: nome,
                             sexo: sexo,
                             password: senha,
+                            confirm: confirm,
                             email: email,
                             cpf: cpf,
                             cep: cep,
@@ -249,7 +272,8 @@ $(document).ready (
                         error: function(data) {
                             //alert('ajax error');
                             submit.removeAttr('disabled');
-                            console.log('erro');
+                            console.log('erro ao cadastrar');
+                            console.log(data);
                             console.log(data.responseText);
                         }
                     }
