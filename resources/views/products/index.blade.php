@@ -1,10 +1,13 @@
 <h3>Produtos</h3>
 
 <ul>
-    @foreach($data as $product)
+    @foreach($products as $product)
         <li>
-            <h3>Title: {{$product->nome}}</h3>
-            <p>Category: {{$product->categoria}}</p>
+            <h3>Nome: {{$product->nome}}</h3>
+            <p>Categoria: {{$product->categoria}}</p>
+            <p>Especificação: {{$product->especificacao}}</p>
+            <p>Preço: {{$product->preco}}</p>
+            <p>qtdEstoque: {{$product->qtdEstoque}}</p>
         </li>
     @endforeach
 </ul>

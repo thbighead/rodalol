@@ -22,11 +22,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-//        $products = DB::table('products')->get();
-//	    $products = $this->productModel->all();
-//        $products = Product::all();
-//        return view('products.index', ['products' => $products]);
-//	    return view('products.index', compact('products'));
+        //Listar os produtos cadastrados
+        $products = \App\Product::all();
+
+        //return view('products.index', compact('products'));
+        return view('products.index')->with(['products'=>$products]);
     }
 
     /**
