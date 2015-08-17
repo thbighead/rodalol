@@ -49,25 +49,28 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        if(($request->input('recaptcha'))!=null){
-            $secret = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
-            $captcha = $request->input('recaptcha');
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
-            $arr = json_decode($rsp, TRUE);
-            if ($arr['success']){
-                $user = $this->userModel->fill($input);
-                $user->password = bcrypt("$request->password");
-                if($user->save()) {
-                    $msg = "Cadastro efetuado com sucesso!";
-                } else {
-                    $msg = "O cadastro falhou...";
-                }
-            } else {
-                $msg = "Erro ao carregar recaptcha, por favor atualize a página";
-            }
+
+        $this->validate($request, [
+            'nome' => "required | max:255 | regex:'/^[a-zA-Z][a-zA-Z ]*$/'",
+            'email' => 'required | max:255 | email | unique:users',
+            'password' => 'required | min:5 | max:20',
+            'confirm' => 'required | min:5 | max:20 | same:password',
+            'cpf' => 'required | min:11 | max:14 | unique:users',
+            'sexo' => 'required',
+            'cep' => 'required | min:8 | max:10',
+            'logradouro' => 'required',
+            'numero' => 'required | numeric',
+            'bairro' => 'required',
+            'estado' => 'required | size:2 | in:AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO',
+            'cidade' => 'required'
+        ]);
+
+        $user = $this->userModel->fill($input);
+        $user->password = bcrypt("$request->password");
+        if($user->save()) {
+            $msg = "Cadastro efetuado com sucesso!";
         } else {
-            $msg = "Por favor, prove que não é um robô respondendo ao recaptcha";
+            $msg = "O cadastro falhou...";
         }
 
         return response()->json(['msg' => $msg]);
@@ -131,24 +134,50 @@ class UserController extends Controller
         $dados['cidade'] = (string) $reg->cidade;
         $dados['estado'] = (string) $reg->uf;
 
-        return json_encode($dados);
+        return response()->json($dados);
+    }
+
+    //funcao para checar se o recaptcha foi respondido
+    public function checkRecaptcha(Request $request)
+    {
+        // Include the reCaptcha library
+        require_once app_path()."/lib/recaptchalib.php";
+
+        $privatekey = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
+
+        // reCaptcha looks for the POST to confirm
+        $resp = recaptcha_check_answer ($privatekey,
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["recaptcha_challenge_field"],
+            $_POST["recaptcha_response_field"]);
+
+        // If the entered code is correct it returns true (or false)
+        if ($resp->is_valid) {
+            return response()->json("true");
+        } else {
+            return response()->json("false");
+        }
     }
 
     //funcao para checar se o email esta ou nao disponivel
     public function checkEmail(Request $request)
     {
-//        $email = $this->userModel->where('email', $request->input('email'));
-//        if ($email != null) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-        return true;
+        $email = $this->userModel->where('email', $request->input('email'))->first();
+        if ($email != null) {
+            return response()->json(false);
+        } else {
+            return response()->json(true);
+        }
     }
 
     //funcao para checar se o cpf esta ou nao disponivel
     public function checkCPF(Request $request)
     {
-        return true;
+        $cpf = $this->userModel->where('cpf', $request->input('cpf'))->first();
+        if ($cpf != null) {
+            return response()->json(false);
+        } else {
+            return response()->json(true);
+        }
     }
 }

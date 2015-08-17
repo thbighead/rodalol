@@ -1,14 +1,14 @@
 @extends('templates.base')
 
 @section('js')
-    <!-- JQuery Validate -->
-    <script src="{{asset('lib/jquery.validate.min.js')}}" defer></script>
-    <!-- Additional methods for JQuery Validate -->
-    <script src="{{asset('lib/additional-methods.min.js')}}" defer></script>
-    <!-- cadastrarUsuario.js -->
-    <script src="{{asset('js/cadastrarUsuario.js')}}" defer></script>
     <!-- Recaptcha Google -->
-    <script src='https://www.google.com/recaptcha/api.js' defer></script>
+    <script src='http://www.google.com/recaptcha/api/js/recaptcha_ajax.js'></script>
+    <!-- JQuery Validate -->
+    <script src="{{asset('lib/jquery.validate.min.js')}}"></script>
+    <!-- Additional methods for JQuery Validate -->
+    <script src="{{asset('lib/additional-methods.min.js')}}"></script>
+    <!-- cadastrarUsuario.js -->
+    <script src="{{asset('js/cadastrarUsuario.js')}}"></script>
 @endsection
 
 @section('title', 'Cadastro')
@@ -129,7 +129,7 @@
                 <label for="estado" class="col-md-2 control-label">Estado:</label>
                 <div class="col-md-1">
                     <select class="estados form-control border-green" name="estado" id="estado">
-                        <option value=""></option>
+                        <option value="" selected></option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
@@ -148,7 +148,7 @@
                         <option value="PR">PR</option>
                         <option value="PE">PE</option>
                         <option value="PI">PI</option>
-                        <option value="RJ" selected>RJ</option>
+                        <option value="RJ">RJ</option>
                         <option value="RN">RN</option>
                         <option value="RS">RS</option>
                         <option value="RO">RO</option>
@@ -172,7 +172,8 @@
 
             {{--  Campo Recaptcha  --}}
             <div class="form-group">
-                <div class="col-md-10 col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
+                <div id="captcha" class="col-md-10 col-md-offset-2 g-recaptcha"></div>
+                <label for="captcha" class="error" id="captchaResponse"></label>
             </div>
 
             {{--  Campo Submeter Cadastro  --}}

@@ -1,11 +1,44 @@
-jQuery.validator.addMethod("lettersonly", function(value, element) {
-    return this.optional(element) || /^[a-z\s]+$/i.test(value);
-}, "Apenas letras");
-
 $(document).ready (
     function () {
+        // Displays the recpatcha form in the element with id "captcha"
+        Recaptcha.create("6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3", "captcha", {
+            theme: "clean"
+        });
+
+        //Add reCaptcha validator to form validation
+        jQuery.validator.addMethod("checkCaptcha", (function() {
+            var isCaptchaValid;
+            isCaptchaValid = false;
+            console.log('yeah-yeah');
+            $.ajax({
+                url: "checagemrecaptcha",
+                type: "POST",
+                async: false,
+                data: {
+                    recaptcha_challenge_field: Recaptcha.get_challenge(),
+                    recaptcha_response_field: Recaptcha.get_response()
+                },
+                success: function(resp) {
+                    console.log(resp);
+                    if (resp === "true") {
+                        isCaptchaValid = true;
+                    } else {
+                        Recaptcha.reload();
+                    }
+                }
+            });
+            console.log(isCaptchaValid);
+            return isCaptchaValid;
+        }), "");
+
+        //Add validator for only letters with or without spaces
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[a-z\s]+$/i.test(value);
+        }, "Apenas letras");
+
+        //validador
         $('#form-cadastro').validate({
-            // define as regras de validação
+            // define as regras de validaÃ§Ã£o
             rules: {
                 nome: {
                     required: true,
@@ -14,7 +47,18 @@ $(document).ready (
                 email: {
                     required: true,
                     email: true,
-                    remote: "disponibilidadeemail"
+                    remote: {
+                        type: "POST",
+                        url: "disponibilidadeemail",
+                        data: {
+                            _token: function () {
+                                return $("input[name='_token']").val();
+                            },
+                            _method: function () {
+                                return $("input[name='_method']").val();
+                            }
+                        }
+                    }
                 },
                 password: {
                     required: true,
@@ -25,13 +69,24 @@ $(document).ready (
                     required: true,
                     minlength: 5,
                     maxlength: 20,
-                    equalsTo: "#password"
+                    equalTo: "#password"
                 },
                 cpf: {
                     required: true,
                     maxlength: 14,
                     cpfBR: true,
-                    remote: "disponibilidadecpf"
+                    remote: {
+                        method: 'POST',
+                        url: "disponibilidadecpf",
+                        data: {
+                            _token: function () {
+                                return $("input[name='_token']").val();
+                            },
+                            _method: function () {
+                                return $("input[name='_method']").val();
+                            }
+                        }
+                    }
                 },
                 sexo: "required",
                 cep: {
@@ -47,92 +102,105 @@ $(document).ready (
                 },
                 bairro: "required",
                 estado: "required",
-                cidade: "required"
+                cidade: "required",
+                recaptcha_response_field: {
+                    required: true,
+                    checkCaptcha: true
+                }
             },
             messages: {
                 nome: {
-                    required: "Este campo é obrigatório"
+                    required: "Este campo Ã© obrigatÃ³rio"
                 },
                 email: {
-                    required: "Este campo é obrigatório",
-                    email: "E-mail inválido",
-                    remote: "E-mail já está em uso"
+                    required: "Este campo Ã© obrigatÃ³rio",
+                    email: "E-mail invÃ¡lido",
+                    remote: "E-mail jÃ¡ estÃ¡ em uso"
                 },
                 password: {
-                    required: "Este campo é obrigatório",
+                    required: "Este campo Ã© obrigatÃ³rio",
                     minlength: "Pelo menos 5 caracteres",
-                    maxlength: "Não pode ter mais de 20 caracteres"
+                    maxlength: "NÃ£o pode ter mais de 20 caracteres"
                 },
                 confirm: {
-                    required: "Este campo é obrigatório",
+                    required: "Este campo Ã© obrigatÃ³rio",
                     minlength: "Pelo menos 5 caracteres",
-                    maxlength: "Não pode ter mais de 20 caracteres",
-                    equalsTo: "As senhas estão diferentes"
+                    maxlength: "NÃ£o pode ter mais de 20 caracteres",
+                    equalTo: "As senhas estÃ£o diferentes"
                 },
                 cpf: {
-                    required: "Este campo é obrigatório",
-                    maxlength: "Não pode ter mais de 14 caracteres",
-                    cpfBR: "CPF inválido",
-                    remote: "CPF já está em uso"
+                    required: "Este campo Ã© obrigatÃ³rio",
+                    maxlength: "NÃ£o pode ter mais de 14 caracteres",
+                    cpfBR: "CPF invÃ¡lido",
+                    remote: "CPF jÃ¡ estÃ¡ em uso"
                 },
-                sexo: "Este campo é obrigatório",
+                sexo: "Este campo Ã© obrigatÃ³rio",
                 cep: {
-                    required: "Este campo é obrigatório",
-                    maxlength: "Não pode ter mais de 10 caracteres",
+                    required: "Este campo Ã© obrigatÃ³rio",
+                    maxlength: "NÃ£o pode ter mais de 10 caracteres",
                     minlength: "Pelo menos 8 caracteres"
                 },
-                logradouro: "Este campo é obrigatório",
+                logradouro: "Este campo Ã© obrigatÃ³rio",
                 numero: {
-                    required: "Este campo é obrigatório",
-                    digits: "Apenas números"
+                    required: "Este campo Ã© obrigatÃ³rio",
+                    digits: "Apenas nÃºmeros"
                 },
-                bairro: "Este campo é obrigatório",
-                estado: "Este campo é obrigatório",
-                cidade: "Este campo é obrigatório"
-            }
+                bairro: "Este campo Ã© obrigatÃ³rio",
+                estado: "Este campo Ã© obrigatÃ³rio",
+                cidade: "Este campo Ã© obrigatÃ³rio",
+                recaptcha_response_field: {
+                    required: "VocÃª precisa responder ao Recaptcha",
+                    checkCaptcha: "Resposta incorreta. Tente de novo"
+                }
+            },
+            onkeyup: false,
+            onclick: false
         });
 
         // ajax para preencher endereco de acordo com o CEP
-        //$('#cep').blur(
-        //    function () {
-        //        console.log($('#cep').val());
-        //        $.ajax(
-        //            {
-        //                method: 'POST', /* Tipo da requisição */
-        //                url:  'ceprequest', /* URL que será chamada */
-        //                dataType: 'json', /* Tipo de transmissão */
-        //                data: $('#cep').val(), /* dado que será enviado via POST */
-        //
-        //                success: function(data) {
-        //                    console.log(data);
-        //                    if(data.sucesso > 0) {
-        //                        $('#logradouro').val(data.logradouro);
-        //                        $('#bairro').val(data.bairro);
-        //                        $('#cidade').val(data.cidade);
-        //                        $('#estado').val(data.estado);
-        //                        $('#numero').focus();
-        //                    }
-        //                },
-        //                error: function(data) {
-        //                    console.log('erro');
-        //                    console.log(data);
-        //                    console.log(data.responseText);
-        //                    alert(data);
-        //                }
-        //            }
-        //        );
-        //    }
-        //);
+        $('#cep').blur(
+            function () {
+                $.ajax(
+                    {
+                        method: 'POST', /* Tipo da requisiÃ§Ã£o */
+                        url:  'ceprequest', /* URL que serÃ¡ chamada */
+                        dataType: 'json', /* Tipo de transmissÃ£o */
+                        data: {/* dado que serÃ¡ enviado via POST */
+                            cep: $('#cep').val(),
+                            _token: function () {
+                                return $("input[name='_token']").val();
+                            },
+                            _method: function () {
+                                return $("input[name='_method']").val();
+                            }
+                        },
+
+                        success: function(data) {
+                            if(data.sucesso > 0) {
+                                $('#logradouro').val(data.logradouro);
+                                $('#bairro').val(data.bairro);
+                                $('#cidade').val(data.cidade);
+                                $('#estado').val(data.estado);
+                            }
+                        },
+                        error: function(data) {
+                            console.log('erro');
+                            console.log(data);
+                            console.log(data.responseText);
+                        }
+                    }
+                );
+            }
+        );
 
         // ajax para mostrar tela de sucesso
         $("#form-cadastro").submit(
             function (e) {
-                var submit = $('#enviaCadastro');
+                var submit = $("#enviaCadastro");
                 submit.attr('disabled', 'disabled');
                 var nome = $('#nome').val();
                 var email = $("input[type=email][name='email']").val();
                 var senha = $("input[type=password][name='password']").val();
-                var confirmacaoSenha = $("input[type=password][name='confirm']").val();
                 var cpf = $('#cpf').val();
                 var sexo = $("input[name='sexo']").val();
                 var cep = $('#cep').val();
@@ -144,7 +212,6 @@ $(document).ready (
                 var cidade = $('#cidade').val();
                 var token = $("input[name='_token']").val();
                 var method = $("input[name='_method']").val();
-                var recaptcha = $("textarea[name='g-recaptcha-response']").val();
                 // posso validar modificar, fazer altas paradas com essas coisas
 
                 $.ajax(
@@ -165,23 +232,25 @@ $(document).ready (
                             logradouro: logradouro,
                             numero: numero,
                             complemento: complemento,
-                            recaptcha: recaptcha,
                             _token: token,
                             _method: method
                         },
                         success: function(data) {
                             alert(data.msg);
-                            $('#form-cadastro').each(
-                                function () {
-                                    this.reset();
-                                }
-                            );
+                            if (data.msg == "Cadastro efetuado com sucesso!") {
+                                $('#form-cadastro').each(
+                                    function () {
+                                        this.reset();
+                                    }
+                                );
+                            }
                             submit.removeAttr('disabled');
                         },
                         error: function(data) {
+                            //alert('ajax error');
+                            submit.removeAttr('disabled');
                             console.log('erro');
                             console.log(data.responseText);
-                            alert(data.msg);
                         }
                     }
                 );
