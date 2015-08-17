@@ -216,7 +216,7 @@ $(document).ready (
 
         // ajax para mostrar tela de sucesso
         $("#form-cadastro").submit(
-            function (e) {
+            function () {
                 var submit = $("#enviaCadastro");
                 submit.attr('disabled', 'disabled');
                 var nome = $('#nome').val();
@@ -267,18 +267,18 @@ $(document).ready (
                                     }
                                 );
                             }
-                            submit.removeAttr('disabled');
+                            Recaptcha.reload();
                         },
                         error: function(data) {
-                            //alert('ajax error');
-                            submit.removeAttr('disabled');
+                            alert(data.msg);
+                            Recaptcha.reload();
                             console.log('erro ao cadastrar');
                             console.log(data);
                             console.log(data.responseText);
                         }
                     }
                 );
-                e.preventDefault();
+                submit.removeAttr('disabled');
             }
         );
     }

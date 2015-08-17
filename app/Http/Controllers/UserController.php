@@ -65,9 +65,9 @@ class UserController extends Controller
             'cidade' => 'required'
         ]);
 
-//        $input->input('cep') ltrim($input->input('cep'), ".-");
-
         $user = $this->userModel->fill($input);
+//        $user->cep = preg_replace("/\D/", "", $request->cep);
+//        $user->cpf = preg_replace("/\D/", "", $request->cpf);
         $user->password = bcrypt("$request->password");
         if($user->save()) {
             $msg = "Cadastro efetuado com sucesso!";
