@@ -9,14 +9,23 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
+	private $productModel;
+
+	public function __construct(Product $productModel)
+	{
+		$this->productModel = $productModel;
+	}
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index()
+    public function index(Product $productModel)
     {
-        return view('produto');
+	    $products = $this->productModel->all();
+//        $products = Product::all;
+//        return view('products.index', ['products' => $product]);
+	    return view('products.index', compact('products'));
     }
 
     /**
@@ -26,7 +35,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('.create');
     }
 
     /**

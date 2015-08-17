@@ -1,7 +1,11 @@
 <?php
 
-//Verificar se será um grupo de rotas
+//Verificar se serï¿½ um grupo de rotas
 
 Route::get('produtos', ['as' => 'produtos', function () {
 return view("produto");
+}]);
+
+Route::get('lista', ['as' => 'adminProducts', function () {
+	return view("products.index");
 }]);
