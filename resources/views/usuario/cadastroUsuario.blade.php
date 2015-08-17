@@ -1,6 +1,10 @@
 @extends('templates.base')
 
 @section('js')
+    <!-- JQuery Validate -->
+    <script src="{{asset('lib/jquery.validate.min.js')}}" defer></script>
+    <!-- Additional methods for JQuery Validate -->
+    <script src="{{asset('lib/additional-methods.min.js')}}" defer></script>
     <!-- cadastrarUsuario.js -->
     <script src="{{asset('js/cadastrarUsuario.js')}}" defer></script>
     <!-- Recaptcha Google -->
@@ -21,9 +25,9 @@
     <div class="container">
         <h3>Cadastre-se:</h3>
 
-        <form class="form-horizontal" id="form">
+        <form class="form-horizontal" id="form-cadastro">
             {!! csrf_field() !!}
-            {!! method_field("put") !!}
+            {!! method_field("post") !!}
 
             {{--  Campo Nome  --}}
             <div class="form-group">
@@ -61,7 +65,7 @@
             <div class="form-group">
                 <label for="cpf" class="col-md-2 control-label">CPF:</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control border-green" placeholder="00000000000" name="cpf" id="cpf">
+                    <input type="text" class="form-control border-green" placeholder="00000000000" name="cpf" id="cpf" maxlength="14">
                 </div>
             </div>
 
@@ -84,7 +88,7 @@
             <div class="form-group">
                 <label for="cep" class="col-md-2 control-label">Cep:</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control border-green" placeholder="00000000" name="cep" id="cep" maxlength="8">
+                    <input type="text" class="form-control border-green" placeholder="00000000" name="cep" id="cep" maxlength="10">
                 </div>
             </div>
 

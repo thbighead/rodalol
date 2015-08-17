@@ -132,4 +132,16 @@ class UserController extends Controller
 
         return json_encode($dados);
     }
+
+    //funcao para checar se o email esta ou nao disponivel
+    public function checkEmail(Request $request)
+    {
+        return true;
+    }
+
+    //funcao para checar se o cpf esta ou nao disponivel
+    public function checkCPF(Request $request)
+    {
+        return true;
+    }
 }
