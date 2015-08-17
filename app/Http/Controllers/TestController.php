@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class TestController extends Controller
 {
-//	private $productModel;
-//
-//	public function __construct(Product $productModel)
-//	{
-//		$this->productModel = $productModel;
-//	}
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-//        $products = DB::table('products')->get();
-//	    $products = $this->productModel->all();
-//        $products = Product::all();
-//        return view('products.index', ['products' => $products]);
-//	    return view('products.index', compact('products'));
+        $test = Product::all();
+
+        return view('test', compact('test'));
     }
 
     /**
@@ -36,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('.create');
+        //
     }
 
     /**
@@ -47,18 +40,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = \App\Product::create(["nome",
-            "categoria",
-            "especificacao",
-            "preco",
-            "qtdEstoque"]);
-        if($product->save()) {
-            echo '<script type="text/javascript">alert("Cadastro efetuado com sucesso!");</script>';
-        } else {
-            echo '<script type="text/javascript">alert("O cadastro falhou...");</script>';
-        }
-
-        return ;// pagina de cadastro de produtos
+        //
     }
 
     /**
@@ -106,3 +88,4 @@ class ProductController extends Controller
         //
     }
 }
+
