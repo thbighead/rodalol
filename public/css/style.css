@@ -279,4 +279,11 @@ ADMIN
 .pdHeading {
 	padding-left: 15px;
 }
+.navbar-collapse {
+	padding-left: 0;
+	padding-right: 0;
+}
 
+.nav-pills>li.active>a {
+	background-color: #27b399;
+}
