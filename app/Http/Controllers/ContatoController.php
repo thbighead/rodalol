@@ -117,6 +117,11 @@ class ContatoController extends Controller
             'msg' => 'required'
         ]);
 
-        return $this->checkRecaptcha($request);
+        if($this->checkRecaptcha($request)){
+            //faço o que tiver de fazer, pois deu bom
+            return 'true';
+        }
+
+        return 'false';
     }
 }
