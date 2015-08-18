@@ -9,7 +9,6 @@ $(document).ready (
         jQuery.validator.addMethod("checkCaptcha", (function() {
             var isCaptchaValid;
             isCaptchaValid = false;
-            console.log('yeah-yeah');
             $.ajax({
                 url: "checagemrecaptcha",
                 type: "POST",
@@ -28,7 +27,6 @@ $(document).ready (
                     console.log(resp);
                     if (resp === "true") {
                         isCaptchaValid = true;
-                        Recaptcha.reload();
                     } else {
                         Recaptcha.reload();
                     }
@@ -114,7 +112,11 @@ $(document).ready (
                 },
                 bairro: "required",
                 estado: "required",
-                cidade: "required"
+                cidade: "required",
+                recaptcha_response_field: {
+                    required: true,
+                    checkCaptcha: true
+                }
             },
             messages: {
                 nome: {
@@ -155,27 +157,19 @@ $(document).ready (
                 },
                 bairro: "Este campo é obrigatório",
                 estado: "Este campo é obrigatório",
-                cidade: "Este campo é obrigatório"
-            }
-    });
-
-        //validador separado para o recaptcha (para ele nao ficar recarregando a toa)
-        $('#form-cadastro').validate({
-            rules: {
-                recaptcha_response_field: {
-                    required: true,
-                    checkCaptcha: true
-                }
-            },
-            messages:{
+                cidade: "Este campo é obrigatório",
                 recaptcha_response_field: {
                     required: "Você precisa responder ao Recaptcha",
                     checkCaptcha: "Resposta incorreta. Tente de novo"
                 }
             },
             onkeyup: false,
-            onfocusout: false,
-            onclick: false
+            onclick: false,
+            onfocusout: function (element, event) {
+                if (element.name !== "recaptcha_response_field") {
+                    $.validator.defaults.onfocusout.call(this, element, event);
+                }
+            }
         });
 
         // ajax para preencher endereco de acordo com o CEP
@@ -217,6 +211,7 @@ $(document).ready (
         // ajax para mostrar tela de sucesso
         $("#form-cadastro").submit(
             function (e) {
+                e.preventDefault();
                 var submit = $("#enviaCadastro");
                 submit.attr('disabled', 'disabled');
                 var nome = $('#nome').val();
@@ -267,18 +262,16 @@ $(document).ready (
                                     }
                                 );
                             }
-                            submit.removeAttr('disabled');
                         },
                         error: function(data) {
-                            //alert('ajax error');
-                            submit.removeAttr('disabled');
+                            alert("O cadastro falhou");
                             console.log('erro ao cadastrar');
                             console.log(data);
                             console.log(data.responseText);
                         }
                     }
                 );
-                e.preventDefault();
+                submit.removeAttr('disabled');
             }
         );
     }

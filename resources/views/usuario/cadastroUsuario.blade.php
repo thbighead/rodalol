@@ -173,7 +173,6 @@
             {{--  Campo Recaptcha  --}}
             <div class="form-group">
                 <div id="captcha" class="col-md-10 col-md-offset-2 g-recaptcha"></div>
-                <label for="captcha" class="error" id="captchaResponse"></label>
             </div>
 
             {{--  Campo Submeter Cadastro  --}}

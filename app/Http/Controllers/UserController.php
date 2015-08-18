@@ -49,6 +49,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        //nome precisa ser validado apra aceitar apenas letras e espaços
+//        $input->cep = preg_replace("/\D/", "", $request->cep);
+//        $input->cpf = preg_replace("/\D/", "", $request->cpf);
 
         $this->validate($request, [
             'nome' => array("required", "max:255"),
@@ -65,9 +68,9 @@ class UserController extends Controller
             'cidade' => 'required'
         ]);
 
-//        $input->input('cep') ltrim($input->input('cep'), ".-");
-
         $user = $this->userModel->fill($input);
+        $user->cep = preg_replace("/\D/", "", $request->cep);
+        $user->cpf = preg_replace("/\D/", "", $request->cpf);
         $user->password = bcrypt("$request->password");
         if($user->save()) {
             $msg = "Cadastro efetuado com sucesso!";
