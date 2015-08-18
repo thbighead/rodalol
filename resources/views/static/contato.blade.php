@@ -1,7 +1,7 @@
 @extends('templates.base')
 
 @section('js')
-        <!-- Recaptcha Google -->
+    <!-- Recaptcha Google -->
     <script src='http://www.google.com/recaptcha/api/js/recaptcha_ajax.js'></script>
     <!-- JQuery Validate -->
     <script src="{{asset('lib/jquery.validate.min.js')}}"></script>
@@ -16,10 +16,10 @@
 @section('content')
     <section class="acertaBreadcrumb bg-light">
         <div class="container">
-                    <ol class="breadcrumb tiraBorda">
-                        <li><a href="{{route('paginaInicial')}}">Home</a></li>
-                        <li class="active">Contato</li>
-                    </ol>
+            <ol class="breadcrumb tiraBorda">
+                <li><a href="{{route('paginaInicial')}}">Home</a></li>
+                <li class="active">Contato</li>
+            </ol>
         </div>{{--  .container --}}
     </section>{{--  #breadcrumb --}}
     <div class="container">
@@ -31,7 +31,8 @@
 
             <div class="form-group">
                 <label id="status" class="col-md-3 control-label"></label>
-            </div>
+            </div>{{-- Campo Status --}}
+
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">

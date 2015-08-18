@@ -22,9 +22,7 @@ $(document).ready (
                 var estado = $('#estado').val();
                 var msg = $('#msg').val();
                 var challenge = $('#recaptcha_challenge_field').val();
-                console.log(challenge);
                 var response = $('#recaptcha_response_field').val();
-                console.log(response);
                 var token = $("input[name='_token']").val();
                 var method = $("input[name='_method']").val();
                 // posso validar modificar, fazer altas paradas com essas coisas
@@ -46,9 +44,8 @@ $(document).ready (
                             _method: method
                         },
                         success: function(data) {
-                            console.log('deu bom');
                             console.log(data);
-                            if (data === "true") {
+                            if (data) {
                                 //alert("Mensagem enviada com sucesso!");
                                 $('#status').text("Mensagem enviada com sucesso!");
                                 $('#form-contato').each(
@@ -58,8 +55,7 @@ $(document).ready (
                                 );
                                 window.scrollTo(0, 0);
                             } else {
-                                $('#recaptcha_response_field-error').text("Errado, tente de novo.");
-                                $('#recaptcha_response_field').focus();
+                                //alert('aehoooo');
                                 Recaptcha.reload();
                             }
                         },
@@ -107,12 +103,7 @@ $(document).ready (
                 recaptcha_response_field: "Você precisa responder ao Recaptcha"
             },
             onkeyup: false,
-            onclick: false,
-            onfocusout: function (element, event) {
-                if (element.name !== "recaptcha_response_field") {
-                    $.validator.defaults.onfocusout.call(this, element, event);
-                }
-            }
+            onclick: false
         });
     }
 );

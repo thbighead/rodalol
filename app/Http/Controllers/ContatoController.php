@@ -101,9 +101,9 @@ class ContatoController extends Controller
 
         // If the entered code is correct it returns true (or false)
         if ($resp->is_valid) {
-            return response()->json("true");
+            return true;
         } else {
-            return response()->json("false");
+            return false;
         }
     }
 

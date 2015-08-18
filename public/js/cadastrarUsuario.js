@@ -5,42 +5,6 @@ $(document).ready (
             theme: "clean"
         });
 
-        //Add reCaptcha validator to form validation
-        jQuery.validator.addMethod("checkCaptcha", (function() {
-            var isCaptchaValid;
-            isCaptchaValid = false;
-            $.ajax({
-                url: "checagemrecaptcha",
-                type: "POST",
-                async: false,
-                data: {
-                    recaptcha_challenge_field: Recaptcha.get_challenge(),
-                    recaptcha_response_field: Recaptcha.get_response(),
-                    _token: function () {
-                        return $("input[name='_token']").val();
-                    },
-                    _method: function () {
-                        return $("input[name='_method']").val();
-                    }
-                },
-                success: function(resp) {
-                    console.log(resp);
-                    if (resp === "true") {
-                        isCaptchaValid = true;
-                    } else {
-                        Recaptcha.reload();
-                    }
-                },
-                error: function(data) {
-                    //alert('ajax error');
-                    console.log('erro checkCaptcha');
-                    console.log(data);
-                    console.log(data.responseText);
-                }
-            });
-            return isCaptchaValid;
-        }), "");
-
         //Add validator for only letters with or without spaces
         jQuery.validator.addMethod("lettersonly", function(value, element) {
             return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
@@ -48,6 +12,78 @@ $(document).ready (
 
         //validador do formulario
         $('#form-cadastro').validate({
+            //o que fazer se tudo for válido
+            submitHandler: function (form) {
+                var submit = $("#enviaCadastro");
+                submit.attr('disabled', 'disabled');
+                var nome = $('#nome').val();
+                var email = $("input[type=email][name='email']").val();
+                var senha = $("input[type=password][name='password']").val();
+                var confirm = $("input[type=password][name='confirm']").val();
+                var cpf = $('#cpf').val();
+                var sexo = $("input[name='sexo']").val();
+                var cep = $('#cep').val();
+                var logradouro = $('#logradouro').val();
+                var numero = $('#numero').val();
+                var complemento = $('#complemento').val();
+                var bairro = $('#bairro').val();
+                var estado = $('#estado').val();
+                var cidade = $('#cidade').val();
+                var challenge = $('#recaptcha_challenge_field').val();
+                var response = $('#recaptcha_response_field').val();
+                var token = $("input[name='_token']").val();
+                var method = $("input[name='_method']").val();
+                // posso validar modificar, fazer altas paradas com essas coisas
+
+                $.ajax(
+                    {
+                        method: "POST",
+                        url: 'sendsignin',
+                        dataType: "json",
+                        data: {
+                            nome: nome,
+                            sexo: sexo,
+                            password: senha,
+                            confirm: confirm,
+                            email: email,
+                            cpf: cpf,
+                            cep: cep,
+                            estado: estado,
+                            cidade: cidade,
+                            bairro: bairro,
+                            logradouro: logradouro,
+                            numero: numero,
+                            complemento: complemento,
+                            recaptcha_challenge_field: challenge,
+                            recaptcha_response_field: response,
+                            _token: token,
+                            _method: method
+                        },
+                        success: function(data) {
+                            console.log('deu bom');
+                            console.log(data);
+                            if (data) {
+                                $('#status').text("Cadastro efetuado com sucesso!");
+                                $('#form-cadastro').each(
+                                    function () {
+                                        this.reset();
+                                    }
+                                );
+                                window.scrollTo(0, 0);
+                            } else {
+                                Recaptcha.reload();
+                            }
+                        },
+                        error: function(data) {
+                            alert("O cadastro falhou");
+                            console.log('erro ao cadastrar');
+                            console.log(data);
+                            console.log(data.responseText);
+                        }
+                    }
+                );
+                submit.removeAttr('disabled');
+            },
             // define as regras de validação
             rules: {
                 nome: {
@@ -113,10 +149,7 @@ $(document).ready (
                 bairro: "required",
                 estado: "required",
                 cidade: "required",
-                recaptcha_response_field: {
-                    required: true,
-                    checkCaptcha: true
-                }
+                recaptcha_response_field: "required"
             },
             messages: {
                 nome: {
@@ -158,23 +191,19 @@ $(document).ready (
                 bairro: "Este campo é obrigatório",
                 estado: "Este campo é obrigatório",
                 cidade: "Este campo é obrigatório",
-                recaptcha_response_field: {
-                    required: "Você precisa responder ao Recaptcha",
-                    checkCaptcha: "Resposta incorreta. Tente de novo"
-                }
+                recaptcha_response_field: "Você precisa responder ao Recaptcha"
             },
             onkeyup: false,
-            onclick: false,
-            onfocusout: function (element, event) {
-                if (element.name !== "recaptcha_response_field") {
-                    $.validator.defaults.onfocusout.call(this, element, event);
-                }
-            }
+            onclick: false
         });
 
         // ajax para preencher endereco de acordo com o CEP
         $('#cep').blur(
             function () {
+                $('#logradouro').attr('disabled', 'disabled');
+                $('#bairro').attr('disabled', 'disabled');
+                $('#cidade').attr('disabled', 'disabled');
+                $('#estado').attr('disabled', 'disabled');
                 $.ajax(
                     {
                         method: 'POST', /* Tipo da requisição */
@@ -199,79 +228,24 @@ $(document).ready (
                             }
                         },
                         error: function(data) {
-                            console.log('erro');
+                            console.log('erro cpfFill');
                             console.log(data);
                             console.log(data.responseText);
                         }
                     }
                 );
-            }
-        );
-
-        // ajax para mostrar tela de sucesso
-        $("#form-cadastro").submit(
-            function (e) {
-                e.preventDefault();
-                var submit = $("#enviaCadastro");
-                submit.attr('disabled', 'disabled');
-                var nome = $('#nome').val();
-                var email = $("input[type=email][name='email']").val();
-                var senha = $("input[type=password][name='password']").val();
-                var confirm = $("input[type=password][name='confirm']").val();
-                var cpf = $('#cpf').val();
-                var sexo = $("input[name='sexo']").val();
-                var cep = $('#cep').val();
-                var logradouro = $('#logradouro').val();
-                var numero = $('#numero').val();
-                var complemento = $('#complemento').val();
-                var bairro = $('#bairro').val();
-                var estado = $('#estado').val();
-                var cidade = $('#cidade').val();
-                var token = $("input[name='_token']").val();
-                var method = $("input[name='_method']").val();
-                // posso validar modificar, fazer altas paradas com essas coisas
-
-                $.ajax(
-                    {
-                        method: "POST",
-                        url: 'sendsignin',
-                        dataType: "json",
-                        data: {
-                            nome: nome,
-                            sexo: sexo,
-                            password: senha,
-                            confirm: confirm,
-                            email: email,
-                            cpf: cpf,
-                            cep: cep,
-                            estado: estado,
-                            cidade: cidade,
-                            bairro: bairro,
-                            logradouro: logradouro,
-                            numero: numero,
-                            complemento: complemento,
-                            _token: token,
-                            _method: method
-                        },
-                        success: function(data) {
-                            alert(data.msg);
-                            if (data.msg == "Cadastro efetuado com sucesso!") {
-                                $('#form-cadastro').each(
-                                    function () {
-                                        this.reset();
-                                    }
-                                );
-                            }
-                        },
-                        error: function(data) {
-                            alert("O cadastro falhou");
-                            console.log('erro ao cadastrar');
-                            console.log(data);
-                            console.log(data.responseText);
-                        }
-                    }
-                );
-                submit.removeAttr('disabled');
+                $('#logradouro').removeAttr('disabled');
+                $('#bairro').removeAttr('disabled');
+                $('#cidade').removeAttr('disabled');
+                $('#estado').removeAttr('disabled');
+                $('#logradouro-error').text('');
+                $('#bairro-error').text('');
+                $('#cidade-error').text('');
+                $('#estado-error').text('');
+                $('#logradouro-error').attr('style', 'display: none');
+                $('#bairro-error').attr('style', 'display: none');
+                $('#cidade-error').attr('style', 'display: none');
+                $('#estado-error').attr('style', 'display: none');
             }
         );
     }

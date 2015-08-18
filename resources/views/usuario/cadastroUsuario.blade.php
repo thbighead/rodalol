@@ -29,6 +29,11 @@
             {!! csrf_field() !!}
             {!! method_field("post") !!}
 
+            {{-- Campo Status --}}
+            <div class="form-group">
+                <label id="status" class="col-md-3 control-label"></label>
+            </div>
+
             {{--  Campo Nome  --}}
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>

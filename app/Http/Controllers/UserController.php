@@ -68,17 +68,16 @@ class UserController extends Controller
             'cidade' => 'required | max:255'
         ]);
 
-        $user = $this->userModel->fill($input);
-        $user->cep = preg_replace("/\D/", "", $request->cep);
-        $user->cpf = preg_replace("/\D/", "", $request->cpf);
-        $user->password = bcrypt("$request->password");
-        if($user->save()) {
-            $msg = "Cadastro efetuado com sucesso!";
+        if ($this->checkRecaptcha($request)) {
+            $user = $this->userModel->fill($input);
+            $user->cep = preg_replace("/\D/", "", $request->cep);
+            $user->cpf = preg_replace("/\D/", "", $request->cpf);
+            $user->password = bcrypt("$request->password");
+            $user->save();
+            return 'true';
         } else {
-            $msg = "O cadastro falhou...";
+            return 'false';
         }
-
-        return response()->json(['msg' => $msg]);
     }
 
     /**
@@ -158,9 +157,9 @@ class UserController extends Controller
 
         // If the entered code is correct it returns true (or false)
         if ($resp->is_valid) {
-            return response()->json("true");
+            return true;
         } else {
-            return response()->json("false");
+            return false;
         }
     }
 
