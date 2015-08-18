@@ -8,7 +8,8 @@
         </ul>
     @endif
 
-{!! Form::open(['url'=>'admin/produtos/$product->id/update', 'method'=>'put']) !!}
+{{--{!! Form::open(['url'=>'admin/produtos/update/'.$product->id, 'method'=>'put']) !!}--}}
+{!! Form::open(array('method'=>'put', 'action' => array('ProductController@update', $product->id))) !!}
 
     {!! Form::label('nome', 'Nome:') !!}
     {!! Form::text('nome', $product->nome) !!}

@@ -106,25 +106,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        $product = Product::find($id)->first()->update([
-//	        'nome'          => $request-> nome,
-//	        'categoria'     => $request-> categoria,
-//	        'especificacao' => $request-> especificacao,
-//	        'preco'         => $request-> preco,
-//	        'qtdEstoque'    => $request-> qtdEstoque
-//	        ]);
-
-//	    Product::where("id","=",$request->id)->first()->update([
-//		    'nome'          => $request-> nome,
-//		    'categoria'     => $request-> categoria,
-//		    'especificacao' => $request-> especificacao,
-//		    'preco'         => $request-> preco,
-//		    'qtdEstoque'    => $request-> qtdEstoque
-//	    ]);
-
-		$product = Product::findOrFail($id);
-//	    $product->update($request->all());
-
+	    $product = Product::find($id)->update($request->all());
 //	    $product = $this->productModel->find($id)->update($request->all());
 
 	    return redirect('admin/produtos');

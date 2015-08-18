@@ -32,13 +32,13 @@ Route::get('admin/produtos/{id}/destroy', [
 	'uses'  => 'ProductController@destroy'
 ]);
 //Editar -> trazer form
-Route::get('admin/produtos/{id}/edit', [
+Route::get('admin/produtos/edit/{id}', [
 	'as'    => 'EditaProduto',
 	'uses'  => 'ProductController@edit'
 	]
 );
 //Editar -> fazer alteraçao dos dados no BD
-Route::put('admin/produtos/{id}/update', [
+Route::put('admin/produtos/update/{id}', [
 	'as'    => 'AtualizaProduto',
 	'uses'  => 'ProductController@update'
 	]
