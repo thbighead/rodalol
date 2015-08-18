@@ -49,7 +49,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        //nome precisa ser validado apra aceitar apenas letras e espaços
+        //nome precisa ser validado para aceitar apenas letras e espaços
 //        $input->cep = preg_replace("/\D/", "", $request->cep);
 //        $input->cpf = preg_replace("/\D/", "", $request->cpf);
 
@@ -59,13 +59,13 @@ class UserController extends Controller
             'password' => 'required | min:5 | max:20',
             'confirm' => 'required | min:5 | max:20 | same:password',
             'cpf' => 'required | min:11 | max:14 | unique:users',
-            'sexo' => 'required',
+            'sexo' => 'required | size:1 | in:M,F',
             'cep' => 'required | min:8 | max:10',
-            'logradouro' => 'required',
+            'logradouro' => 'required | max:255',
             'numero' => 'required | numeric',
-            'bairro' => 'required',
+            'bairro' => 'required | max:255',
             'estado' => 'required | size:2 | in:AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO',
-            'cidade' => 'required'
+            'cidade' => 'required | max:255'
         ]);
 
         $user = $this->userModel->fill($input);

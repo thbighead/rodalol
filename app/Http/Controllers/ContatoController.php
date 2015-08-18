@@ -37,24 +37,7 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset($_POST['g-recaptcha-response'])&&($_POST['g-recaptcha-response'])){
-            $secret = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
-            $captcha = $_POST['g-recaptcha-response'];
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=$ip");
-            $arr = json_decode($rsp, TRUE);
-            if ($arr['success']){
-                $dadosContato = array($request->nome, $request->email, $request->sexo, $request->estado);
-                $msg = $request->msg;
-                echo '<script type="text/javascript">alert("Mensagem enviada com sucesso!");</script>';
-            } else {
-                echo '<script type="text/javascript">alert("Erro ao carregar recaptcha, por favor atualize a página");</script>';
-            };
-        } else {
-            echo '<script type="text/javascript">alert("Por favor, prove que não é um robô respondendo ao recaptcha");</script>';
-        };
-
-        return view('static.contato');
+        //
     }
 
     /**
@@ -100,5 +83,40 @@ class ContatoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //funcao para checar se o recaptcha foi respondido
+    public function checkRecaptcha(Request $request)
+    {
+        // Include the reCaptcha library
+        require_once app_path()."/lib/recaptchalib.php";
+
+        $privatekey = "6LcHIAsTAAAAAAXWdv0xdMYNfmYPBMILZVRTkMaK";
+
+        // reCaptcha looks for the POST to confirm
+        $resp = recaptcha_check_answer ($privatekey,
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["recaptcha_challenge_field"],
+            $_POST["recaptcha_response_field"]);
+
+        // If the entered code is correct it returns true (or false)
+        if ($resp->is_valid) {
+            return response()->json("true");
+        } else {
+            return response()->json("false");
+        }
+    }
+
+    public function sendMail (Request $request)
+    {
+        $this->validate($request, [
+            'nome' => array("required", "max:255"),
+            'email' => 'required | max:255 | email',
+            'sexo' => 'required | size:1 | in:M,F',
+            'estado' => 'required | size:2 | in:AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO',
+            'msg' => 'required'
+        ]);
+
+        return $this->checkRecaptcha($request);
     }
 }

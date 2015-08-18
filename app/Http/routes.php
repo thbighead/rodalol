@@ -19,7 +19,8 @@ Route::any('/', ['as' => 'paginaInicial', function () {
 }]);
 
 Route::get('contato', ['as' => 'contato', 'uses' => 'ContatoController@index']);
-Route::post('contato', ['as' => 'enviaContato', 'uses' => 'ContatoController@store']);
+Route::post('checagemrecaptchacontato', ['as' => 'checaRecaptcha', 'uses' => 'ContatoController@checkRecaptcha']);
+Route::post('enviar', ['as' => 'enviaContato', 'uses' => 'ContatoController@sendMail']);
 
 Route::get('quemsomos', ['as' => 'quemSomos', function () {
     return view("static.quemSomos");

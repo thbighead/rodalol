@@ -1,8 +1,14 @@
 @extends('templates.base')
 
 @section('js')
-    <!-- Recaptcha Google -->
-    <script src='https://www.google.com/recaptcha/api.js' defer></script>
+        <!-- Recaptcha Google -->
+    <script src='http://www.google.com/recaptcha/api/js/recaptcha_ajax.js'></script>
+    <!-- JQuery Validate -->
+    <script src="{{asset('lib/jquery.validate.min.js')}}"></script>
+    <!-- Additional methods for JQuery Validate -->
+    <script src="{{asset('lib/additional-methods.min.js')}}"></script>
+    <!-- enviarContato.js -->
+    <script src="{{asset('js/enviarContato.js')}}"></script>
 @endsection
 
 @section('title', 'Contato')
@@ -19,9 +25,13 @@
     <div class="container">
         <h3>Mande uma mensagem para a gente:</h3>
 
-        <form action="{{action('ContatoController@store')}}" class="form-horizontal" method="post">
+        <form id="form-contato" class="form-horizontal">
             {!! csrf_field() !!}
+            {!! method_field("post") !!}
 
+            <div class="form-group">
+                <label id="status" class="col-md-3 control-label"></label>
+            </div>
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
@@ -40,10 +50,10 @@
                 <label class="col-md-2 control-label">Sexo:</label>
                 <div class="col-md-4">
                     <label class="radio-inline" for="M">
-                        <input type="radio" name="sexo" id="M" checked>Masculino
+                        <input type="radio" name="sexo" id="M" value="M" checked>Masculino
                     </label>
                     <label class="radio-inline" for="F">
-                        <input type="radio" name="sexo" id="F">Feminino
+                        <input type="radio" name="sexo" id="F" value="F">Feminino
                     </label>
                 </div>
             </div>{{--  Campo Sexo  --}}
@@ -92,12 +102,12 @@
             </div>{{--  Campo Mensagem  --}}
 
             <div class="form-group">
-                <div class="col-md-10 col-md-offset-2 g-recaptcha" data-sitekey="6LcHIAsTAAAAAM6DFPZA2JsyM0Wm2h69VTkO-Jp3"></div>
+                <div id="captcha" class="col-md-10 col-md-offset-2 g-recaptcha"></div>
             </div>{{--  Campo Recaptcha  --}}
 
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-2">
-                    <input type="submit" class="btn btn-default" value="Enviar">
+                    <input type="submit" class="btn btn-lg noBG border-green" id="enviaMensagem" value="Enviar">
                 </div>
             </div>{{--  Campo Enviar  --}}
         </form>
