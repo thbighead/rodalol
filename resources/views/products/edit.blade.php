@@ -1,33 +1,59 @@
-<h3>Editar Produto: {{$product->nome}}</h3>
+@extends('templates.admin.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
-@if ($errors->any())
-    <ul class="alert alert-warning">
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+@section('title', 'Admin | Alterar Produto') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
-{{--{!! Form::open(['url'=>'admin/produtos/update/'.$product->id, 'method'=>'put']) !!}--}}
-{!! Form::open(array('method'=>'put', 'action' => array('ProductController@update', $product->id))) !!}
+@section('content') {{--conteudo da pagina--}}
 
-    {!! Form::label('nome', 'Nome:') !!}
-    {!! Form::text('nome', $product->nome) !!}
-<br>
-    {!! Form::label('categoria', 'Categoria:') !!}
-    {!! Form::text('categoria', $product->categoria) !!}
-<br>
-    {!! Form::label('especificacao', 'Especificação:') !!}
-    {!! Form::text('especificacao', $product->especificacao) !!}
-<br>
-    {!! Form::label('preco', 'Preço:') !!}
-    {!! Form::text('preco', $product->preco) !!}
-<br>
-    {!! Form::label('qtdEstoque', 'Qtd Estoque:') !!}
-    {!! Form::text('qtdEstoque', $product->qtdEstoque) !!}
-<br>
-    {!! Form::submit('Editar Produto') !!}
+    {{-- Content --}}
+    <div class="container">
+        <h1 class="verticalMarginModal">Editar Produto com ID: {{$product->id}}</h1>
 
-    {!! Form::close() !!}
+        {{--Btn para listagem de produtos--}}
+        <a href="{{ route('ListProduto') }}" class="btn btn-lg btn-primary verticalMarginModal">Lista de Produtos</a>
 
-{{dd($product)}};
+        @if ($errors->any())
+            <ul class="alert alert-warning">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+        {{--{!! Form::open(['url'=>'admin/produtos/update/'.$product->id, 'method'=>'put']) !!}--}}
+        {!! Form::open(array('method'=>'put', 'action' => array('ProductController@update', $product->id))) !!}
+            <div class="form-group">
+                {!! Form::label('nome', 'Nome:') !!}
+                {!! Form::text('nome', $product->nome, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('categoria', 'Categoria:') !!}
+                {!! Form::text('categoria', $product->categoria, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('especificacao', 'Especificação:') !!}
+                {!! Form::text('especificacao', $product->especificacao, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('preco', 'Preço:') !!}
+                {!! Form::text('preco', $product->preco, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('qtdEstoque', 'Quantidade em Estoque:') !!}
+                {!! Form::text('qtdEstoque', $product->qtdEstoque, ['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::submit('Editar Produto', ['class'=>'btn btn-lg btn-primary']) !!}
+            </div>
+
+            {!! Form::close() !!}
+
+        {{--{{dd($product)}};--}}
+
+    </div>
+
+@endsection

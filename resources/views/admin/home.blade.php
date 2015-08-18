@@ -100,21 +100,21 @@
 
             <div class="col-md-4 col-sm-4">
                 <h4 class="text-center admin-box">Usuários&nbsp;&nbsp;<span class="badge">347</span>&nbsp;&nbsp;</h4>
-                <button class="btn btn-success btn-block" type="button">
+                <button class="btn btn-primary btn-block" type="button">
                     <a href="#">Ver Detalhes</a>
                 </button>
             </div>
 
             <div class="col-md-4 col-sm-4">
                 <h4 class="text-center admin-box">Vendas&nbsp;&nbsp;<span class="badge">1034</span>&nbsp;&nbsp;</h4>
-                <button class="btn btn-success btn-block" type="button">
+                <button class="btn btn-primary btn-block" type="button">
                     <a href="#">Ver Detalhes</a>
                 </button>
             </div>
 
             <div class="col-md-4 col-sm-4">
                 <h4 class="text-center admin-box">Pedidos&nbsp;&nbsp;<span class="badge">894</span>&nbsp;&nbsp;</h4>
-                <button class="btn btn-success btn-block" type="button">
+                <button class="btn btn-primary btn-block" type="button">
                     <a href="#">Ver Detalhes</a>
                 </button>
             </div>

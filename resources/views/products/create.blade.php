@@ -1,58 +1,56 @@
-<h3>Novo Produto</h3>
+@extends('templates.admin.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
-@if ($errors->any())
-    <ul>
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
+@section('title', 'Admin | Cadastrar Produto') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
-{!! Form::open(['url'=>'admin/produtos/store']) !!}
+@section('content') {{--conteudo da pagina--}}
 
-        {!! Form::label('nome', 'Nome:') !!}
-        {!! Form::text('nome', null) !!}
-<br>
-        {!! Form::label('categoria', 'Categoria:') !!}
-        {!! Form::text('categoria', null) !!}
-<br>
-        {!! Form::label('especificacao', 'Especificação:') !!}
-        {!! Form::text('especificacao', null) !!}
-<br>
-        {!! Form::label('preco', 'Preço:') !!}
-        {!! Form::text('preco', null) !!}
-<br>
-        {!! Form::label('qtdEstoque', 'Qtd Estoque:') !!}
-        {!! Form::text('qtdEstoque', null) !!}
-<br>
-        {!! Form::submit('Add Produto') !!}
+    {{-- Content --}}
+    <div class="container">
+        <h1 class="verticalMarginModal">Novo Produto</h1>
 
-{!! Form::close() !!}
+        {{--Btn para listagem de produtos--}}
+        <a href="{{ route('ListProduto') }}" class="btn btn-lg btn-primary verticalMarginModal">Lista de Produtos</a>
 
-{{--<form action="{!! action('ProductController@store') !!}" method="post">--}}
-    {{--{!! csrf_field() !!}--}}
-    {{--{!! method_field("post") !!}--}}
-    {{--<label for="nome">Nome: </label>--}}
-    {{--<input type="text" name="nome" id="name">--}}
+        @if ($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
 
-    {{--<label for="categoria">Categoria: </label>--}}
-    {{--<input type="text" name="categoria" id="category">--}}
+        {{--{!! Form::open(['url'=>'admin/produtos/store']) !!}--}}
+        {!! Form::open(array('action' => array('ProductController@store'))) !!}
+            <div class="form-group">
+                {!! Form::label('nome', 'Nome:') !!}
+                {!! Form::text('nome', null, ['class'=>'form-control']) !!}
+            </div>
 
-    {{--<label for="especificacao">Especificação: </label>--}}
-    {{--<input type="text" name="especificacao" id="description"></input>--}}
+            <div class="form-group">
+                {!! Form::label('categoria', 'Categoria:') !!}
+                {!! Form::text('categoria', null, ['class'=>'form-control']) !!}
+            </div>
 
-    {{--<label for="preco">Preço: </label>--}}
-    {{--<input type="text" name="preco" id="price">--}}
+            <div class="form-group">
+                {!! Form::label('especificacao', 'Especificação:') !!}
+                {!! Form::textarea('especificacao', null, ['class'=>'form-control', 'rows' => '5']) !!}
+                {{-- ['size' => '20x5']--}}
+            </div>
 
-    {{--<label for="qtdEstoque">Qtd Estoque: </label>--}}
-    {{--<input type="text" name="qtdEstoque" id="qtd">--}}
+            <div class="form-group">
+                {!! Form::label('preco', 'Preço:') !!}
+                {!! Form::text('preco', null, ['class'=>'form-control']) !!}
+            </div>
 
-    {{--<input type="submit" value="Enviar" id="CadastraProduto">--}}
-{{--</form>--}}
+            <div class="form-group">
+                {!! Form::label('qtdEstoque', 'Qtd Estoque:') !!}
+                {!! Form::text('qtdEstoque', null, ['class'=>'form-control']) !!}
+            </div>
 
+            <div class="form-group">
+                {!! Form::submit('Cadastrar Produto', ['class'=>'btn btn-lg btn-primary']) !!}
+            </div>
+        {!! Form::close() !!}
 
-
-
-{{--<!-- Latest compiled and minified JQuery -->--}}
-{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
-{{--<script src = "{{ asset('js/product.js') }}"></script>--}}
+    </div>
+@endsection

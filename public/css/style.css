@@ -264,9 +264,14 @@ ADMIN
 */
 
 /*BOOTSTRAP*/
-.btn-success {
-	border-radius: 0;
+/*.btn-success {*/
+	/*border-radius: 0;*/
+	/*background-color: #27b399;*/
+/*}*/
+.btn-primary {
 	background-color: #27b399;
+	border: none;
+	border-radius: 0;
 }
 /*CRIADAS*/
 .admin-box {
@@ -286,4 +291,17 @@ ADMIN
 
 .nav-pills>li.active>a {
 	background-color: #27b399;
+}
+
+.noPadding { /*padding top da navbar-nav*/
+	padding-top: 0;
+}
+
+
+/* Sortable tables */
+table.sortable thead {
+	background-color:#eee;
+	color:#666666;
+	font-weight: bold;
+	cursor: default;
 }

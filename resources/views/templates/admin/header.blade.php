@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-inverse top-header verticalMargin">
+    <nav class="navbar navbar-inverse verticalMargin bg-dark">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -15,7 +15,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse-admin">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right noPadding">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span>
