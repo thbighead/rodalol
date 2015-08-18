@@ -67,7 +67,8 @@ class ProductController extends Controller
 	    ]);
 
 	    Product::Create($input);
-	    return redirect('admin/produtos');//retorna pra pagina de listagem de produtos
+	    return redirect()->route('ListProduto');
+//	    return redirect('admin/produtos');//retorna pra pagina de listagem de produtos
 
 
     }
@@ -109,7 +110,8 @@ class ProductController extends Controller
 	    $product = Product::find($id)->update($request->all());
 //	    $product = $this->productModel->find($id)->update($request->all());
 
-	    return redirect('admin/produtos');
+	    return redirect()->route('produtos');
+//	    return redirect('admin/produtos');
     }
 
     /**
