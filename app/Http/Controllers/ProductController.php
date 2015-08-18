@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,12 +10,12 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
-//	private $productModel;
-//
-//	public function __construct(Product $productModel)
-//	{
-//		$this->productModel = $productModel;
-//	}
+	private $productModel;
+
+	public function __construct(Product $productModel)
+	{
+		$this->productModel = $productModel;
+	}
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +23,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //Listar os produtos cadastrados
-        $products = \App\Product::all();
+	    //Listar os produtos cadastrados
+	    //$products = \App\Product::all();
+	    $products = $this->productModel->all();
 
-        //return view('products.index', compact('products'));
-        return view('products.index')->with(['products'=>$products]);
+	    return view('products.index')->with(['products'=>$products]);
     }
 
     /**
@@ -36,7 +37,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('.create');
+		return view('products.create');
     }
 
     /**
@@ -47,18 +48,28 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = \App\Product::create(["nome",
-            "categoria",
-            "especificacao",
-            "preco",
-            "qtdEstoque"]);
-        if($product->save()) {
-            echo '<script type="text/javascript">alert("Cadastro efetuado com sucesso!");</script>';
-        } else {
-            echo '<script type="text/javascript">alert("O cadastro falhou...");</script>';
-        }
+	    $input = $request->all();
 
-        return ;// pagina de cadastro de produtos
+	    //http://laravel.com/docs/5.0/validation#controller-validation
+	    //Fazer a validacao dos campos
+	    $this->validate($request, [
+		    'nome'          => array('required', 'max:255'),
+		    'categoria'     => 'required',
+		    'especificacao' => 'required | max:255',
+		    'preco'         => 'required | numeric',//js.validator
+//		    'preco'         => array('required', 'regex:/^\$?(\d{1,3}(\,\d{3})*|(\d+))(\.\d{0,2})?$/'),
+		    'qtdEstoque'    => 'required | numeric'
+
+		    //array('required', 'regex:/^[0-9]{1,5}(,[0-9]{2,3})*\.[0-9]{2}$')
+		    //sem decimal /^\d+(?:,\d{1,2})?$/
+		    //só ponto  /^\d+(?:\.\d{2})?$/
+		    //so virgula /^\d*[0-9](|,\d*[0-9])?$/
+	    ]);
+
+	    Product::Create($input);
+	    return redirect('admin/produtos');//retorna pra pagina de listagem de produtos
+
+
     }
 
     /**
@@ -78,9 +89,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return Response
      */
+	//Editar produto do Banco de dados
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+	    return view('products.edit')->with(['product'=>$product]);
     }
 
     /**
@@ -92,7 +106,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//        $product = Product::find($id)->first()->update([
+//	        'nome'          => $request-> nome,
+//	        'categoria'     => $request-> categoria,
+//	        'especificacao' => $request-> especificacao,
+//	        'preco'         => $request-> preco,
+//	        'qtdEstoque'    => $request-> qtdEstoque
+//	        ]);
+
+//	    Product::where("id","=",$request->id)->first()->update([
+//		    'nome'          => $request-> nome,
+//		    'categoria'     => $request-> categoria,
+//		    'especificacao' => $request-> especificacao,
+//		    'preco'         => $request-> preco,
+//		    'qtdEstoque'    => $request-> qtdEstoque
+//	    ]);
+
+		$product = Product::findOrFail($id);
+//	    $product->update($request->all());
+
+//	    $product = $this->productModel->find($id)->update($request->all());
+
+	    return redirect('admin/produtos');
     }
 
     /**
@@ -103,6 +138,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+	    //apagar um produto pelo #id
+        Product::find($id)->delete();
+
+	    return redirect('admin/produtos');
     }
 }
