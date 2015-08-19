@@ -242,10 +242,14 @@ $(document).ready (
                 $('#bairro-error').text('');
                 $('#cidade-error').text('');
                 $('#estado-error').text('');
-                $('#logradouro-error').attr('style', 'display: none');
+                $('#logradouro-error').attr('style', 'display: none').removeClass("error");
                 $('#bairro-error').attr('style', 'display: none');
                 $('#cidade-error').attr('style', 'display: none');
                 $('#estado-error').attr('style', 'display: none');
+                $('#logradouro').removeClass("error");
+                $('#bairro').removeClass("error");
+                $('#cidade').removeClass("error");
+                $('#estado').removeClass("error");
             }
         );
     }

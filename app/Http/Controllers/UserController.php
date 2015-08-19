@@ -62,10 +62,11 @@ class UserController extends Controller
             'sexo' => 'required | size:1 | in:M,F',
             'cep' => 'required | min:8 | max:10',
             'logradouro' => 'required | max:255',
-            'numero' => 'required | numeric',
+            'numero' => 'required | max:255',
             'bairro' => 'required | max:255',
             'estado' => 'required | size:2 | in:AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO',
-            'cidade' => 'required | max:255'
+            'cidade' => 'required | max:255',
+            'complemento' => 'max:255'
         ]);
 
         if ($this->checkRecaptcha($request)) {
