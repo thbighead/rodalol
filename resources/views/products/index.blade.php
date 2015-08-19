@@ -8,7 +8,7 @@
     <div class="container">
         <h1 class="verticalMarginModal">Produtos Cadastrados</h1>
         {{--Btn para adicionar novo produto--}}
-        <a href="{{ route('AddProduto') }}" class="btn btn-lg btn-primary verticalMarginModal">Novo Produto</a>
+        <a href="{{ route('AddProduto') }}" class="btn btn-lg btn-info verticalMarginModal">Novo Produto</a>
 
         <table class="table table-striped table-bordered table-hover sortable">
             <thead>

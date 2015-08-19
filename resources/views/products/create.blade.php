@@ -9,7 +9,7 @@
         <h1 class="verticalMarginModal">Novo Produto</h1>
 
         {{--Btn para listagem de produtos--}}
-        <a href="{{ route('ListProduto') }}" class="btn btn-lg btn-primary verticalMarginModal">Lista de Produtos</a>
+        <a href="{{ route('ListProduto') }}" class="btn btn-lg btn-info verticalMarginModal">Lista de Produtos</a>
 
         @if ($errors->any())
             <ul>
@@ -23,32 +23,32 @@
         {!! Form::open(array('action' => array('ProductController@store'))) !!}
             <div class="form-group">
                 {!! Form::label('nome', 'Nome:') !!}
-                {!! Form::text('nome', null, ['class'=>'form-control']) !!}
+                {!! Form::text('nome', null, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('categoria', 'Categoria:') !!}
-                {!! Form::text('categoria', null, ['class'=>'form-control']) !!}
+                {!! Form::text('categoria', null, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('especificacao', 'Especificação:') !!}
-                {!! Form::textarea('especificacao', null, ['class'=>'form-control', 'rows' => '5']) !!}
+                {!! Form::textarea('especificacao', null, ['class'=>'form-control border-green', 'rows' => '5']) !!}
                 {{-- ['size' => '20x5']--}}
             </div>
 
             <div class="form-group">
                 {!! Form::label('preco', 'Preço:') !!}
-                {!! Form::text('preco', null, ['class'=>'form-control']) !!}
+                {!! Form::text('preco', null, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
-                {!! Form::label('qtdEstoque', 'Qtd Estoque:') !!}
-                {!! Form::text('qtdEstoque', null, ['class'=>'form-control']) !!}
+                {!! Form::label('qtdEstoque', 'Quantidade em Estoque:') !!}
+                {!! Form::text('qtdEstoque', null, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Cadastrar Produto', ['class'=>'btn btn-lg btn-primary']) !!}
+                {!! Form::submit('Cadastrar Produto', ['class'=>'btn btn-lg btn-info verticalMarginModal']) !!}
             </div>
         {!! Form::close() !!}
 
