@@ -53,6 +53,10 @@ input[type='submit']:hover, .btn-default:hover {
 /* Fim Common */
 
 /* Menu */
+.navbar-brand {
+	padding-left: 0;
+}
+
 .navbar {
 	margin-bottom: 0; /* deixar slideshow junto com o menu */
 	border-radius: 0;
@@ -349,4 +353,22 @@ CADASTRO E CONTATO
 }
 .widthForm { /*deixar o select de Estado do tamanho correto*/
 	width: 50%;
+}
+
+/*
+=====
+=====
+LISTAGEM DE PRODUTOS
+=====
+=====
+*/
+.pagination > .active > span { /* mudar pagina ativa do pagination */
+	background-color: #27b399;
+	border: 0;
+}
+.pagination > .active > span:hover {
+	background-color: #27b399;
+}
+.pagination> li > a {
+	color: #2b3339;
 }
