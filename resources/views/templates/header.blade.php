@@ -37,14 +37,16 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Entre com sua conta</h4>
                 </div>
-                <div class="modal-body" id="login">
-                    <form method="post" action="#" class="form-horizontal" name="login_form">
+                <form action="{{action('Auth\AuthController@postLogin')}}" class="form-horizontal"
+                      name="login_form" method="post">
+                    {!! csrf_field() !!}
+                    <div class="modal-body" id="login">
                         {{--Email--}}
                         <div class="form-group">
                             <label for="login" class="col-md-2 control-label">E-mail</label>
 
                             <div class="col-md-8">
-                                <input type="text" class="form-control" placeholder="exemplo&#64;exemplo.com"
+                                <input type="email" class="form-control" placeholder="exemplo&#64;exemplo.com"
                                        name="login" id="login">
                             </div>
                         </div>
@@ -56,17 +58,17 @@
                                 <input type="password" class="form-control" name="modalPassword" id="modalPassword">
                             </div>
                         </div>
-                    </form>
-                </div>
-                {{--Botões de entrar e esqueci a senha--}}
-                <div class="modal-footer">
-                    <div class="verticalMarginModal row col-md-10 col-md-offset-1">
-                        <button type="submit" class="btn btn-lg btn-primary btn-block" data-dismiss="modal">Entrar
-                        </button>
                     </div>
-                    <a href="#forgotPassword" id="forgot" data-toggle="tab" class="text-center col-md-12 col-xs-12"> Esqueci a
-                        senha</a>
-                </div>
+                    {{--Botão de esqueci a senha--}}
+                    <div class="modal-footer">
+                        <div class="verticalMarginModal row col-md-10 col-md-offset-1">
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar
+                            </button>
+                        </div>
+                        <a href="#forgotPassword" id="forgot" data-toggle="tab" class="text-center col-md-12 col-xs-12"> Esqueci a
+                            senha</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -80,7 +82,9 @@
                     <h4 class="modal-title">Esqueceu sua senha? Nos mande seu email e nós resetaremos!</h4>
                 </div>
                 <div class="modal-body" id="recover">
-                    <form method="post" action="#" class="form-horizontal" name="recover_form">
+                    <form method="post" action="#" class="form-horizontal" id="recover_form" name="recover_form">
+                        {!! csrf_field() !!}
+
                         {{--Email--}}
                         <div class="form-group">
                             <label for="login" class="col-md-2 control-label">E-mail</label>

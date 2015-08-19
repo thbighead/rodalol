@@ -24,3 +24,8 @@ Route::post('enviar', ['as' => 'enviaContato', 'uses' => 'ContatoController@send
 Route::get('quemsomos', ['as' => 'quemSomos', function () {
     return view("static.quemSomos");
 }]);
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('logout', 'Auth\AuthController@getLogout'); // funciona mesmo!

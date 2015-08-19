@@ -73,7 +73,8 @@ class UserController extends Controller
             $user = $this->userModel->fill($input);
             $user->cep = preg_replace("/\D/", "", $request->cep);
             $user->cpf = preg_replace("/\D/", "", $request->cpf);
-            $user->password = bcrypt("$request->password");
+            $user->password = bcrypt($request->password);
+//            $user->password = $request->password;
             $user->save();
             return 'true';
         } else {

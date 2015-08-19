@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('nome');
             $table->char('sexo', 1);
             $table->string('email')->unique();
-            $table->string('password', 20);
+            $table->string('password');
             $table->string('cpf', 11)->unique();
             $table->string('cep', 8);
             $table->string('estado', 2);
@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('numero');
             $table->string('complemento')->nullable();
             $table->boolean('admPower')->default(false);
+
+            $table->rememberToken();
             $table->timestamps();
         });
     }

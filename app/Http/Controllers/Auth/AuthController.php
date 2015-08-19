@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -22,6 +25,10 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    //coisos da documentacao
+    protected $redirectPath = 'quemsomos';
+    protected $loginPath = 'contato';
 
     /**
      * Create a new authentication controller instance.
@@ -61,5 +68,32 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            'login' => 'required | max:255 | email',
+            'modalPassword' => 'required | min:5 | max:20'
+        ]);
+
+        $user = User::where('email', $request->login)->first();
+
+//      dd($user);
+        if( !is_null($user) && Hash::check($request->modalPassword, $user->password) ) {
+            Auth::login($user);
+//            Auth::attempt(['email' => $request->login, 'password' => $request->modalPassword]);
+//            header('Location: '.$_SERVER['REQUEST_URI']);
+            return 'logou, porra!';
+        } else {
+            dd(Hash::check($request->modalPassword, $user->password));
+            return 'num logou';
+        }
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+        return 'dislogô';
     }
 }
