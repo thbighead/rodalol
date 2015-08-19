@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var modal = $('.modal');
     //mostrar e esconder modal
     $("#forgot").bind('click', function () {
         $("#loginModal").modal('hide');
