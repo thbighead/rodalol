@@ -1,8 +1,10 @@
 <?php
 
-Route::get('produtos', ['as' => 'produtos', function () {
-return view("produto");
-}]);
+Route::get('produtos', [
+	'as' => 'produtos',
+	'uses' => 'ProductController@produto'
+	]
+);
 
 //ADMIN
 //com validacao numerica de ID

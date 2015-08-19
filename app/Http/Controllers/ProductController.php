@@ -27,6 +27,10 @@ class ProductController extends Controller
 	    //$products = \App\Product::all();
 	    $products = $this->productModel->all();
 
+        $products = Product::paginate(8);
+
+        $products->setPath('produtos');
+
 	    return view('products.index')->with(['products'=>$products]);
     }
 
@@ -110,7 +114,7 @@ class ProductController extends Controller
 	    $product = Product::find($id)->update($request->all());
 //	    $product = $this->productModel->find($id)->update($request->all());
 
-	    return redirect()->route('produtos');
+	    return redirect()->route('ListProduto');
 //	    return redirect('admin/produtos');
     }
 
@@ -126,5 +130,14 @@ class ProductController extends Controller
         Product::find($id)->delete();
 
 	    return redirect('admin/produtos');
+    }
+
+    public function produto()
+    {
+        $products = Product::paginate(8);
+
+        $products->setPath('produtos');
+
+        return view('listaProduto', ['products' => $products]);
     }
 }
