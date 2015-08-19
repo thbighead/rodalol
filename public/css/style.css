@@ -305,3 +305,23 @@ table.sortable thead {
 	font-weight: bold;
 	cursor: default;
 }
+
+
+/*
+=====
+=====
+CADASTRO E CONTATO
+=====
+=====
+*/
+.error {
+	color: #EB5055;
+	margin: 0;
+	font-size: 12px;
+}
+.form-group {
+	margin-bottom: 10px;
+}
+.widthForm { /*deixar o select de Estado do tamanho correto*/
+	width: 50%;
+}
