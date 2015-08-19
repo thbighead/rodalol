@@ -50,9 +50,9 @@
                                 &nbsp;&nbsp;Produtos&nbsp;&nbsp;<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Adicionar Produtos</a></li>
-                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Alterar Produtos</a></li>
-                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Excluir Produtos</a></li>
+                                <li><a href="{{ route('AddProduto') }}" class="dropdown-toggle" data-toggle="dropdown">Adicionar Produtos</a></li>
+                                <li><a href="{{ route('EditaProduto') }}" class="dropdown-toggle" data-toggle="dropdown">Alterar Produtos</a></li>
+                                <li><a href="{{ route('ExcluirProduto') }}" class="dropdown-toggle" data-toggle="dropdown">Excluir Produtos</a></li>
                             </ul>
                         </li>
                         {{-- Slideshow Dropdown --}}

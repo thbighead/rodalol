@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control border-green" placeholder="Creydson" name="nome" id="nome">
+                    <input type="text" class="form-control border-green" placeholder="Creydson" name="nome" id="nome" required>
                 </div>
             </div>
 
@@ -108,7 +108,7 @@
             {{-- Campo Numero --}}
                 <div class="form-group">
                     <label for="numero" class="col-md-2 control-label">Número:</label>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <input type="text" class="form-control border-green" placeholder="171" name="numero" id="numero">
                     </div>
                 </div>
@@ -132,8 +132,8 @@
             {{--  Campo Estado  --}}
             <div class="form-group">
                 <label for="estado" class="col-md-2 control-label">Estado:</label>
-                <div class="col-md-1">
-                    <select class="estados form-control border-green" name="estado" id="estado">
+                <div class="col-md-2">
+                    <select class="estados form-control border-green widthForm" name="estado" id="estado">
                         <option value="" selected></option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>

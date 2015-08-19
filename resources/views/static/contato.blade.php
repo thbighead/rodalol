@@ -36,14 +36,14 @@
             <div class="form-group">
                 <label for="nome" class="col-md-2 control-label">Nome:</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control" placeholder="Creydson" name="nome" id="nome">
+                    <input type="text" class="form-control border-green" placeholder="Creydson" name="nome" id="nome">
                 </div>
             </div>{{--  Campo Nome  --}}
 
             <div class="form-group">
                 <label for="email" class="col-md-2 control-label">Email:</label>
                 <div class="col-md-8">
-                    <input type="email" class="form-control" placeholder="creydson&#64;rodalol.com" name="email" id="email">
+                    <input type="email" class="form-control border-green" placeholder="creydson&#64;rodalol.com" name="email" id="email">
                 </div>
             </div>{{--  Campo Email  --}}
 
@@ -61,8 +61,8 @@
 
             <div class="form-group">
                 <label for="estado" class="col-md-2 control-label">Estado:</label>
-                <div class="col-md-1">
-                    <select class="estados form-control" name="estado" id="estado">
+                <div class="col-md-2">
+                    <select class="estados form-control border-green widthForm" name="estado" id="estado">
                         <option value=""></option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -98,7 +98,7 @@
             <div class="form-group">
                 <label for="msg" class="col-md-2 control-label">Mensagem:</label>
                 <div class="col-md-8">
-                    <textarea class="form-control" placeholder="Escreva sua mensagem aqui." name="msg" id="msg" rows="10"></textarea>
+                    <textarea class="form-control border-green" placeholder="Escreva sua mensagem aqui." name="msg" id="msg" rows="10"></textarea>
                 </div>
             </div>{{--  Campo Mensagem  --}}
 
