@@ -1,3 +1,15 @@
+/*
+===
+===
+green: 	#27b399
+light: 	#f2f3f5
+dark:	#2b3339
++ dark:	#0f1c26
+===
+===
+*/
+
+
 /* Scrollbar */
 ::-webkit-scrollbar { /* espessura da barra de rolagem */
 	width: 10px;
@@ -273,6 +285,19 @@ ADMIN
 	border: none;
 	border-radius: 0;
 }
+.btn-primary:hover,
+input[type=submit]:hover {
+	background-color: #27b399;
+}
+.btn-info {
+	background-color: #2b3339;
+	border: none;
+	border-radius: 0;
+}
+.btn-info:hover {
+	background-color: #27b399;
+}
+
 /*CRIADAS*/
 .admin-box {
 	padding: 15px 0;
@@ -314,12 +339,12 @@ CADASTRO E CONTATO
 =====
 =====
 */
-.error {
+.error {/* mensagem de validacoa do form de contato e cadastro*/
 	color: #EB5055;
 	margin: 0;
 	font-size: 12px;
 }
-.form-group {
+.form-group {/* para nao diexar muito distante de outro input devido a msg de validacao */
 	margin-bottom: 10px;
 }
 .widthForm { /*deixar o select de Estado do tamanho correto*/
