@@ -29,7 +29,7 @@
     <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- Our Script -->
-    <script src="{{asset('js/javascript.js')}}"></script>
+    <script src="{{asset('js/base.js')}}"></script>
     <!-- My JS's (Por causa dos malditos templates, os scripts de paginas que vão usar essa precisam ficar no final do body mesmo...) -->
     @yield('js')
 </body>

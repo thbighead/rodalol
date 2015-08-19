@@ -1,5 +1,10 @@
 @extends('templates.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
+@section('js')
+    <!-- Carousel Script (Slideshow) -->
+    <script src="{{asset('js/home.js')}}"></script>
+@endsection
+
 @section('title', 'Início') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
 @section('content') {{--conteudo da pagina--}}
