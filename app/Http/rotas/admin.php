@@ -1,5 +1,7 @@
 <?php
 
-Route::get('admin', function () {
-    return view("admin.home");
-});
+Route::get('admin', [
+		'as'    => 'paginaAdmin',
+		'uses'  => 'AdminController@index'
+	]
+);
