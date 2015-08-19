@@ -6,23 +6,30 @@
 
 <!-- Filtro, listagem, paginação -->
 
+    {{--BREADCRUMB--}}
+    <section class="acertaBreadcrumb bg-light">
+        <div class="container">
+            <ol class="breadcrumb tiraBorda">
+                <li><a href="{{route('paginaInicial')}}">Home</a></li>
+                <li class="active">Produtos</li>
+            </ol>
+        </div>
+    </section>
+    {{--FIM BREADCRUMB--}}
 
     <section id="produtos">
         <div class="container">
 
-            {{--<div class="row">--}}
+            <h3>Produtos</h3>
+            <hr>
 
-                <div class="col-md-3">
-                    <h3>Produtos</h3>
-                    <hr>
-                </div>{{-- col-md-3 --}}
-
-                <div class="clearfix"></div>
+            <div class="clearfix"></div>
 
             <div class="row">
 
                 <div class="col-md-2">
-
+                    <p>FILTRO</p><p>OU NÃO</p><p>FILTRO</p><p>OU NÃO</p>
+                    <p>FILTRO</p><p>OU NÃO</p><p>FILTRO</p><p>OU NÃO</p>
                 </div>
 
                 <div class="col-md-10">
@@ -45,6 +52,8 @@
                 <div class="row text-center">
                     {!! $products->render() !!}
                 </div>
+
+
 
 {{--<ul>--}}
     {{--<li>--}}
