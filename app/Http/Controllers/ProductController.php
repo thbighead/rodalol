@@ -110,7 +110,7 @@ class ProductController extends Controller
 	    $product = Product::find($id)->update($request->all());
 //	    $product = $this->productModel->find($id)->update($request->all());
 
-	    return redirect()->route('produtos');
+	    return redirect()->route('ListProduto');
 //	    return redirect('admin/produtos');
     }
 

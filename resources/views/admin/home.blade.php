@@ -31,7 +31,7 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="#">Dashboard</a></li>
                         {{-- Comments Dropdown --}}
-                        <li class="dropdown"><a href="#"><i class="glyphicon glyphicon-comment"></i>&nbsp;&nbsp;Comentários</a></li>
+                        <li class="dropdown"><a href="{{route('AddProduto')}}"><i class="glyphicon glyphicon-comment"></i>&nbsp;&nbsp;Comentários</a></li>
                         {{-- Graphics Dropdown --}}
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-stats"></i>
@@ -50,9 +50,9 @@
                                 &nbsp;&nbsp;Produtos&nbsp;&nbsp;<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('AddProduto') }}" class="dropdown-toggle" data-toggle="dropdown">Adicionar Produtos</a></li>
-                                <li><a href="{{ route('EditaProduto') }}" class="dropdown-toggle" data-toggle="dropdown">Alterar Produtos</a></li>
-                                <li><a href="{{ route('ExcluirProduto') }}" class="dropdown-toggle" data-toggle="dropdown">Excluir Produtos</a></li>
+                                <li><a href="{{route('AddProduto')}}" class="dropdown-toggle" data-toggle="dropdown">Adicionar Produtos</a></li>
+                                <li><a href="{{route('ListProduto')}}" class="dropdown-toggle" data-toggle="dropdown">Alterar Produtos</a></li>
+                                <li><a href="{{route('ListProduto')}}" class="dropdown-toggle" data-toggle="dropdown">Excluir Produtos</a></li>
                             </ul>
                         </li>
                         {{-- Slideshow Dropdown --}}
