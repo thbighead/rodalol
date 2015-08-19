@@ -3,7 +3,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">RODALOL
+                <a href="{{route('paginaAdmin')}}" class="navbar-brand">RODALOL
                     {{--<img class="img-logo" src="{{asset('img/logo.png')}}" alt="Logo RodaLOL">--}}
                 </a>
 
