@@ -47,7 +47,8 @@
                     </div>
 
                     <div class="row">
-                        <p>Categoria: {{$product->categoria}}</p>
+                        <p>Categoria:
+                            <a href="{{route('CategoriaProduto', ['categoria'=>$product->categoria])}}" class="color-green">{{$product->categoria}}</a></p>
                         <h3 class="color-green">R${{$product->preco}}</h3>
                     </div>
 

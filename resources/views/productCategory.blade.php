@@ -49,9 +49,10 @@
                 @endforeach
             </div>
 
-            <div class="row text-center">
-{{--                {!! $product->render() !!}--}}
-            </div>
+            {{--NÃO TÁ FUNCIONADO. WHY? WHY? NA PÁGINA DE LISTAGEM DE TODOS OS PRODUTOS FUNCIONA--}}
+            {{--<div class="row text-center">--}}
+                {{--{!! $product->render() !!}--}}
+            {{--</div>--}}
         </div>{{--.row--}}
 
 
