@@ -65,7 +65,7 @@ class ProductController extends Controller
 		    'qtdEstoque'    => 'required | numeric'
 
 		    //array('required', 'regex:/^[0-9]{1,5}(,[0-9]{2,3})*\.[0-9]{2}$')
-		    //sem decimal /^\d+(?:,\d{1,2})?$/ 
+		    //sem decimal /^\d+(?:,\d{1,2})?$/
 		    //só ponto  /^\d+(?:\.\d{2})?$/
 		    //so ponto /^\d*[0-9](|,\d*[0-9])?$/
 	    ]);
