@@ -23,4 +23,22 @@ class Product extends Model
         "especificacao",
         "preco",
         "qtdEstoque"];
+
+    //get the photo of the product
+    public function photo()
+    {
+        return $this->hasOne('App\Photo');
+    }
+
+    //get the comments of the product
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    //get the orders that belongs to the product
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
+    }
 }

@@ -3,8 +3,15 @@
     @if(Auth::check()) {{-- Usuario logado --}}
         <div class="row top-header">
             <div class="container">
+                <!-- Boas vindas -->
                 <div class="col-xs-5 col-sm-4 col-md-6 col-lg-6">
-                    Seja Bem Vindo, {{Auth::user()->nome}}. (<a href="{{route('Logout')}}"><span class="color-green">Logout</span></a>)
+                    Seja Bem Vindo,
+                    {{Auth::user()->nome}}.
+                    (<a href="{{route('Logout')}}"><span class="color-green">Logout</span></a>)
+                    <br>
+                    @if(Auth::user()->admPower)
+                        (<a href="{{route('paginaAdmin')}}"><span class="color-green">Área Administrativa</span></a>)
+                    @endif
                 </div>
                 <!--    Search Form     -->
                 <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
@@ -29,7 +36,8 @@
     @else {{-- Visitante --}}
         <div class="row top-header">
             <div class="container">
-                <div class="col-xs-5 col-sm-4 col-md-6 col-lg-6">
+                <!-- Boas vindas -->
+                <div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
                     Seja Bem Vindo. Faça
                     <a href="" data-toggle="modal" data-target="#loginModal"><span class="color-green">Login</span></a>
                     ou
