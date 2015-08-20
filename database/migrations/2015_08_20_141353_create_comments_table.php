@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quatidade')->unsigned();
-            $table->boolean('finalizado')->default(false);
+            $table->string('titulo');
+            $table->string('conteudo');
 
             //foreign keys
-            $table->integer('idUser')->unsigned();
-            $table->foreign('idUser')->references('id')->on('users');
+            $table->integer('idUsers')->unsigned();
+            $table->foreign('idUsers')->references('id')->on('users');
             $table->integer('idProduct')->unsigned();
             $table->foreign('idProduct')->references('id')->on('products');
 
@@ -34,6 +34,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('orders');
+        Schema::drop('comments');
     }
 }
