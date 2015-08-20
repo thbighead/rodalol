@@ -131,7 +131,7 @@ class ProductController extends Controller
 
 	    return redirect('admin/produtos');
     }
-
+    //listagem de produtos visitante/usuario
     public function produto()
     {
         $products = Product::paginate(16);
@@ -149,5 +149,13 @@ class ProductController extends Controller
 		$product = Product::where('id', $id)->first();
 //	    return view('productDetail', ['products' => $products]);
 	    return view('productDetail')->with(['product' => $product]);
+    }
+
+    public function productCategory($categoria)
+    {
+        $product = Product::where('categoria', $categoria)->get();
+//        $product = Product::find('$id');
+
+        return view('productCategory')->with(['product' => $product]);
     }
 }
