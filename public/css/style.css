@@ -372,3 +372,11 @@ LISTAGEM DE PRODUTOS
 .pagination> li > a {
 	color: #2b3339;
 }
+/*deixar todos os textos com a mesma altura*/
+.tamProduct {
+	height: 7vw;
+}
+
+.tamDescricao {
+	width: 10%;
+}
