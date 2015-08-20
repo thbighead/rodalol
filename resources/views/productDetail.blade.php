@@ -33,19 +33,10 @@
                 {{--{{ route('EditaProduto', ['id' => $product->id]) }}--}}
 
                 <div class="col-md-5">
-                    {{--<div class="col-md-2">--}}
-                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
-                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
-                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
-                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
-                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-10">--}}
-                        <img src="{{asset('img/product.jpeg')}}" class="img-responsive" alt="Imagem 1">
-                    {{--</div>--}}
+                    <img src="{{asset('img/product.jpeg')}}" class="img-responsive" alt="Imagem 1">
                 </div>
 
-                <div class="col-md-5 col-md-offset-1">
+                <div class="col-md-6 col-md-offset-1">
                     <div class="row">
                         <h1>{{$product->nome}}</h1>
                         <hr>
@@ -56,13 +47,13 @@
                     </div>
 
                     <div class="row">
-                        <h3 class="color-green">R${{$product->preco}}</h3>
                         <p>Categoria: {{$product->categoria}}</p>
+                        <h3 class="color-green">R${{$product->preco}}</h3>
                     </div>
 
                     <div class="row">
                         <h3>Descrição do Produto</h3>
-                        <p class="tamDescricao">{{$product->especificacao}}</p>
+                        <p>{{$product->especificacao}}</p>
                     </div>
                 </div>
 
