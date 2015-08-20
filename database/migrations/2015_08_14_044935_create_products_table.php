@@ -19,6 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('especificacao');
             $table->float('preco');
             $table->integer('qtdEstoque')->unsigned()->default(0);
+
+            //foreign keys
+            $table->integer('idPhoto')->unsigned();
+            $table->foreign('idPhoto')->references('id')->on('photos');
+
             $table->timestamps();
         });
     }

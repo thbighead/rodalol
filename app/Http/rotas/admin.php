@@ -1,11 +1,9 @@
 <?php
 
-Route::group(['middleware' => 'AdminMiddleware'], function() {
-
+Route::group(['middleware' => 'admin'], function() {
+	Route::get('admin', [
+			'as'    => 'paginaAdmin',
+			'uses'  => 'AdminController@index'
+		]
+	);
 });
-
-Route::get('admin', [
-		'as'    => 'paginaAdmin',
-		'uses'  => 'AdminController@index'
-	]
-);

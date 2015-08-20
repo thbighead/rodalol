@@ -22,7 +22,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="glyphicon glyphicon-user"></i> Meu Perfil</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+                            <li><a href="{{route('Logout')}}"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
                         </ul>
                     </li>
                 </ul>

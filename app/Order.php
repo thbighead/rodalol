@@ -20,5 +20,15 @@ class Order extends Model
      */
     protected $fillable = ["quantidade", "finalizado"];
 
+    //get the products that belongs to the order
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
+    }
 
+    //Get the user that owns the order
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
