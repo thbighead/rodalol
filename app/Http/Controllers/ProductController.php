@@ -155,7 +155,7 @@ class ProductController extends Controller
     {
         $product = Product::where('categoria', $categoria)->get();
 //        $product = Product::find('$id');
-
+	    $product = Product::paginate(16);
         return view('productCategory')->with(['product' => $product]);
     }
 }
