@@ -14,9 +14,12 @@ require_once __DIR__.'/rotas/admin.php';
 require_once __DIR__.'/rotas/user.php';
 require_once __DIR__.'/rotas/produto.php';
 
-Route::any('/', ['as' => 'paginaInicial', function () {
-    return view("home");
-}]);
+//poder receber os dados dos produtos
+Route::any('/', [
+    'as'    => 'paginaInicial',
+	'uses'  => 'HomeController@index'
+	]
+);
 
 Route::get('contato', ['as' => 'contato', 'uses' => 'ContatoController@index']);
 Route::post('enviar', ['as' => 'enviaContato', 'uses' => 'ContatoController@sendMail']);
