@@ -60,14 +60,14 @@ class ProductController extends Controller
 		    'nome'          => array('required', 'max:255'),
 		    'categoria'     => 'required',
 		    'especificacao' => 'required | max:255',
-		    'preco'         => 'required | numeric',//js.validator
-//		    'preco'         => array('required', 'regex:/^\$?(\d{1,3}(\,\d{3})*|(\d+))(\.\d{0,2})?$/'),
+//		    'preco'         => 'required | numeric',//js.validator
+		    'preco'         => array('required', 'regex:/^\d*[0-9](|,\d*[0-9])?$/'),
 		    'qtdEstoque'    => 'required | numeric'
 
 		    //array('required', 'regex:/^[0-9]{1,5}(,[0-9]{2,3})*\.[0-9]{2}$')
-		    //sem decimal /^\d+(?:,\d{1,2})?$/
+		    //sem decimal /^\d+(?:,\d{1,2})?$/ 
 		    //só ponto  /^\d+(?:\.\d{2})?$/
-		    //so virgula /^\d*[0-9](|,\d*[0-9])?$/
+		    //so ponto /^\d*[0-9](|,\d*[0-9])?$/
 	    ]);
 
 	    Product::Create($input);

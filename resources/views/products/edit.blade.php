@@ -23,27 +23,27 @@
         {!! Form::open(array('method'=>'put', 'action' => array('ProductController@update', $product->id))) !!}
             <div class="form-group">
                 {!! Form::label('nome', 'Nome:') !!}
-                {!! Form::text('nome', $product->nome, ['class'=>'form-control']) !!}
+                {!! Form::text('nome', $product->nome, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('categoria', 'Categoria:') !!}
-                {!! Form::text('categoria', $product->categoria, ['class'=>'form-control']) !!}
+                {!! Form::text('categoria', $product->categoria, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('especificacao', 'Especificação:') !!}
-                {!! Form::text('especificacao', $product->especificacao, ['class'=>'form-control']) !!}
+                {!! Form::textarea('especificacao', null, ['class'=>'form-control border-green', 'rows' => '5']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('preco', 'Preço:') !!}
-                {!! Form::text('preco', $product->preco, ['class'=>'form-control']) !!}
+                {!! Form::text('preco', $product->preco, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('qtdEstoque', 'Quantidade em Estoque:') !!}
-                {!! Form::text('qtdEstoque', $product->qtdEstoque, ['class'=>'form-control']) !!}
+                {!! Form::text('qtdEstoque', $product->qtdEstoque, ['class'=>'form-control border-green']) !!}
             </div>
 
             <div class="form-group">
