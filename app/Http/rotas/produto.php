@@ -1,8 +1,14 @@
 <?php
-
+//Rota para listagem de produtos
 Route::get('produtos', [
 	'as' => 'produtos',
 	'uses' => 'ProductController@produto'
+	]
+);
+//Rota para detalhes de produto
+Route::get('produtos/{id}', [
+		'as' => 'detalhesProduto',
+		'uses' => 'ProductController@productDetail'
 	]
 );
 
