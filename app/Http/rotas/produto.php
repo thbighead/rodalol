@@ -1,16 +1,26 @@
 <?php
+
 //Rota para listagem de produtos
-Route::get('produtos', [
-	'as' => 'produtos',
-	'uses' => 'ProductController@produto'
-	]
-);
-//Rota para detalhes de produto
-Route::get('produtos/{id}', [
-		'as' => 'detalhesProduto',
-		'uses' => 'ProductController@productDetail'
-	]
-);
+
+Route::group(['prefix'=>'produtos', 'where' => ['id' => '[0-9]+']], function() {
+	Route::get('', [
+			'as' => 'produtos',
+			'uses' => 'ProductController@produto'
+		]
+	);
+	//Rota para detalhes de produto
+	Route::get('{id}', [
+			'as' => 'detalhesProduto',
+			'uses' => 'ProductController@productDetail'
+		]
+	);
+	// rota para produtos em categoria
+	Route::get('category/{categoria}', [
+			'as' => 'CategoriaProduto',
+			'uses' => 'ProductController@productCategory'
+		]
+	);
+});
 
 //ADMIN
 //com validacao numerica de ID
