@@ -162,8 +162,16 @@
                         <ul class="dropdown-menu">
                             {{--@foreach($product as $product)--}}
                             <li><a href="{{route('CategoriaProduto', ['categoria'=>'Processador'])}}">Processadores</a></li>
-                                <li><a href="#">Item 2</a></li>
-                                <li><a href="#">Item 3</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Placa Mãe'])}}">Placa Mãe</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'memória'])}}">Memórias</a></li>
+                            <div class="divider"></div>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Fonte'])}}">Fonte</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Placa de Vídeo'])}}">Placa de Vídeo</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Gabinete'])}}">Gabinete</a></li>
+                            <div class="divider"></div>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'HD'])}}">HD</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'SSD'])}}">SSD</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Rede'])}}">Redes & Wireless</a></li>
                             {{--@endforeach--}}
 
                         </ul>
@@ -171,33 +179,33 @@
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">PERIFÉRICOS</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Item 1</a></li>
-                            <li><a href="#">Item 2</a></li>
-                            <li><a href="#">Item 3</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'teclados'])}}">Teclados</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'mouse'])}}">Mouse</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'armazenamento'])}}">Armazenamento</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'acessórios'])}}">Acessórios</a></li>
+
                         </ul>
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">ELETRÔNICOS</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Item 1</a></li>
-                            <li><a href="#">Item 2</a></li>
-                            <li><a href="#">Item 3</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'cabos'])}}">Cabos</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'adaptadores'])}}">Adaptadores</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">MONITORES</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Item 1</a></li>
-                            <li><a href="#">Item 2</a></li>
-                            <li><a href="#">Item 3</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'led'])}}">Monitores LED</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'lcd'])}}">Monitores LCD</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'suporte'])}}">Suportes</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">ÁUDIO</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Item 1</a></li>
-                            <li><a href="#">Item 2</a></li>
-                            <li><a href="#">Item 3</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'caixa de som'])}}">Caixa de Som</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'fone de ouvido'])}}">Fone de Ouvido</a></li>
                         </ul>
                     </li>
                     <li><a href="{{route('quemSomos')}}">QUEM SOMOS</a></li>
