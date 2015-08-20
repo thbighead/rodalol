@@ -147,6 +147,12 @@
                 </div><!--  thumbnail   -->
             </div><!--  products 8   -->
         </div><!--  .row 2 -->
+
+        <div class="row text-center">
+            <h3>
+                <a href="{{route('produtos')}}" class="color-green">Ver todos os Produtos</a>
+            </h3>
+        </div>
     </div><!--    .container    -->
 </section><!--    #destaques    -->
 @endsection {{--/conteudo da pagina--}}
