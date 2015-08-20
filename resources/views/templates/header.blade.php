@@ -160,9 +160,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">HARDWARE</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Item 1</a></li>
-                            <li><a href="#">Item 2</a></li>
-                            <li><a href="#">Item 3</a></li>
+                            {{--@foreach($product as $product)--}}
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Processador'])}}">Processadores</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                            {{--@endforeach--}}
+
                         </ul>
                     </li>
                     <li>
