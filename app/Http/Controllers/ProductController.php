@@ -134,10 +134,20 @@ class ProductController extends Controller
 
     public function produto()
     {
-        $products = Product::paginate(8);
+        $products = Product::paginate(16);
 
         $products->setPath('produtos');
 
         return view('listaProduto', ['products' => $products]);
+    }
+
+    public function productDetail($id)
+    {
+//	    $products = $this->productModel->all();
+//	    $products = Product::find($id)->first();
+//	    $products = Product::where('id','=','$id')->get();
+		$product = Product::where('id', $id)->first();
+//	    return view('productDetail', ['products' => $products]);
+	    return view('productDetail')->with(['product' => $product]);
     }
 }
