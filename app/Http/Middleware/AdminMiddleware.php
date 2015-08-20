@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         if(!Auth::check() || !Auth::user()->admPower) {
-            return response()->json(['errormsg' => 'Você não tem permissão para entrar nesta página.']);
+            return redirect()->route('paginaInicial');
         }
 
         return $next($request);
