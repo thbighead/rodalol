@@ -3,10 +3,6 @@
 @section('js')
     <!-- Recaptcha Google -->
     <script src='http://www.google.com/recaptcha/api/js/recaptcha_ajax.js'></script>
-    <!-- JQuery Validate -->
-    <script src="{{asset('lib/jquery.validate.min.js')}}"></script>
-    <!-- Additional methods for JQuery Validate -->
-    <script src="{{asset('lib/additional-methods.min.js')}}"></script>
     <!-- cadastrarUsuario.js -->
     <script src="{{asset('js/cadastrarUsuario.js')}}"></script>
 @endsection

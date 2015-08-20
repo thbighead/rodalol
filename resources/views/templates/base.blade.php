@@ -28,6 +28,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- JQuery Validate -->
+    <script src="{{asset('lib/jquery.validate.min.js')}}"></script>
+    <!-- Additional methods for JQuery Validate -->
+    <script src="{{asset('lib/additional-methods.min.js')}}"></script>
     <!-- Our Script -->
     <script src="{{asset('js/base.js')}}"></script>
     <!-- My JS's (Por causa dos malditos templates, os scripts de paginas que vão usar essa precisam ficar no final do body mesmo...) -->

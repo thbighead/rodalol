@@ -28,4 +28,4 @@ Route::get('quemsomos', ['as' => 'quemSomos', function () {
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('logout', 'Auth\AuthController@getLogout'); // funciona mesmo!
+Route::get('logout', ['as' => 'Logout', 'uses' => 'Auth\AuthController@getLogout']); // funciona mesmo!

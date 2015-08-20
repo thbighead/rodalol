@@ -80,20 +80,22 @@ class AuthController extends Controller
         $user = User::where('email', $request->login)->first();
 
 //      dd($user);
-        if( !is_null($user) && Hash::check($request->modalPassword, $user->password) ) {
-            Auth::login($user);
-//            Auth::attempt(['email' => $request->login, 'password' => $request->modalPassword]);
-//            header('Location: '.$_SERVER['REQUEST_URI']);
-            return 'logou, porra!';
-        } else {
-            dd(Hash::check($request->modalPassword, $user->password));
-            return 'num logou';
+        if( !is_null($user) && Hash::check($request->modalPassword, $user->password) ) { //Se conseguir achar o cadastro
+            Auth::login($user); //loga o usuario
+            return 'true';
+//            return 'logou, porra!';
+        } else { // se o login falhar
+//            dd(Hash::check($request->modalPassword, $user->password));
+//            return 'num logou';
+            return response()->json(['errormsg' => 'Login Incorreto']);
         }
+
     }
 
     public function getLogout()
     {
         Auth::logout();
-        return 'dislogô';
+        return back()->withInput();
+//        return 'dislogô';
     }
 }

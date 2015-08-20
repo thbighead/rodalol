@@ -1,5 +1,9 @@
 <?php
 
+Route::group(['middleware' => 'UserMiddleware'], function() {
+
+});
+
 Route::get('cadastrarusuario', ['as' => 'cadastrarUsuario', 'uses' => 'UserController@create']);
 Route::post('ceprequest', ['as' => 'requisicaoCEP', 'uses' => 'UserController@cepFill']);
 Route::post('sendsignin', ['as' => 'enviaCadastro', 'uses' => 'UserController@store']);
