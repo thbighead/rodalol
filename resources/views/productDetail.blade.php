@@ -32,17 +32,20 @@
 
                 {{--{{ route('EditaProduto', ['id' => $product->id]) }}--}}
 
-                <div class="col-md-7">
-                    {{--@foreach($products as $product)--}}
-                            {{--<div class="thumbnail">--}}
-                                {{--<img src="{{asset('img/products_index/product2.png')}}" alt="Imagem 1">--}}
-                                {{--{{$product->id}}--}}
-                            {{--</div><!--  thumbnail -->--}}
-                        {{--<div class="clearfix"></div>--}}
-                    {{--@endforeach--}}
+                <div class="col-md-5">
+                    {{--<div class="col-md-2">--}}
+                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
+                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
+                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
+                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
+                        {{--<img src="{{asset('img/product.jpeg')}}" class="img-responsive verticalMarginModal" alt="Imagem 1">--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-10">--}}
+                        <img src="{{asset('img/product.jpeg')}}" class="img-responsive" alt="Imagem 1">
+                    {{--</div>--}}
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-5 col-md-offset-1">
                     <div class="row">
                         <h1>{{$product->nome}}</h1>
                         <hr>
@@ -52,12 +55,15 @@
                         </p>
                     </div>
 
-                    <h3 class="color-green">R${{$product->preco}}</h3>
-                    <p>Categoria: {{$product->categoria}}</p>
-<div class="row">
-                    <h3>Descrição do Produto</h3>
-                    <p class="tamDescricao">{{$product->especificacao}}</p>
-</div>
+                    <div class="row">
+                        <h3 class="color-green">R${{$product->preco}}</h3>
+                        <p>Categoria: {{$product->categoria}}</p>
+                    </div>
+
+                    <div class="row">
+                        <h3>Descrição do Produto</h3>
+                        <p class="tamDescricao">{{$product->especificacao}}</p>
+                    </div>
                 </div>
 
             </div>{{--.row--}}

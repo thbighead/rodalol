@@ -54,7 +54,6 @@
                 <div class="row text-center">
                     {!! $products->render() !!}
                 </div>
-
             </div>{{--.row--}}
 
 
