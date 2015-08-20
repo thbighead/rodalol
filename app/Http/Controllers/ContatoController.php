@@ -119,6 +119,7 @@ class ContatoController extends Controller
 
         if($this->checkRecaptcha($request)){
             //faço o que tiver de fazer, pois deu bom
+//            Mail::send
             return 'true';
         }
 
