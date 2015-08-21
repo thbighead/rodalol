@@ -4,27 +4,27 @@
         <div class="row top-header">
             <div class="container">
                 <!-- Boas vindas -->
-                <div class="col-xs-5 col-sm-4 col-md-6 col-lg-6">
+                <div class="col-xs-5 col-sm-6 col-md-6 col-lg-6">
                     Seja Bem Vindo,
                     {{Auth::user()->nome}}.
                     (<a href="{{route('Logout')}}"><span class="color-green">Logout</span></a>)
                     <br>
                     @if(Auth::user()->admPower)
-                        (<a href="{{route('paginaAdmin')}}"><span class="color-green">Área Administrativa</span></a>)
+                        (<a href="{{route('paginaAdmin')}}" class="color-green">Área Administrativa</a>)
                     @endif
                 </div>
                 <!--    Search Form     -->
-                <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
+                <div class="col-xs-4 col-sm-3 col-md-4 col-lg-4 text-right">
                     <form class="navbar-form pull-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control input-sm in-btn-dark" placeholder="Buscar produtos">
+                        {{--<div class="form-group">--}}
+                            <input type="text" class="form-control input-sm in-btn-dark formBreak" placeholder="Buscar produtos">
                             <button class="btn btn-default btn-sm in-btn-dark" type="submit"><span
                                         class="glyphicon glyphicon-search"></span></button>
-                        </div>
+                        {{--</div>--}}
                     </form>
                 </div>
                 <!--    Cart Shopping     -->
-                <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 mar-shop">
+                <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 mar-shop text-right cart">
                     <button class="btn btn-default btn-sm in-btn-dark" type="submit"><span
                                 class="glyphicon glyphicon-shopping-cart"></span></button>
                     Carrinho <span class="color-green">( N )</span>

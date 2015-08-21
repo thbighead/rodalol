@@ -71,6 +71,8 @@ input[type='submit']:hover, .btn-default:hover {
 .navbar-form {
 	margin-top: -6px;
 	margin-bottom: 5px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 /* Dropwdown */
 .navbar-default {
@@ -381,11 +383,28 @@ LISTAGEM DE PRODUTOS
 	width: 10%;
 }
 
+@media (max-width: 768px) {
+	.cart {/*ajustar carrinho que tava muito em cima com a quebra*/
+		padding-top: 11px;
+	}
+	.navbar-form .form-control {
+		width: 100%;/*input busca responsivo*/
+	}
+}
 
-/*padding do menu se acerrtar e nao quebrar cedo*/
+@media(max-width:1200px){
+
+	.formBreak {
+		float: left; /*botao nao ficar embaixo*/
+	}
+}
+/*padding do menu se acertar e nao quebrar cedo*/
 @media(min-width:768px) and (max-width:1200px){
 	.navbar-default .navbar-nav > li > a {
 		padding: 20px 10px;
+	}
+	.navbar-form .form-control {
+		width: 70%;/*input busca responsivo*/
 	}
 }
 
