@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $products->setPath('produtos');
 
-	    return view('products.index')->with(['products'=>$products]);
+	    return view('admin.products.index')->with(['products'=>$products]);
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-		return view('products.create');
+		return view('admin.products.create');
     }
 
     /**
@@ -99,7 +99,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-	    return view('products.edit')->with(['product'=>$product]);
+	    return view('admin.products.edit')->with(['product'=>$product]);
     }
 
     /**
@@ -131,6 +131,10 @@ class ProductController extends Controller
 
 	    return redirect('admin/produtos');
     }
+
+	//
+	//FIM ADMIN
+	//
     //listagem de produtos visitante/usuario
     public function produto()
     {
