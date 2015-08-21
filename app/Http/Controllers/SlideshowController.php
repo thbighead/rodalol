@@ -57,9 +57,11 @@ class SlideshowController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+
+        return view('admin.slideshow.edit');
+//        return view('admin.products.edit')->with(['product'=>$product]);
     }
 
     /**
