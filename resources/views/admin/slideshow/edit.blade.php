@@ -1,6 +1,6 @@
 @extends('templates.admin.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
-@section('title', 'Admin | Alterar Produto') {{--Define o titulo da pagina (posicionado na masterpage)--}}
+@section('title', 'Admin | Alterar Imagem') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
 @section('content') {{--conteudo da pagina--}}
 

@@ -26,7 +26,7 @@ class SlideshowController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.slideshow.create');
     }
 
     /**
@@ -73,7 +73,9 @@ class SlideshowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // adicionar
+
+	    return redirect()->route('ListSlideshow');
     }
 
     /**

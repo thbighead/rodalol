@@ -1,6 +1,6 @@
 @extends('templates.admin.base') {{--Faz carregar a masterpage (agora separada em header, base e footer)--}}
 
-@section('title', 'Admin | Alterar Produto') {{--Define o titulo da pagina (posicionado na masterpage)--}}
+@section('title', 'Admin | Slideshow') {{--Define o titulo da pagina (posicionado na masterpage)--}}
 
 @section('content') {{--conteudo da pagina--}}
 
@@ -8,7 +8,7 @@
     <div class="container text-center">
         <h1 class="verticalMarginModal">Slideshow</h1>
         {{--Btn para adicionar novo produto--}}
-        <a href="{{ route('AddProduto') }}" class="btn btn-lg btn-info verticalMarginModal">Novo Produto</a>
+        <a href="{{ route('AddProduto') }}" class="btn btn-lg btn-info verticalMarginModal">Nova Imagem</a>
     </div>
 
     <div class="col-md-12">
