@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->integer('qtdEstoque')->unsigned()->default(0);
 
             //foreign keys
-            $table->integer('idPhoto')->unsigned();
-            $table->foreign('idPhoto')->references('id')->on('photos');
+//            $table->integer('idPhoto')->unsigned();
+//            $table->foreign('idPhoto')->references('id')->on('photos');
 
             $table->timestamps();
         });
