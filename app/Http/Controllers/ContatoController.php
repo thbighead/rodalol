@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ContatoController extends Controller
 {
@@ -109,17 +110,25 @@ class ContatoController extends Controller
 
     public function sendMail (Request $request)
     {
+        $dados = $request->only('nome', 'email', 'sexo', 'estado');
+        $dados['messageLines'] = explode("\n", $request->get('message'));
+
         $this->validate($request, [
             'nome' => array("required", "max:255"),
             'email' => 'required | max:255 | email',
             'sexo' => 'required | size:1 | in:M,F',
             'estado' => 'required | size:2 | in:AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO',
-            'msg' => 'required'
+            'msg' => 'required | max:255'
         ]);
 
         if($this->checkRecaptcha($request)){
             //faço o que tiver de fazer, pois deu bom
-//            Mail::send
+//            Mail::send('email.mensagem', $dados, function ($message) use ($dados) {
+////                $message->from('visitanterodalol@gmail.com', $dados['nome']);
+//                $message->subject('Contato de visitante Rodalol: '.$dados['nome'])
+//                    ->to(env('MAIL_USERNAME'))
+//                    ->replyTo($dados['email']);
+//            });
             return 'true';
         }
 
