@@ -1,7 +1,5 @@
 <?php
 
-
-
 //SLIDESHOW
 Route::group(['prefix'=>'admin/slideshow', 'where' => ['id' => '[0-9]+']], function() {
 //listar slideshow
