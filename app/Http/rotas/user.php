@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'UserMiddleware'], function() {
+Route::group(['middleware' => 'user'], function() {
 
 });
 
