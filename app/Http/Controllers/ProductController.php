@@ -157,9 +157,10 @@ class ProductController extends Controller
 
     public function productCategory($categoria)
     {
-        $product = Product::where('categoria', $categoria)->get();
+        $product = Product::where('categoria', $categoria)->paginate(16);
 //        $product = Product::find('$id');
-	    $product = Product::paginate(16);
+//	    Product::paginate(10);
+	    $product->setPath('');//para as outras páginas funcionarem
         return view('productCategory')->with(['product' => $product]);
     }
 }
