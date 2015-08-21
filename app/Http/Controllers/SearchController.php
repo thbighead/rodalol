@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class SearchController extends Controller
 {
@@ -17,34 +18,9 @@ class SearchController extends Controller
      */
     public function index()
     {
-//        if (Input::has('query')) {
-//            $query = Input::get('query');
-//
-////            $results = Product::whereRaw("MATCH(name,content) AGAINST(? IN BOOLEAN MODE)", array($query))->remember(1440)->orderBy('id','ASC')->get();
-//            $results = Product::where('nome', 'LIKE', '%')
-//            if ($results->count() > 0) {
-//                return view('search')->with('results',$results)->with('query', $query)->with('title', 'Search Result for '.$query);
-//            } else {
-//                return '<h3>Sorry, No results for ' . $query . ' </h3>';
-//            }
-//        }
-	    
-//        $searchterm = Input::get('searchinput');
-//
-//        if ($searchterm){
-//
-//            $products = DB::table('products');
-//            $results = $products->where('name', 'LIKE', '%'. $searchterm .'%')
-//                ->orWhere('description', 'LIKE', '%'. $searchterm .'%')
-//                ->orWhere('brand', 'LIKE', '%'. $searchterm .'%')
-//                ->get();
-//
-//            return view('search')->with('products', $results);
-//
-//        }
-
-
-//        return Redirect::to('/');
+        $keyword = Input::get('keyword');
+        $products = Product::all();
+        return view('search')->with(['products'=>$products])->with(['keyword'=>$keyword]);
     }
 
     /**
@@ -65,7 +41,14 @@ class SearchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $keyword = Input::get('keyword');
+
+        $products = Product::where('nome', '=', '%'.$keyword.'%')->get();
+
+//        var_dump('search results');
+
+
+        return redirect()->route('search');
     }
 
     /**

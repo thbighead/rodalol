@@ -145,6 +145,13 @@
             </div>
         </div>
     @endif
+    {{--{!! Form::open(array('action' => array('SearchController@store'))) !!}--}}
+    {{--<div class="form-group">--}}
+        {{--{!! Form::label('keyword', 'Procurar:') !!}--}}
+        {{--{!! Form::text('keyword', null, ['class'=>'form-control border-green']) !!}--}}
+        {{--{!! Form::submit('Search') !!}--}}
+    {{--</div>--}}
+    {{--{{Form::close()}}--}}
     <!--    menu principal  -->
     <nav class="navbar navbar-default">
         <div class="container">
