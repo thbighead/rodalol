@@ -39,7 +39,7 @@
                             <div class="thumbnail">
                                 <img src="{{asset('img/products_index/product2.png')}}" alt="Imagem 1">
                                 <div class="caption text-center">
-                                    <a href="#">
+                                    <a href="{{route('detalhesProduto',$product->id)}}">
                                         {{--<p class="tamProduct">{{$product->nome}}</p>--}}
                                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget </p>
                                     </a>

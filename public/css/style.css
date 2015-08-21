@@ -63,7 +63,7 @@ input[type='submit']:hover, .btn-default:hover {
 }
 .navbar-default .navbar-nav > li > a {
 	color: #2b3339;
-	padding: 20px 15px;
+	padding: 20px 25px;
 }
 .navbar-default .navbar-nav > li > a:hover {
 	color: #27b399;
@@ -379,4 +379,32 @@ LISTAGEM DE PRODUTOS
 
 .tamDescricao {
 	width: 10%;
+}
+
+
+/*padding do menu se acerrtar e nao quebrar cedo*/
+@media(min-width:768px) and (max-width:1200px){
+	.navbar-default .navbar-nav > li > a {
+		padding: 20px 10px;
+	}
+}
+
+/*devido a quebra mais cedo, tive que adiconar o overflow para parar de aparecer o scroll*/
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+	overflow: inherit;
+}
+/*Menu dar collapse antes. Tava quebrnado o menu e ficando horroroso*/
+@media screen and (max-width: 1000px) {
+	.navbar-collapse.collapse {
+		display: none !important;
+	}
+	.navbar-collapse.collapse.in {
+		display: block !important;
+	}
+	.navbar-header .collapse, .navbar-toggle {
+		display:block !important;
+	}
+	.navbar-header {
+		float:none;
+	}
 }

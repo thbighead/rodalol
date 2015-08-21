@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $products->setPath('produtos');
 
-	    return view('products.index')->with(['products'=>$products]);
+	    return view('admin.products.index')->with(['products'=>$products]);
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-		return view('products.create');
+		return view('admin.products.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductController extends Controller
 		    'qtdEstoque'    => 'required | numeric'
 
 		    //array('required', 'regex:/^[0-9]{1,5}(,[0-9]{2,3})*\.[0-9]{2}$')
-		    //sem decimal /^\d+(?:,\d{1,2})?$/ 
+		    //sem decimal /^\d+(?:,\d{1,2})?$/
 		    //só ponto  /^\d+(?:\.\d{2})?$/
 		    //so ponto /^\d*[0-9](|,\d*[0-9])?$/
 	    ]);
@@ -99,7 +99,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-	    return view('products.edit')->with(['product'=>$product]);
+	    return view('admin.products.edit')->with(['product'=>$product]);
     }
 
     /**
@@ -132,6 +132,10 @@ class ProductController extends Controller
 	    return redirect('admin/produtos');
     }
 
+	//
+	//FIM ADMIN
+	//
+    //listagem de produtos visitante/usuario
     public function produto()
     {
         $products = Product::paginate(16);
@@ -149,5 +153,14 @@ class ProductController extends Controller
 		$product = Product::where('id', $id)->first();
 //	    return view('productDetail', ['products' => $products]);
 	    return view('productDetail')->with(['product' => $product]);
+    }
+
+    public function productCategory($categoria)
+    {
+        $product = Product::where('categoria', $categoria)->paginate(16);
+//        $product = Product::find('$id');
+//	    Product::paginate(10);
+	    $product->setPath('');//para as outras páginas funcionarem
+        return view('productCategory')->with(['product' => $product]);
     }
 }
