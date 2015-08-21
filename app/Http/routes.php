@@ -21,6 +21,11 @@ Route::any('/', [
 	]
 );
 
+Route::get('search', array(
+	'as'    =>  'search',
+	'uses'  =>  'SearchController@index'
+));
+
 Route::get('contato', ['as' => 'contato', 'uses' => 'ContatoController@index']);
 Route::post('enviar', ['as' => 'enviaContato', 'uses' => 'ContatoController@sendMail']);
 

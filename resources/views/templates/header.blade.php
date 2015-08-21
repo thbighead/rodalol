@@ -16,11 +16,12 @@
                 <!--    Search Form     -->
                 <div class="col-xs-4 col-sm-3 col-md-4 col-lg-4 text-right">
                     <form class="navbar-form pull-right" role="search">
-                        {{--<div class="form-group">--}}
+                        <div class="form-group">
                             <input type="text" class="form-control input-sm in-btn-dark formBreak" placeholder="Buscar produtos">
-                            <button class="btn btn-default btn-sm in-btn-dark" type="submit"><span
-                                        class="glyphicon glyphicon-search"></span></button>
-                        {{--</div>--}}
+                            <button class="btn btn-default btn-sm in-btn-dark" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
                     </form>
                 </div>
                 <!--    Cart Shopping     -->
