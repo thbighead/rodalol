@@ -14,8 +14,10 @@ $(document).ready (
         $('#form-cadastro').validate({
             //o que fazer se tudo for válido
             submitHandler: function (form) {
+                var result = $('#status');
                 var submit = $("#enviaCadastro");
                 submit.attr('disabled', 'disabled');
+
                 var nome = $('#nome').val();
                 var email = $("input[type=email][name='email']").val();
                 var senha = $("input[type=password][name='password']").val();
@@ -33,7 +35,7 @@ $(document).ready (
                 var response = $('#recaptcha_response_field').val();
                 var token = $("input[name='_token']").val();
                 var method = $("input[name='_method']").val();
-                // posso validar modificar, fazer altas paradas com essas coisas
+                // posso validar, modificar, fazer altas paradas com essas coisas
 
                 $.ajax(
                     {
@@ -63,19 +65,20 @@ $(document).ready (
                             console.log('deu bom');
                             console.log(data);
                             if (data) {
-                                $('#status').text("Cadastro efetuado com sucesso!");
                                 $('#form-cadastro').each(
                                     function () {
                                         this.reset();
                                     }
                                 );
                                 window.scrollTo(0, 0);
+                                result.text("Cadastro efetuado com sucesso!").fadeIn('slow');
                             } else {
                                 Recaptcha.reload();
                             }
                         },
                         error: function(data) {
-                            alert("O cadastro falhou");
+                            window.scrollTo(0, 0);
+                            result.css('color', '').css('color', '#EB5055').text("O cadastro falhou!").fadeIn('slow');
                             console.log('erro ao cadastrar');
                             console.log(data);
                             console.log(data.responseText);
@@ -142,10 +145,7 @@ $(document).ready (
                     postalcodeBR: true
                 },
                 logradouro: "required",
-                numero: {
-                    required: true,
-                    digits: true
-                },
+                numero: "required",
                 bairro: "required",
                 estado: "required",
                 cidade: "required",
@@ -184,10 +184,7 @@ $(document).ready (
                     minlength: "Pelo menos 8 caracteres"
                 },
                 logradouro: "Este campo é obrigatório",
-                numero: {
-                    required: "Este campo é obrigatório",
-                    digits: "Apenas números"
-                },
+                numero: "Este campo é obrigatório",
                 bairro: "Este campo é obrigatório",
                 estado: "Este campo é obrigatório",
                 cidade: "Este campo é obrigatório",
@@ -200,10 +197,18 @@ $(document).ready (
         // ajax para preencher endereco de acordo com o CEP
         $('#cep').blur(
             function () {
-                $('#logradouro').attr('disabled', 'disabled');
-                $('#bairro').attr('disabled', 'disabled');
-                $('#cidade').attr('disabled', 'disabled');
-                $('#estado').attr('disabled', 'disabled');
+                var logr = $('#logradouro');
+                var bairro = $('#bairro');
+                var city = $('#cidade');
+                var uf = $('#estado');
+                var logrError = $('#logradouro-error');
+                var bairroError = $('#bairro-error');
+                var cityError = $('#cidade-error');
+                var ufError = $('#estado-error');
+                logr.attr('disabled', 'disabled');
+                bairro.attr('disabled', 'disabled');
+                city.attr('disabled', 'disabled');
+                uf.attr('disabled', 'disabled');
                 $.ajax(
                     {
                         method: 'POST', /* Tipo da requisição */
@@ -221,10 +226,14 @@ $(document).ready (
 
                         success: function(data) {
                             if(data.sucesso > 0) {
-                                $('#logradouro').val(data.logradouro);
-                                $('#bairro').val(data.bairro);
-                                $('#cidade').val(data.cidade);
-                                $('#estado').val(data.estado);
+                                logr.val(data.logradouro);
+                                bairro.val(data.bairro);
+                                city.val(data.cidade);
+                                uf.val(data.estado);
+                                logrError.text('').attr('style', 'display: none');
+                                bairroError.text('').attr('style', 'display: none');
+                                cityError.text('').attr('style', 'display: none');
+                                ufError.text('').attr('style', 'display: none');
                             }
                         },
                         error: function(data) {
@@ -234,22 +243,10 @@ $(document).ready (
                         }
                     }
                 );
-                $('#logradouro').removeAttr('disabled');
-                $('#bairro').removeAttr('disabled');
-                $('#cidade').removeAttr('disabled');
-                $('#estado').removeAttr('disabled');
-                $('#logradouro-error').text('');
-                $('#bairro-error').text('');
-                $('#cidade-error').text('');
-                $('#estado-error').text('');
-                $('#logradouro-error').attr('style', 'display: none').removeClass("error");
-                $('#bairro-error').attr('style', 'display: none');
-                $('#cidade-error').attr('style', 'display: none');
-                $('#estado-error').attr('style', 'display: none');
-                $('#logradouro').removeClass("error");
-                $('#bairro').removeClass("error");
-                $('#cidade').removeClass("error");
-                $('#estado').removeClass("error");
+                logr.removeAttr('disabled');
+                bairro.removeAttr('disabled');
+                city.removeAttr('disabled');
+                uf.removeAttr('disabled');
             }
         );
     }

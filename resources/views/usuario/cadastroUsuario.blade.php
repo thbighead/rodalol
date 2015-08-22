@@ -26,8 +26,8 @@
             {!! method_field("post") !!}
 
             {{-- Campo Status --}}
-            <div class="color-green form-group">
-                <label id="status" class="col-md-3 control-label"></label>
+            <div class="form-group">
+                <label id="status" class="validation-answer col-md-3 control-label"></label>
             </div>
 
             {{--  Campo Nome  --}}

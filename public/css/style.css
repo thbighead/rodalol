@@ -183,6 +183,10 @@ textarea {
 .bg-light {
 	background-color: #f2f3f5;
 }
+.validation-answer { /* mensagem de envio de form em azul */
+    color: #1b0a88;
+    display: none;
+}
 
 /*  OTHER CLASSES   */
 .border-green {

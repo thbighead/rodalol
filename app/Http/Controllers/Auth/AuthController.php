@@ -87,7 +87,7 @@ class AuthController extends Controller
         } else { // se o login falhar
 //            dd(Hash::check($request->modalPassword, $user->password));
 //            return 'num logou';
-            return response()->json(['errormsg' => 'Login Incorreto']);
+            return 'false';
         }
 
     }

@@ -45,13 +45,13 @@ $(document).ready(function () {
                     success: function(data) {
                         console.log('deu bom');
                         console.log(data);
-                        $('#errorLabelLogin').text(data.errormsg);
+                        $('#errorLabelLogin').css('color', '').css('color', '#EB5055').text('Login incorreto').fadeIn('slow');
                         if(data) {
                             location.reload();
                         }
                     },
                     error: function(data) {
-                        alert('erro ao logar');
+                        alert('Erro ao logar');
                         console.log('erro ao logar');
                         console.log(data);
                         console.log(data.responseText);

@@ -77,7 +77,7 @@
                         <div class="modal-body" id="login">
                             {{--Error Label--}}
                             <div class="form-group">
-                                <label id="errorLabelLogin" class="col-md-2 control-label"></label>
+                                <label id="errorLabelLogin" class="validation-answer col-md-3 control-label"></label>
                             </div>
                             {{--Email--}}
                             <div class="form-group">
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{--Botão de esqueci a senha--}}
+                        {{--Botão para entrar e esqueci a senha--}}
                         <div class="modal-footer">
                             <div class="verticalMarginModal row col-md-10 col-md-offset-1">
                                 <input type="submit" id="loginNow" class="btn btn-lg btn-primary btn-block" value="Entrar">
