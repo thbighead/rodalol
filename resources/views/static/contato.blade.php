@@ -26,7 +26,7 @@
             {!! method_field("post") !!}
 
             <div class="form-group">
-                <label id="status" class="col-md-3 control-label"></label>
+                <label id="status" class="validation-answer col-md-3 control-label"></label>
             </div>{{-- Campo Status --}}
 
             <div class="form-group">

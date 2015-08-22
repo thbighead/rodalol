@@ -47,13 +47,13 @@ $(document).ready (
                             console.log(data);
                             if (data) {
                                 //alert("Mensagem enviada com sucesso!");
-                                $('#status').text("Mensagem enviada com sucesso!");
                                 $('#form-contato').each(
                                     function () {
                                         this.reset();
                                     }
                                 );
                                 window.scrollTo(0, 0);
+                                $('#status').text("Mensagem enviada com sucesso!").fadeIn("slow");
                             } else {
                                 //alert('aehoooo');
                                 Recaptcha.reload();
