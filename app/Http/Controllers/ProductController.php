@@ -161,6 +161,6 @@ class ProductController extends Controller
 //        $product = Product::find('$id');
 //	    Product::paginate(10);
 	    $product->setPath('');//para as outras páginas funcionarem
-        return view('productCategory')->with(['product' => $product]);
+        return view('productCategory')->with(['product' => $product, 'category' => $categoria]);
     }
 }

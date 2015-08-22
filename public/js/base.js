@@ -45,9 +45,10 @@ $(document).ready(function () {
                     success: function(data) {
                         console.log('deu bom');
                         console.log(data);
-                        $('#errorLabelLogin').css('color', '').css('color', '#EB5055').text('Login incorreto').fadeIn('slow');
                         if(data) {
                             location.reload();
+                        } else {
+                            $('#errorLabelLogin').css('color', '').css('color', '#EB5055').text('Login incorreto').fadeIn('slow');
                         }
                     },
                     error: function(data) {
