@@ -74,7 +74,7 @@ input[type='submit']:hover, .btn-default:hover {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
-/* Dropwdown */
+/* Dropdown */
 .navbar-default {
 	/*padding: 9px;*/
 	background-color: #f2f3f5;
@@ -345,12 +345,12 @@ CADASTRO E CONTATO
 =====
 =====
 */
-.error {/* mensagem de validacoa do form de contato e cadastro*/
-	color: #EB5055;
+label.error {/* mensagem de validacao do form de contato e cadastro*/
+	color: #EB5055 !important;
 	margin: 0;
 	font-size: 12px;
 }
-.form-group {/* para nao diexar muito distante de outro input devido a msg de validacao */
+.form-group {/* para nao deixar muito distante de outro input devido a msg de validacao */
 	margin-bottom: 10px;
 }
 .widthForm { /*deixar o select de Estado do tamanho correto*/

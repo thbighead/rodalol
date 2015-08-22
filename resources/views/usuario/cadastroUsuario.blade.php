@@ -26,7 +26,7 @@
             {!! method_field("post") !!}
 
             {{-- Campo Status --}}
-            <div class="form-group">
+            <div class="color-green form-group">
                 <label id="status" class="col-md-3 control-label"></label>
             </div>
 
