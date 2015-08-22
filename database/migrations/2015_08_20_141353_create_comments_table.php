@@ -18,10 +18,10 @@ class CreateCommentsTable extends Migration
             $table->string('conteudo');
 
             //foreign keys
-            $table->integer('idUsers')->unsigned();
-            $table->foreign('idUsers')->references('id')->on('users');
-            $table->integer('idProduct')->unsigned();
-            $table->foreign('idProduct')->references('id')->on('products');
+//            $table->integer('idUser')->unsigned();
+//            $table->foreign('idUser')->references('id')->on('users');
+//            $table->integer('idProduct')->unsigned();
+//            $table->foreign('idProduct')->references('id')->on('products');
 
             $table->timestamps();
         });

@@ -17,10 +17,10 @@ class CreateAnswersTable extends Migration
             $table->string('conteudo');
 
             //foreign keys
-            $table->integer('idUsers')->unsigned();
-            $table->foreign('idUsers')->references('id')->on('users');
-            $table->integer('idComment')->unsigned();
-            $table->foreign('idComment')->references('id')->on('comments');
+//            $table->integer('idUser')->unsigned();
+//            $table->foreign('idUser')->references('id')->on('users');
+//            $table->integer('idComment')->unsigned();
+//            $table->foreign('idComment')->references('id')->on('comments');
 
             $table->timestamps();
         });
