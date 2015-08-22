@@ -13,7 +13,7 @@ class AddForeignKeys extends Migration
     public function up()
     {
         Schema::table('products', function ($table) {
-            $table->integer('idPhoto')->unsigned();
+            $table->integer('idPhoto')->unsigned()->nullable();
             $table->foreign('idPhoto')->references('id')->on('photos');
         });
 
@@ -46,6 +46,23 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('products', function ($table) {
+            $table->dropColumn('idPhoto');
+        });
+
+        Schema::table('orders', function ($table) {
+            $table->dropColumn('idUser');
+            $table->dropColumn('idProduct');
+        });
+
+        Schema::table('comments', function ($table) {
+            $table->dropColumn('idUser');
+            $table->dropColumn('idProduct');
+        });
+
+        Schema::table('answers', function ($table) {
+            $table->dropColumn('idUser');
+            $table->dropColumn('idComment');
+        });
     }
 }
