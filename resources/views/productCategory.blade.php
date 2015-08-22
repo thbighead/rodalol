@@ -11,7 +11,7 @@
     <div class="container">
         <ol class="breadcrumb tiraBorda">
             <li><a href="{{route('paginaInicial')}}">Home</a></li>
-            <li><a href="#">Produtos</a></li>
+            {{--<li><a href="#">Produtos</a></li>--}}
             <li class="active">{{$category}}</li>
         </ol>
     </div>

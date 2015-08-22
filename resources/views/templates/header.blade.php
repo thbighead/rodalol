@@ -189,7 +189,7 @@
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">PERIFÉRICOS</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Teclados'])}}">Teclados</a></li>
+                            <li><a href="{{route('CategoriaProduto', ['categoria'=>'Teclado'])}}">Teclados</a></li>
                             <li><a href="{{route('CategoriaProduto', ['categoria'=>'Mouse'])}}">Mouse</a></li>
                             <li><a href="{{route('CategoriaProduto', ['categoria'=>'Armazenamento'])}}">Armazenamento</a></li>
                             <li><a href="{{route('CategoriaProduto', ['categoria'=>'Acessórios'])}}">Acessórios</a></li>
