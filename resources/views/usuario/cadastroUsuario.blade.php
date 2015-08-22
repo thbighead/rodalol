@@ -46,16 +46,16 @@
                 </div>
             </div>
 
-            {{--  Campo Senha  --}}
             <div class="form-group">
+                {{--  Campo Senha  --}}
                 <label for="password" class="col-md-2 control-label">Senha:</label>
                 <div class="col-md-3">
-                    <input type="password" class="form-control border-green" placeholder="Máximo de 20 caracteres" name="password" id="password" maxlength="20">
+                    <input type="password" class="form-control border-green" placeholder="De 5 à 20 caracteres" name="password" id="password" maxlength="20">
                 </div>
                 {{--  Campo Confirmar Senha  --}}
                 <label for="confirm" class="col-md-2 control-label">Confirme a senha:</label>
                 <div class="col-md-3">
-                    <input type="password" class="form-control border-green" placeholder="Máximo de 20 caracteres" name="confirm" id="confirm" maxlength="20">
+                    <input type="password" class="form-control border-green" placeholder="De 5 à 20 caracteres" name="confirm" id="confirm" maxlength="20">
                 </div>
                 <div class="col-md-2">
                     <span id="erroSenha" class=""></span>

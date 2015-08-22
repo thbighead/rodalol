@@ -114,16 +114,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Esqueceu sua senha? Nos mande seu email e nós resetaremos!</h4>
+                        <h4 class="modal-title">Esqueceu sua senha? A gente envia uma nova para você!</h4>
                     </div>
                     <div class="modal-body" id="recover">
                         <form method="post" action="#" class="form-horizontal" id="recover_form" name="recover_form">
                             {!! csrf_field() !!}
-
                             {{--Email--}}
                             <div class="form-group">
-                                <label for="login" class="col-md-2 control-label">E-mail</label>
-
+                                <label for="login" class="col-md-2 control-label">Seu e-mail</label>
                                 <div class="col-md-8">
                                     <input type="email" placeholder="exemplo&#64;exemplo.com" name="modalEmail"
                                            id="modalEmail" class="form-control">
