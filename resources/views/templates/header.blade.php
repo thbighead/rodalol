@@ -15,9 +15,11 @@
                 </div>
                 <!--    Search Form     -->
                 <div class="col-xs-4 col-sm-3 col-md-4 col-lg-4 text-right">
-                    <form class="navbar-form pull-right" role="search">
+                    <form action="" class="navbar-form pull-right" role="search">
+                        {!! csrf_field() !!}
+                        {!! method_field("get") !!}
                         <div class="form-group">
-                            <input type="text" class="form-control input-sm in-btn-dark formBreak" placeholder="Buscar produtos">
+                            <input type="text" id="busca" name="busca" class="form-control input-sm in-btn-dark formBreak" placeholder="Buscar produtos">
                             <button class="btn btn-default btn-sm in-btn-dark" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
@@ -45,12 +47,13 @@
                     <a href="{{route('cadastrarUsuario')}}"><span class="color-green">cadastre-se</span></a>
                 </div>
                 <!--    Search Form     -->
-                <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
+                <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4 text-right">
                     <form class="navbar-form pull-right" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control input-sm in-btn-dark" placeholder="Buscar produtos">
-                            <button class="btn btn-default btn-sm in-btn-dark" type="submit"><span
-                                        class="glyphicon glyphicon-search"></span></button>
+                            <input type="text" class="form-control input-sm in-btn-dark formBreak" placeholder="Buscar produtos">
+                            <button class="btn btn-default btn-sm in-btn-dark" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
                         </div>
                     </form>
                 </div>

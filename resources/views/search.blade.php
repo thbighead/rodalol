@@ -1,14 +1,14 @@
-{{--@extends('templates.base')--}}
+@extends('templates.base')
 
-{{--@section('title', 'Busca')--}}
+@section('title', 'Busca')
 
-{{--@section('content')--}}
+@section('content')
 
-{{--@foreach($products as $product)--}}
-    {{--{{var_dump($product->nome)}}--}}
-    {{--<a href="#">{{$product->nome}}</a>--}}
+@foreach($products as $product)
+    {{var_dump($product->nome)}}
+    <a href="#">{{$product->nome}}</a>
 
-{{--@endforeach--}}
+@endforeach
 
 
-{{--@endsection--}}
+@endsection

@@ -16,11 +16,11 @@ class SearchController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $keyword = Input::get('keyword');
-        $products = Product::all();
-        return view('search')->with(['products'=>$products])->with(['keyword'=>$keyword]);
+        $results = $this->show($request);
+
+        return view('search')->with(['products'=>$results]);
     }
 
     /**
@@ -57,9 +57,16 @@ class SearchController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $busca = $request->input('busca');
+        if ($busca == null) {
+            $products = Product::all();
+        } else {
+            $products = Product::where('nome', $busca);
+        }
+
+        return response()->json($products);
     }
 
     /**

@@ -86,7 +86,4 @@ $(document).ready(function () {
         onkeyup: false,
         onclick: false
     });
-
-    // Authentication Errors:
-
 });
