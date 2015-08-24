@@ -21,10 +21,10 @@ Route::any('/', [
 	]
 );
 
-//Route::get('search', array(
-//	'as'    =>  'search',
-//	'uses'  =>  'SearchController@index'
-//));
+Route::get('search', array(
+	'as'    =>  'search',
+	'uses'  =>  'SearchController@index'
+));
 //Route::post('search', array(
 //	'as'    =>  'BuscaSearch',
 //	'uses'  =>  'SearchController@store'

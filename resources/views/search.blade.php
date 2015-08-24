@@ -3,12 +3,8 @@
 @section('title', 'Busca')
 
 @section('content')
-
-@foreach($products as $product)
-    {{var_dump($product->nome)}}
-    <a href="#">{{$product->nome}}</a>
-
-@endforeach
-
-
+    @foreach($products as $product)
+        {{--{{var_dump($products)}}--}}
+        <a href="#">{{$product}}</a>
+    @endforeach
 @endsection

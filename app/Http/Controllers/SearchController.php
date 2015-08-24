@@ -19,6 +19,7 @@ class SearchController extends Controller
     public function index(Request $request)
     {
         $results = $this->show($request);
+//        var_dump($results);
 
         return view('search')->with(['products'=>$results]);
     }
@@ -61,8 +62,11 @@ class SearchController extends Controller
     {
         $busca = $request->input('busca');
         if ($busca == null) {
+//            dd('A busca foi nula');
             $products = Product::all();
+//            var_dump($products);
         } else {
+//            dd('A busca nao foi nula');
             $products = Product::where('nome', $busca);
         }
 

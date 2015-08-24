@@ -38,6 +38,6 @@ $(document).ready(
                     }//apos ajax
                 );//ajax
             }//function
-        )//#cadastraProduto
+        );//#cadastraProduto
     }//function
 );
